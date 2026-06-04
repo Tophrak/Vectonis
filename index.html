@@ -172,10 +172,11 @@
     let particles = [];
 
     let paddle, ball, bricks = [];
-    let stackLayers = [], currentLayer, stackDir, stackSpeed, stackDropDelay = 0;
+    let stackLayers = [], currentLayer, stackDir, stackSpeed;
+    let lastActionTime = 0;
     
     let snake = [], food = {}, snakeDx = 1, snakeDy = 0, snakeNextDx = 1, snakeNextDy = 0;
-    let snakeTimer = 0, snakeInterval = 8, cols, rows, cellSize;
+    let snakeTimer = 0, snakeInterval = 14, cols, rows, cellSize;
     
     resize();
     window.addEventListener('resize', () => { resize(); if(gameState === 'idle') drawIdle(); });
@@ -258,6 +259,10 @@
     });
 
     function handleAction() {
+      const now = Date.now();
+      if(now - lastActionTime < 100) return;
+      lastActionTime = now;
+
       if(gameState === 'idle' || gameState === 'gameover' || gameState === 'win' || gameState === 'paused') return;
       if(activeGame === 'breakout' && !launched) {
         launched = true;
@@ -407,11 +412,9 @@
       stackLayers = [{x:W/2-60, w:120}];
       currentLayer = {x:0, w:120, d:1};
       stackSpeed = 3.5;
-      stackDropDelay = 10;
     }
 
     function dropStack() {
-      if(stackDropDelay > 0) return;
       let prev = stackLayers[stackLayers.length-1];
       let diff = currentLayer.x - prev.x;
       if(Math.abs(diff) < 8) { 
@@ -419,9 +422,10 @@
         burst(currentLayer.x+currentLayer.w/2, H-20-stackLayers.length*24, '#2ed573'); 
         addScore(10); 
       }
-      if(Math.abs(diff) >= currentLayer.w) { gameState = 'gameover'; saveHS(); return; }
       
-      let nw = currentLayer.w - Math.abs(diff);
+      if(Math.abs(diff) >= prev.w) { gameState = 'gameover'; saveHS(); return; }
+      
+      let nw = prev.w - Math.abs(diff);
       let nx = diff > 0 ? currentLayer.x : prev.x;
       stackLayers.push({x:nx, w:nw});
       addScore(15);
@@ -431,7 +435,6 @@
     }
 
     function runStack() {
-      if(stackDropDelay > 0) stackDropDelay--;
       currentLayer.x += currentLayer.d * stackSpeed;
       if(currentLayer.x < 0 || currentLayer.x + currentLayer.w > W) currentLayer.d *= -1;
       
@@ -459,7 +462,7 @@
         {x: Math.floor(cols/2)-2, y: Math.floor(rows/2)}
       ];
       snakeDx = 1; snakeDy = 0; snakeNextDx = 1; snakeNextDy = 0;
-      snakeTimer = 0; snakeInterval = 8;
+      snakeTimer = 0; snakeInterval = 14;
       spawnFood();
     }
 
@@ -526,7 +529,7 @@
         if(head.x === food.x && head.y === food.y) {
           addScore(10);
           spawnFood();
-          if(snakeInterval > 3 && score % 50 === 0) snakeInterval--;
+          if(snakeInterval > 5 && score % 50 === 0) snakeInterval--;
         } else {
           snake.pop();
         }
