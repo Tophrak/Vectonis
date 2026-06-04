@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vectonis | Dijital Çözümlerin Adresi</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff4757'/%3E%3Cstop offset='100%25' stop-color='%23ffa502'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%232d3436'/%3E%3Cpath d='M8 10L14 22L17 16L20 22L24 10' stroke='url(%23g)' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='24' cy='10' r='2' fill='%23ffa502'/%3E%3C/svg%3E">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
@@ -20,13 +21,14 @@
     }
     body{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;}
     nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(255,255,255,0.95);box-shadow:0 2px 10px var(--shadow)}
-    .logo{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;color:var(--txt)}
+    .logo{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;color:var(--txt);display:flex;align-items:center;gap:8px}
+    .logo-icon{width:24px;height:24px}
     .logo-dot{color:var(--acc)}
     .badge{font-size:.68rem;font-weight:600;color:var(--acc);border:1px solid rgba(255,71,87,0.3);padding:.25rem .7rem;border-radius:100px;letter-spacing:.06em;background:rgba(255,71,87,0.05)}
     .hero{padding:4.5rem 2rem 3.5rem;text-align:center;position:relative}
     .hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(255,165,2,0.15) 0%,transparent 70%);pointer-events:none}
     .hero-tag{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem;user-select:none;-webkit-user-select:none;}
-    h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
+    h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:12rem}
     h1 span{background:linear-gradient(120deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-p{color:var(--muted);font-size:1rem;max-width:450px;margin:0 auto 2rem;line-height:1.75}
     .pill{display:inline-flex;align-items:center;gap:.45rem;background:white;border:1px solid var(--bdr);color:var(--txt);padding:.6rem 1.4rem;border-radius:100px;font-size:.85rem;font-weight:600;box-shadow:0 4px 15px var(--shadow);user-select:none;-webkit-user-select:none;}
@@ -74,7 +76,20 @@
 <body>
 
   <nav>
-    <div class="logo">Vectonis<span class="logo-dot">.</span></div>
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 32 32">
+        <defs>
+          <linearGradient id='lg' x1='0%' y1='0%' x2='100%' y2='100%'>
+            <stop offset='0%' stop-color='#ff4757'/>
+            <stop offset='100%' stop-color='#ffa502'/>
+          </linearGradient>
+        </defs>
+        <rect width='32' height='32' rx='6' fill='#2d3436'/>
+        <path d='M8 10L14 22L17 16L20 22L24 10' stroke='url(#lg)' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/>
+        <circle cx='24' cy='10' r='2' fill='#ffa502'/>
+      </svg>
+      Vectonis<span class="logo-dot">.</span>
+    </div>
     <div class="badge">Yakında • Coming Soon</div>
   </nav>
 
@@ -82,7 +97,7 @@
     <div class="hero-glow"></div>
     <p class="hero-tag">Bilişim & Teknoloji — Ankara</p>
     <h1>Dijital<br><span>Çözümlerin</span><br>Adresi</h1>
-    <p class="hero-p">Vectonis Bilişim olarak kurumsal yazılım ve teknoloji hizmetleri sunuyoruz. Çok yakında daha fazlasıyla yayındayız!</p>
+    <p class="hero-p">Vectonis Bilişim olarak kurumsal yazılım and teknoloji hizmetleri sunuyoruz. Çok yakında daha fazlasıyla yayındayız!</p>
     <div class="pill"><span class="blink"></span> Yakında Yayında</div>
   </section>
 
@@ -188,8 +203,8 @@
     sbtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         sbtns.forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        activeGame = e.target.getAttribute('data-game');
+        e.target.closest('.sbtn').classList.add('active');
+        activeGame = e.target.closest('.sbtn').getAttribute('data-game');
         cancelAnimationFrame(animId);
         gameState = 'idle';
         score = 0; lives = 3; level = 1;
