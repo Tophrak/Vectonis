@@ -21,30 +21,30 @@
       --shadow: rgba(0,0,0,0.06);
     }
     
-    body{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;user-select:none;-webkit-user-select:none}
-    nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(255,255,255,0.95);box-shadow:0 2px 10px var(--shadow)}
+    body{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;}
+    nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(255,255,255,0.95);box-shadow:0 2px 10px var(--shadow);user-select:none;-webkit-user-select:none;}
     .logo{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;color:var(--txt)}
     .logo-dot{color:var(--acc)}
     .badge{font-size:.68rem;font-weight:600;color:var(--acc);border:1px solid rgba(255,71,87,0.3);padding:.25rem .7rem;border-radius:100px;letter-spacing:.06em;background:rgba(255,71,87,0.05)}
     
     .hero{padding:4.5rem 2rem 3.5rem;text-align:center;position:relative}
     .hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(255,165,2,0.15) 0%,transparent 70%);pointer-events:none}
-    .hero-tag{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem}
+    .hero-tag{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem;user-select:none;-webkit-user-select:none;}
     h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
     h1 span{background:linear-gradient(120deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-p{color:var(--muted);font-size:1rem;max-width:450px;margin:0 auto 2rem;line-height:1.75}
-    .pill{display:inline-flex;align-items:center;gap:.45rem;background:white;border:1px solid var(--bdr);color:var(--txt);padding:.6rem 1.4rem;border-radius:100px;font-size:.85rem;font-weight:600;box-shadow:0 4px 15px var(--shadow)}
+    .pill{display:inline-flex;align-items:center;gap:.45rem;background:white;border:1px solid var(--bdr);color:var(--txt);padding:.6rem 1.4rem;border-radius:100px;font-size:.85rem;font-weight:600;box-shadow:0 4px 15px var(--shadow);user-select:none;-webkit-user-select:none;}
     .blink{width:8px;height:8px;border-radius:50%;background:var(--acc);animation:bl 1.5s infinite}
     @keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
     
     .sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent);margin:0 1.5rem}
     
-    .game-sec{padding:3rem 1.2rem;max-width:750px;margin:0 auto}
+    .game-sec{padding:3rem 1.2rem;max-width:750px;margin:0 auto;user-select:none;-webkit-user-select:none;}
     .game-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:24px;overflow:hidden;box-shadow:0 15px 35px var(--shadow)}
     .topbar{background:var(--bg3);padding:.8rem 1.2rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--bdr)}
     .tb-d{width:11px;height:11px;border-radius:50%}
     .tb-t{flex:1;text-align:center;font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:.05em}
-    canvas#gc{display:block;width:100%;touch-action:none;cursor:none;background:#ffffff}
+    canvas#gc{display:block;width:100%;touch-action:none;cursor:none;background:#ffffff;user-select:none;-webkit-user-select:none;}
     
     .game-bar{padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;border-top:1px solid var(--bdr);background:var(--bg2)}
     .stat{display:flex;flex-direction:column;align-items:center}
@@ -75,7 +75,7 @@
     .cv{font-size:1rem;font-weight:600;color:var(--txt);margin-top:.2rem}
     .cs{font-size:.8rem;color:var(--muted)}
     
-    footer{border-top:1px solid var(--bdr);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;background:var(--bg2)}
+    footer{border-top:1px solid var(--bdr);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;background:var(--bg2);user-select:none;-webkit-user-select:none;}
     .fl{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:.95rem;color:var(--txt)}
     .fr{font-size:.8rem;color:var(--muted);font-weight:500}
   </style>
@@ -136,7 +136,7 @@
   <section class="contact-sec">
     <div class="cgrid">
       <div class="cc"><div class="cl">Konum</div><div class="cv">Ankara</div><div class="cs">Türkiye</div></div>
-      <div class="cc"><div class="cl">E-posta</div><div class="cv">info@vectonis.com</div><div class="cs">1 iş günü yanıt süresi</div></div>
+      <div class="cc"><div class="cl">E-posta</div><div class="cv"><a href="mailto:info@vectonis.com" style="color:inherit;text-decoration:none;">info@vectonis.com</a></div><div class="cs">1 iş günü yanıt süresi</div></div>
       <div class="cc"><div class="cl">Çalışma</div><div class="cv">09:00 — 18:00</div><div class="cs">Pazartesi — Cuma</div></div>
     </div>
   </section>
@@ -197,7 +197,7 @@
 
     function buildBricks() {
       bricks = [];
-      let rows = Math.min(4 + Math.floor(level/2), 8);
+      let rows = Math.min(4 + Math.floor(level/2), 10);
       const bh = Math.max(16, Math.min(22, H * 0.05));
       const totalGaps = 8;
       const bw = Math.floor((W - 30 - BRICK_GAP * (totalGaps)) / (totalGaps + 1));
@@ -207,10 +207,15 @@
       
       for(let r = 0; r < rows; r++) {
         for(let c = 0; c < cols; c++) {
-          if (level % 3 === 2 && (r + c) % 2 === 0) continue;
-          if (level % 3 === 0 && (c < r || c > cols - 1 - r)) continue;
+          let skip = false;
+          if (level % 5 === 2 && (r + c) % 2 === 0) skip = true;
+          if (level % 5 === 3 && (c < r || c > cols - 1 - r)) skip = true;
+          if (level % 5 === 4 && (c % 2 !== 0)) skip = true;
+          if (level % 5 === 0 && (r % 2 === 0 && c % 2 === 0)) skip = true;
 
-          const hp = Math.max(1, Math.ceil((rows - r) / 2)); 
+          if(skip) continue;
+
+          const hp = Math.max(1, Math.ceil((rows - r) / 2) + Math.floor(level/3)); 
           bricks.push({ x: ox + c*(bw+BRICK_GAP), y: BRICK_TOP + r*(bh+BRICK_GAP), w: bw, h: bh, hp, maxHp: hp, col: COLORS[(r*2+c)%COLORS.length], alive: true });
         }
       }
@@ -380,9 +385,10 @@
 
     function nextLevel() {
       level++; launched=false;
-      paddle.w = Math.max(55, padW() - level*3);
+      paddle.w = Math.max(40, padW() - level*3);
       ball = makeBall();
       buildBricks(); updateUI();
+      requestAnimationFrame(gameLoop);
     }
 
     function endGame() {
