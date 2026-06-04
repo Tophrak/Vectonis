@@ -4,61 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vectonis | Dijital Çözümlerin Adresi</title>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  
+
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    :root{--bg:#080810;--bg2:#0f0f1a;--bg3:#14141f;--acc:#6c63ff;--acc2:#a78bfa;--txt:#eeeef8;--muted:#7777aa;--bdr:rgba(108,99,255,0.18)}
+    :root{
+      --bg: #f8f9fa;
+      --bg2: #ffffff;
+      --bg3: #f1f3f5;
+      --acc: #ff4757;
+      --acc2: #ffa502;
+      --txt: #2d3436;
+      --muted: #636e72;
+      --bdr: #dfe6e9;
+      --shadow: rgba(0,0,0,0.06);
+    }
+    
     body{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;user-select:none;-webkit-user-select:none}
-    nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(8,8,16,0.95)}
+    nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(255,255,255,0.95);box-shadow:0 2px 10px var(--shadow)}
     .logo{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;color:var(--txt)}
-    .logo-dot{color:var(--acc2)}
-    .badge{font-size:.68rem;font-weight:500;color:var(--acc2);border:1px solid var(--bdr);padding:.25rem .7rem;border-radius:100px;letter-spacing:.06em}
-    .hero{padding:3.5rem 2rem 2.5rem;text-align:center;position:relative}
-    .hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(108,99,255,0.09) 0%,transparent 70%);pointer-events:none}
-    .hero-tag{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--acc2);margin-bottom:1rem}
-    h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1rem}
+    .logo-dot{color:var(--acc)}
+    .badge{font-size:.68rem;font-weight:600;color:var(--acc);border:1px solid rgba(255,71,87,0.3);padding:.25rem .7rem;border-radius:100px;letter-spacing:.06em;background:rgba(255,71,87,0.05)}
+    
+    .hero{padding:4.5rem 2rem 3.5rem;text-align:center;position:relative}
+    .hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(255,165,2,0.15) 0%,transparent 70%);pointer-events:none}
+    .hero-tag{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem}
+    h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
     h1 span{background:linear-gradient(120deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-p{color:var(--muted);font-size:.92rem;max-width:400px;margin:0 auto 1.8rem;line-height:1.75}
-    .pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(108,99,255,0.08);border:1px solid rgba(108,99,255,0.25);color:var(--acc2);padding:.5rem 1.2rem;border-radius:100px;font-size:.82rem;font-weight:500}
-    .blink{width:6px;height:6px;border-radius:50%;background:var(--acc2);animation:bl 2s infinite}
-    @keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+    .hero-p{color:var(--muted);font-size:1rem;max-width:450px;margin:0 auto 2rem;line-height:1.75}
+    .pill{display:inline-flex;align-items:center;gap:.45rem;background:white;border:1px solid var(--bdr);color:var(--txt);padding:.6rem 1.4rem;border-radius:100px;font-size:.85rem;font-weight:600;box-shadow:0 4px 15px var(--shadow)}
+    .blink{width:8px;height:8px;border-radius:50%;background:var(--acc);animation:bl 1.5s infinite}
+    @keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+    
     .sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent);margin:0 1.5rem}
-    .game-sec{padding:2.5rem 1.2rem;max-width:700px;margin:0 auto}
-    .game-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:18px;overflow:hidden}
-    .topbar{background:var(--bg3);padding:.6rem 1rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--bdr)}
-    .tb-d{width:9px;height:9px;border-radius:50%}
-    .tb-t{flex:1;text-align:center;font-size:.7rem;color:var(--muted);font-weight:500}
-    canvas#gc{display:block;width:100%;touch-action:none;cursor:none}
-    .game-bar{padding:.75rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;border-top:1px solid var(--bdr)}
+    
+    .game-sec{padding:3rem 1.2rem;max-width:750px;margin:0 auto}
+    .game-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:24px;overflow:hidden;box-shadow:0 15px 35px var(--shadow)}
+    .topbar{background:var(--bg3);padding:.8rem 1.2rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--bdr)}
+    .tb-d{width:11px;height:11px;border-radius:50%}
+    .tb-t{flex:1;text-align:center;font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:.05em}
+    canvas#gc{display:block;width:100%;touch-action:none;cursor:none;background:#ffffff}
+    
+    .game-bar{padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;border-top:1px solid var(--bdr);background:var(--bg2)}
     .stat{display:flex;flex-direction:column;align-items:center}
-    .sl{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-    .sv{font-family:'Syne',system-ui,sans-serif;font-weight:700;font-size:1.15rem;color:var(--acc2)}
-    .btn-row{display:flex;gap:.5rem;align-items:center}
-    .gbtn{background:var(--acc);color:#fff;border:none;padding:.52rem 1.3rem;border-radius:100px;font-size:.8rem;font-weight:600;cursor:pointer;transition:background .2s,transform .1s}
-    .gbtn:hover{background:var(--acc2)}
+    .sl{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+    .sv{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.2rem;color:var(--acc)}
+    
+    .btn-row{display:flex;gap:.6rem;align-items:center}
+    .gbtn{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;padding:.6rem 1.5rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;transition:transform .1s, box-shadow .2s;box-shadow:0 4px 15px rgba(255,71,87,0.3)}
+    .gbtn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,71,87,0.4)}
     .gbtn:active{transform:scale(.95)}
-    .hbtn{background:transparent;color:var(--acc2);border:1px solid var(--bdr);padding:.52rem 1rem;border-radius:100px;font-size:.8rem;font-weight:500;cursor:pointer;transition:background .2s}
-    .hbtn:hover{background:rgba(108,99,255,0.1)}
-    .modal-wrap{display:none;position:absolute;inset:0;background:rgba(8,8,18,0.88);z-index:10;align-items:center;justify-content:center;border-radius:18px}
+    .hbtn{background:var(--bg3);color:var(--txt);border:1px solid var(--bdr);padding:.6rem 1.2rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .2s}
+    .hbtn:hover{background:#e2e6ea}
+    
+    .modal-wrap{display:none;position:absolute;inset:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(4px);z-index:10;align-items:center;justify-content:center}
     .modal-wrap.open{display:flex}
-    .modal{background:var(--bg3);border:1px solid var(--bdr);border-radius:14px;padding:1.8rem;max-width:320px;width:90%;text-align:left}
-    .modal h3{font-family:'Syne',system-ui,sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:1rem;color:var(--txt)}
-    .modal ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
-    .modal ul li{display:flex;gap:.7rem;align-items:flex-start;font-size:.85rem;color:var(--muted);line-height:1.5}
-    .modal ul li .icon{color:var(--acc2);font-size:1rem;flex-shrink:0;margin-top:.05rem}
-    .modal-close{margin-top:1.4rem;width:100%;background:var(--acc);color:#fff;border:none;padding:.55rem;border-radius:100px;font-size:.82rem;font-weight:600;cursor:pointer}
-    .modal-close:hover{background:var(--acc2)}
-    .contact-sec{padding:2.5rem 1.2rem;max-width:700px;margin:0 auto}
-    .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--bdr);border-radius:14px;overflow:hidden}
-    .cc{background:var(--bg2);padding:1.3rem;display:flex;flex-direction:column;gap:.25rem}
-    .cl{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500}
-    .cv{font-size:.86rem;font-weight:500;color:var(--txt)}
-    .cs{font-size:.73rem;color:var(--muted)}
-    footer{border-top:1px solid var(--bdr);padding:1.4rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-    .fl{font-family:'Syne',system-ui,sans-serif;font-weight:700;font-size:.88rem;color:var(--muted)}
-    .fr{font-size:.72rem;color:var(--muted)}
+    .modal{background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;padding:2rem;max-width:340px;width:90%;text-align:left;box-shadow:0 20px 40px rgba(0,0,0,0.1)}
+    .modal h3{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:1.2rem;color:var(--txt)}
+    .modal ul{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+    .modal ul li{display:flex;gap:.8rem;align-items:flex-start;font-size:.9rem;color:var(--muted);line-height:1.5;font-weight:500}
+    .modal ul li .icon{font-size:1.1rem;flex-shrink:0}
+    .modal-close{margin-top:1.6rem;width:100%;background:var(--acc);color:#fff;border:none;padding:.7rem;border-radius:100px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .modal-close:hover{background:#ff3344}
+    
+    .contact-sec{padding:3rem 1.2rem;max-width:750px;margin:0 auto}
+    .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem}
+    .cc{background:var(--bg2);padding:1.5rem;display:flex;flex-direction:column;gap:.3rem;border-radius:16px;border:1px solid var(--bdr);box-shadow:0 4px 15px var(--shadow)}
+    .cl{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--acc);font-weight:700}
+    .cv{font-size:1rem;font-weight:600;color:var(--txt);margin-top:.2rem}
+    .cs{font-size:.8rem;color:var(--muted)}
+    
+    footer{border-top:1px solid var(--bdr);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;background:var(--bg2)}
+    .fl{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:.95rem;color:var(--txt)}
+    .fr{font-size:.8rem;color:var(--muted);font-weight:500}
   </style>
 </head>
 <body>
@@ -72,11 +91,9 @@
     <div class="hero-glow"></div>
     <p class="hero-tag">Bilişim & Teknoloji — Ankara</p>
     <h1>Dijital<br><span>Çözümlerin</span><br>Adresi</h1>
-    <p class="hero-p">Vectonis Bilişim olarak kurumsal yazılım ve teknoloji hizmetleri sunuyoruz. Sitemiz çok yakında yayında!</p>
+    <p class="hero-p">Vectonis Bilişim olarak kurumsal yazılım ve teknoloji hizmetleri sunuyoruz. Çok yakında daha fazlasıyla yayındayız!</p>
     <div class="pill"><span class="blink"></span> Yakında Yayında</div>
   </section>
-
-  <div class="sep"></div>
 
   <section class="game-sec">
     <div class="game-box" style="position:relative">
@@ -84,44 +101,43 @@
         <div class="tb-d" style="background:#ff5f57"></div>
         <div class="tb-d" style="background:#ffbd2e"></div>
         <div class="tb-d" style="background:#28ca41"></div>
-        <div class="tb-t">Vectonis Breakout</div>
+        <div class="tb-t">Vectonis Breakout v2.0</div>
       </div>
-      
+
       <canvas id="gc" height="420"></canvas>
-      
+
       <div class="modal-wrap" id="howModal">
         <div class="modal">
           <h3>Nasıl Oynanır?</h3>
           <ul>
-            <li><span class="icon">🖱️</span><span>Masaüstü: Fareyi sola/sağa hareket ettirerek raketi kontrol et. Tıkla veya boşluk tuşuna bas — topu fırlat.</span></li>
-            <li><span class="icon">📱</span><span>Mobil: Parmağını ekranda sürükleyerek raketi hareket ettir. Dokun — topu fırlat.</span></li>
-            <li><span class="icon">🧱</span><span>Tüm tuğlaları kır. Üst sıralardaki tuğlaların birden fazla canı var — üzerindeki sayı gösterir.</span></li>
-            <li><span class="icon">⚡</span><span>Topu raketin kenarına vurarak açı değiştirebilirsin. Her seviyede top biraz hızlanır.</span></li>
-            <li><span class="icon">♥</span><span>3 can hakkın var. Top aşağı düşerse bir can gider.</span></li>
+            <li><span class="icon">🖱️</span><span>Masaüstü: Fareyi hareket ettir. Tıkla/boşluk tuşuna basıp fırlat.</span></li>
+            <li><span class="icon">📱</span><span>Mobil: Parmağını sürükle, dokunarak fırlat.</span></li>
+            <li><span class="icon">🧱</span><span>Seviye atladıkça tuğla dizilimleri değişir ve zorlaşır.</span></li>
+            <li><span class="icon">⚡</span><span>Topu kenarlara vurdurarak yönünü keskinleştirebilirsin.</span></li>
+            <li><span class="icon">♥</span><span>3 can hakkın var. Eğlencene bak!</span></li>
           </ul>
-          <button class="modal-close" id="modalClose">Anladım, Oynayalım!</button>
+          <button class="modal-close" id="modalClose">Oynamaya Başla!</button>
         </div>
       </div>
-      
+
       <div class="game-bar">
         <div class="stat"><span class="sl">Skor</span><span class="sv" id="sc">0</span></div>
         <div class="stat"><span class="sl">Seviye</span><span class="sv" id="lv">1</span></div>
         <div class="stat"><span class="sl">Can</span><span class="sv" id="hp">♥♥♥</span></div>
         <div class="btn-row">
-          <button class="hbtn" id="howBtn">Nasıl Oynanır?</button>
+          <button class="hbtn" id="howBtn">Bilgi</button>
+          <button class="hbtn" id="pauseBtn">Durdur</button>
           <button class="gbtn" id="startBtn">Başla</button>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="sep"></div>
-
   <section class="contact-sec">
     <div class="cgrid">
       <div class="cc"><div class="cl">Konum</div><div class="cv">Ankara</div><div class="cs">Türkiye</div></div>
-      <div class="cc"><div class="cl">E-posta</div><div class="cv">info@vectonis.com</div><div class="cs">1 iş günü yanıt</div></div>
-      <div class="cc"><div class="cl">Çalışma Saati</div><div class="cv">09:00 — 18:00</div><div class="cs">Pzt — Cuma</div></div>
+      <div class="cc"><div class="cl">E-posta</div><div class="cv">info@vectonis.com</div><div class="cs">1 iş günü yanıt süresi</div></div>
+      <div class="cc"><div class="cl">Çalışma</div><div class="cv">09:00 — 18:00</div><div class="cs">Pazartesi — Cuma</div></div>
     </div>
   </section>
 
@@ -137,6 +153,7 @@
     const lvEl = document.getElementById('lv');
     const hpEl = document.getElementById('hp');
     const startBtn = document.getElementById('startBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
     const howBtn = document.getElementById('howBtn');
     const howModal = document.getElementById('howModal');
     const modalClose = document.getElementById('modalClose');
@@ -148,48 +165,58 @@
     let W, H;
     function resize() {
       W = canvas.parentElement.clientWidth;
-      H = Math.min(420, Math.max(280, W * 0.6));
+      H = Math.min(420, Math.max(300, W * 0.65));
       canvas.width = W; canvas.height = H;
     }
     resize();
     window.addEventListener('resize', () => { resize(); buildBricks(); if(!running) drawIdle(); });
 
-    const PAD_H = 11, BALL_R = 7;
-    const COLORS = ['#ff6b6b','#ff9f43','#feca57','#48dbfb','#a29bfe','#6c63ff','#fd79a8','#55efc4'];
-    const BRICK_ROWS = 5, BRICK_GAP = 5, BRICK_TOP = 44;
+    const PAD_H = 12, BALL_R = 8;
+    const COLORS = ['#ff4757','#ffa502','#2ed573','#1e90ff','#3742fa','#eccc68','#ff6b81','#7bed9f'];
+    const BRICK_GAP = 6, BRICK_TOP = 50;
 
-    let score=0, lives=3, level=1, running=false, launched=false, animId=null;
+    let score=0, lives=3, level=1, running=false, launched=false, paused=false, animId=null;
     let paddle, ball, bricks=[], particles=[];
 
-    function padW() { return Math.max(65, Math.min(115, W * 0.19)); }
-    function baseSpeed() { return 2.8 + level * 0.22; }
+    function padW() { return Math.max(70, Math.min(120, W * 0.2)); }
+    function baseSpeed() { return 3.2 + level * 0.35; }
 
     function initGame() {
-      score=0; lives=3; level=1; launched=false; particles=[];
-      paddle = { x: W/2, y: H - 30, w: padW(), h: PAD_H };
+      score=0; lives=3; level=1; launched=false; paused=false; particles=[];
+      paddle = { x: W/2, y: H - 35, w: padW(), h: PAD_H };
       ball = makeBall();
       buildBricks();
       updateUI();
+      pauseBtn.textContent = 'Durdur';
     }
 
     function makeBall() {
       const spd = baseSpeed();
-      return { x: paddle.x, y: paddle.y - PAD_H/2 - BALL_R - 2, vx: (Math.random()<0.5?1:-1)*spd*0.45, vy: -spd, spd };
+      return { x: paddle.x, y: paddle.y - PAD_H/2 - BALL_R - 2, vx: (Math.random()<0.5?1:-1)*spd*0.5, vy: -spd, spd };
     }
 
     function buildBricks() {
       bricks = [];
-      const bh = Math.max(15, Math.min(21, H * 0.048));
+      let rows = Math.min(4 + Math.floor(level/2), 8);
+      const bh = Math.max(16, Math.min(22, H * 0.05));
       const totalGaps = 8;
-      const bw = Math.floor((W - 20 - BRICK_GAP * (totalGaps)) / (totalGaps + 1));
-      const cols = Math.floor((W - 20 + BRICK_GAP) / (bw + BRICK_GAP));
+      const bw = Math.floor((W - 30 - BRICK_GAP * (totalGaps)) / (totalGaps + 1));
+      const cols = Math.floor((W - 30 + BRICK_GAP) / (bw + BRICK_GAP));
       const tw = cols * (bw + BRICK_GAP) - BRICK_GAP;
       const ox = (W - tw) / 2;
-      for(let r = 0; r < BRICK_ROWS; r++) {
+      
+      for(let r = 0; r < rows; r++) {
         for(let c = 0; c < cols; c++) {
-          const hp = BRICK_ROWS - r;
-          bricks.push({ x: ox + c*(bw+BRICK_GAP), y: BRICK_TOP + r*(bh+BRICK_GAP), w: bw, h: bh, hp, maxHp: hp, col: COLORS[(r*3+c)%COLORS.length], alive: true });
+          if (level % 3 === 2 && (r + c) % 2 === 0) continue;
+          if (level % 3 === 0 && (c < r || c > cols - 1 - r)) continue;
+
+          const hp = Math.max(1, Math.ceil((rows - r) / 2)); 
+          bricks.push({ x: ox + c*(bw+BRICK_GAP), y: BRICK_TOP + r*(bh+BRICK_GAP), w: bw, h: bh, hp, maxHp: hp, col: COLORS[(r*2+c)%COLORS.length], alive: true });
         }
+      }
+      
+      if(bricks.length === 0) {
+         bricks.push({ x: W/2-bw/2, y: BRICK_TOP, w: bw, h: bh, hp:1, maxHp:1, col: COLORS[0], alive: true });
       }
     }
 
@@ -199,12 +226,21 @@
       hpEl.textContent = '♥'.repeat(Math.max(0, lives));
     }
 
+    pauseBtn.addEventListener('click', () => {
+      if(!running || !launched) return;
+      paused = !paused;
+      pauseBtn.textContent = paused ? 'Devam Et' : 'Durdur';
+    });
+
     let mousePos = -1, touchPos = -1;
     canvas.addEventListener('mousemove', e => { const r=canvas.getBoundingClientRect(); mousePos=(e.clientX-r.left)*(W/r.width); });
-    canvas.addEventListener('click', () => { if(running && !launched) launch(); });
+    canvas.addEventListener('click', () => { if(running && !launched && !paused) launch(); });
     canvas.addEventListener('touchmove', e => { e.preventDefault(); const r=canvas.getBoundingClientRect(); touchPos=(e.touches[0].clientX-r.left)*(W/r.width); }, {passive:false});
-    canvas.addEventListener('touchstart', e => { e.preventDefault(); const r=canvas.getBoundingClientRect(); touchPos=(e.touches[0].clientX-r.left)*(W/r.width); if(running&&!launched) launch(); }, {passive:false});
-    document.addEventListener('keydown', e => { if((e.key===' '||e.key==='ArrowUp')&&running&&!launched){ e.preventDefault(); launch(); } });
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); const r=canvas.getBoundingClientRect(); touchPos=(e.touches[0].clientX-r.left)*(W/r.width); if(running&&!launched&&!paused) launch(); }, {passive:false});
+    document.addEventListener('keydown', e => { 
+        if((e.key===' '||e.key==='ArrowUp')&&running&&!launched&&!paused){ e.preventDefault(); launch(); }
+        if((e.key==='p' || e.key==='P') && running && launched) { pauseBtn.click(); }
+    });
 
     function launch() {
       launched = true;
@@ -217,9 +253,9 @@
     }
 
     function burst(x, y, col) {
-      for(let i=0;i<9;i++) {
-        const a=Math.random()*Math.PI*2, s=1+Math.random()*3.5;
-        particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,col,r:2+Math.random()*2.5});
+      for(let i=0;i<12;i++) {
+        const a=Math.random()*Math.PI*2, s=1.5+Math.random()*4;
+        particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,col,r:2+Math.random()*3});
       }
     }
 
@@ -231,14 +267,26 @@
     function rr(x,y,w,h,rad,fill,stroke) {
       ctx.beginPath(); ctx.roundRect(x,y,w,h,[rad]);
       if(fill){ctx.fillStyle=fill;ctx.fill();}
-      if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();}
+      if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1.5;ctx.stroke();}
     }
 
     function gameLoop() {
-      ctx.fillStyle='#080812'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
+
+      if(paused) {
+         drawEntities();
+         ctx.fillStyle='rgba(255,255,255,0.8)'; ctx.fillRect(0,0,W,H);
+         ctx.fillStyle='#2d3436'; ctx.font=`bold ${Math.round(W*0.06)}px Syne,sans-serif`;
+         ctx.textAlign='center'; ctx.textBaseline='middle';
+         ctx.fillText('DURDURULDU', W/2, H/2);
+         ctx.fillStyle='#636e72'; ctx.font=`${Math.round(W*0.03)}px DM Sans,sans-serif`;
+         ctx.fillText('Devam etmek için butona bas', W/2, H/2+35);
+         animId = requestAnimationFrame(gameLoop);
+         return;
+      }
 
       const target = touchPos>0 ? touchPos : mousePos>0 ? mousePos : -1;
-      if(target>0) { paddle.x += (target - paddle.x)*0.22; paddle.x = Math.max(paddle.w/2, Math.min(W-paddle.w/2, paddle.x)); }
+      if(target>0) { paddle.x += (target - paddle.x)*0.25; paddle.x = Math.max(paddle.w/2, Math.min(W-paddle.w/2, paddle.x)); }
 
       if(!launched) {
         ball.x = paddle.x;
@@ -264,7 +312,7 @@
 
         if(ball.y - BALL_R > H) {
           lives--; updateUI();
-          burst(ball.x, H-20, '#a78bfa');
+          burst(ball.x, H-20, '#ff4757');
           if(lives<=0){ endGame(); return; }
           launched=false; ball=makeBall();
         }
@@ -276,8 +324,8 @@
             const fromTop=ball.y-b.y, fromBot=(b.y+b.h)-ball.y;
             if(Math.min(fromLeft,fromRight)<Math.min(fromTop,fromBot)) ball.vx=-ball.vx; else ball.vy=-ball.vy;
             b.hp--;
-            if(b.hp<=0){ b.alive=false; burst(b.x+b.w/2,b.y+b.h/2,b.col); score+=10*level; updateUI(); }
-            else burst(b.x+b.w/2,b.y+b.h/2,hexAlpha(b.col,0.45));
+            if(b.hp<=0){ b.alive=false; burst(b.x+b.w/2,b.y+b.h/2,b.col); score+=15*level; updateUI(); }
+            else burst(b.x+b.w/2,b.y+b.h/2,hexAlpha(b.col,0.6));
             break;
           }
         }
@@ -285,84 +333,98 @@
         if(bricks.every(b=>!b.alive)) { nextLevel(); return; }
       }
 
+      drawEntities();
+
+      if(!launched) {
+        ctx.fillStyle='#636e72'; ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.font=`600 ${Math.round(W*0.035)}px DM Sans,sans-serif`;
+        ctx.fillText('Tıkla / dokun → fırlat', W/2, H/2+50);
+      }
+
+      ctx.fillStyle='#b2bec3'; ctx.textAlign='left'; ctx.textBaseline='top';
+      ctx.font=`700 ${Math.round(W*0.025)}px DM Sans,sans-serif`;
+      ctx.fillText(`SEVİYE ${level}`, 12, 12);
+
+      animId = requestAnimationFrame(gameLoop);
+    }
+
+    function drawEntities() {
       bricks.forEach(b => {
         if(!b.alive) return;
         const t = b.hp/b.maxHp;
-        rr(b.x,b.y,b.w,b.h,4,hexAlpha(b.col,0.13+t*0.48),hexAlpha(b.col,0.45+t*0.55));
+        rr(b.x,b.y,b.w,b.h,5,hexAlpha(b.col,0.2+t*0.6),b.col);
         if(b.maxHp>1){
-          ctx.fillStyle=hexAlpha(b.col,0.95);
-          ctx.font=`bold ${Math.round(b.h*0.56)}px DM Sans,sans-serif`;
+          ctx.fillStyle='#ffffff';
+          ctx.font=`bold ${Math.round(b.h*0.6)}px DM Sans,sans-serif`;
           ctx.textAlign='center'; ctx.textBaseline='middle';
-          ctx.fillText(b.hp, b.x+b.w/2, b.y+b.h/2);
+          ctx.fillText(b.hp, b.x+b.w/2, b.y+b.h/2+1);
         }
       });
 
-      rr(paddle.x-paddle.w/2, paddle.y-PAD_H/2, paddle.w, PAD_H, 7, 'rgba(108,99,255,0.28)', '#a78bfa');
+      const padGrd = ctx.createLinearGradient(paddle.x-paddle.w/2, 0, paddle.x+paddle.w/2, 0);
+      padGrd.addColorStop(0, '#ff4757'); padGrd.addColorStop(1, '#ffa502');
+      rr(paddle.x-paddle.w/2, paddle.y-PAD_H/2, paddle.w, PAD_H, 8, padGrd);
 
-      const grd = ctx.createRadialGradient(ball.x,ball.y,0,ball.x,ball.y,BALL_R);
-      grd.addColorStop(0,'#d8d0ff'); grd.addColorStop(1,'#6c63ff');
-      ctx.beginPath(); ctx.arc(ball.x,ball.y,BALL_R,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
-
-      if(!launched) {
-        ctx.fillStyle='rgba(167,139,250,0.6)'; ctx.textAlign='center'; ctx.textBaseline='middle';
-        ctx.font=`${Math.round(W*0.031)}px DM Sans,sans-serif`;
-        ctx.fillText('Tıkla / dokun → topu fırlat', W/2, H/2+35);
-      }
+      ctx.beginPath(); ctx.arc(ball.x,ball.y,BALL_R,0,Math.PI*2); 
+      ctx.fillStyle='#ff4757'; ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,0.5)'; ctx.lineWidth=2; ctx.stroke();
 
       particles = particles.filter(p => {
-        p.x+=p.vx; p.y+=p.vy; p.vy+=0.1; p.life-=0.04;
+        p.x+=p.vx; p.y+=p.vy; p.vy+=0.15; p.life-=0.03;
         if(p.life<=0) return false;
         ctx.beginPath(); ctx.arc(p.x,p.y,p.r*p.life,0,Math.PI*2);
         ctx.fillStyle=p.col; ctx.globalAlpha=p.life; ctx.fill(); ctx.globalAlpha=1;
         return true;
       });
-
-      ctx.fillStyle='rgba(180,170,255,0.2)'; ctx.textAlign='left'; ctx.textBaseline='top';
-      ctx.font=`500 ${Math.round(W*0.023)}px DM Sans,sans-serif`;
-      ctx.fillText(`Seviye ${level}`, 10, 10);
-
-      animId = requestAnimationFrame(gameLoop);
     }
 
     function nextLevel() {
       level++; launched=false;
-      paddle.w = Math.max(52, padW() - level*2.5);
+      paddle.w = Math.max(55, padW() - level*3);
       ball = makeBall();
       buildBricks(); updateUI();
     }
 
     function endGame() {
       running=false; cancelAnimationFrame(animId);
-      ctx.fillStyle='rgba(8,8,18,0.84)'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='rgba(255,255,255,0.9)'; ctx.fillRect(0,0,W,H);
       ctx.textAlign='center'; ctx.textBaseline='middle';
-      ctx.fillStyle='#eeeef8'; ctx.font=`bold ${Math.round(W*0.055)}px Syne,sans-serif`;
-      ctx.fillText('Oyun Bitti!', W/2, H/2-28);
-      ctx.fillStyle='#a78bfa'; ctx.font=`${Math.round(W*0.037)}px DM Sans,sans-serif`;
-      ctx.fillText('Skor: '+score, W/2, H/2+10);
-      ctx.fillStyle='#7777aa'; ctx.font=`${Math.round(W*0.027)}px DM Sans,sans-serif`;
-      ctx.fillText('"Başla"ya basarak tekrar oyna', W/2, H/2+42);
+      ctx.fillStyle='#2d3436'; ctx.font=`bold ${Math.round(W*0.065)}px Syne,sans-serif`;
+      ctx.fillText('OYUN BİTTİ', W/2, H/2-35);
+      ctx.fillStyle='#ff4757'; ctx.font=`800 ${Math.round(W*0.045)}px DM Sans,sans-serif`;
+      ctx.fillText('Skor: '+score, W/2, H/2+5);
+      ctx.fillStyle='#636e72'; ctx.font=`500 ${Math.round(W*0.03)}px DM Sans,sans-serif`;
+      ctx.fillText('"Başla"ya basarak tekrar oyna', W/2, H/2+45);
       startBtn.textContent='Tekrar Oyna';
+      pauseBtn.textContent='Durdur';
+      paused = false;
     }
 
     function drawIdle() {
-      ctx.fillStyle='#080812'; ctx.fillRect(0,0,W,H);
-      const bh=Math.max(15,Math.min(21,H*0.048));
-      const cols=9, bw=Math.floor((W-20-BRICK_GAP*(cols-1))/cols), tw=cols*(bw+BRICK_GAP)-BRICK_GAP, ox=(W-tw)/2;
+      ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
+      const bh=Math.max(16,Math.min(22,H*0.05));
+      const cols=9, bw=Math.floor((W-30-BRICK_GAP*(cols-1))/cols), tw=cols*(bw+BRICK_GAP)-BRICK_GAP, ox=(W-tw)/2;
       for(let r=0;r<3;r++) for(let c=0;c<cols;c++){
         const col=COLORS[(r*3+c)%COLORS.length];
-        rr(ox+c*(bw+BRICK_GAP),BRICK_TOP+r*(bh+BRICK_GAP),bw,bh,4,hexAlpha(col,0.22),hexAlpha(col,0.45));
+        rr(ox+c*(bw+BRICK_GAP),BRICK_TOP+r*(bh+BRICK_GAP),bw,bh,5,hexAlpha(col,0.4),col);
       }
-      rr(W/2-52, H-34, 104, PAD_H, 7, 'rgba(108,99,255,0.22)','#a78bfa');
-      ctx.beginPath(); ctx.arc(W/2, H/2+10, BALL_R, 0, Math.PI*2); ctx.fillStyle='#6c63ff'; ctx.fill();
-      ctx.fillStyle='rgba(167,139,250,0.65)'; ctx.textAlign='center'; ctx.textBaseline='middle';
-      ctx.font=`${Math.round(W*0.032)}px DM Sans,sans-serif`;
-      ctx.fillText('"Başla"ya bas ve oyna!', W/2, H/2+42);
+      const padGrd = ctx.createLinearGradient(W/2-55, 0, W/2+55, 0);
+      padGrd.addColorStop(0, '#ff4757'); padGrd.addColorStop(1, '#ffa502');
+      rr(W/2-55, H-40, 110, PAD_H, 8, padGrd);
+      
+      ctx.beginPath(); ctx.arc(W/2, H/2+10, BALL_R, 0, Math.PI*2); 
+      ctx.fillStyle='#ff4757'; ctx.fill();
+      
+      ctx.fillStyle='#2d3436'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.font=`600 ${Math.round(W*0.038)}px DM Sans,sans-serif`;
+      ctx.fillText('Oynamak için "Başla"ya bas!', W/2, H/2+55);
     }
 
     startBtn.addEventListener('click', () => {
+      if(running && paused) { paused = false; pauseBtn.textContent='Durdur'; return; }
       cancelAnimationFrame(animId);
       initGame(); running=true;
-      startBtn.textContent='Devam...';
+      startBtn.textContent='Yeniden Başlat';
       requestAnimationFrame(gameLoop);
     });
 
