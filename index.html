@@ -423,9 +423,11 @@
         addScore(10); 
       }
       
-      if(Math.abs(diff) >= prev.w) { gameState = 'gameover'; saveHS(); return; }
+      if(Math.abs(diff) >= currentLayer.w) { gameState = 'gameover'; saveHS(); return; }
       
-      let nw = prev.w - Math.abs(diff);
+      let nw = currentLayer.w - Math.abs(diff);
+      if(nw <= 0) { gameState = 'gameover'; saveHS(); return; }
+      
       let nx = diff > 0 ? currentLayer.x : prev.x;
       stackLayers.push({x:nx, w:nw});
       addScore(15);
@@ -436,7 +438,13 @@
 
     function runStack() {
       currentLayer.x += currentLayer.d * stackSpeed;
-      if(currentLayer.x < 0 || currentLayer.x + currentLayer.w > W) currentLayer.d *= -1;
+      if(currentLayer.x <= 0) {
+        currentLayer.x = 0;
+        currentLayer.d = 1;
+      } else if(currentLayer.x + currentLayer.w >= W) {
+        currentLayer.x = W - currentLayer.w;
+        currentLayer.d = -1;
+      }
       
       let offY = stackLayers.length > 9 ? (stackLayers.length-9)*24 : 0;
       
