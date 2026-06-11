@@ -4,89 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vectonis | Dijital Çözümlerin Adresi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff4757'/%3E%3Cstop offset='100%25' stop-color='%23ffa502'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%232d3436'/%3E%3Cpath d='M8 10L14 22L17 16L20 22L24 10' stroke='url(%23g)' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='24' cy='10' r='2' fill='%23ffa502'/%3E%3C/svg%3E">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --bg: #f8f9fa;
-      --bg2: #ffffff;
-      --bg3: #f1f3f5;
-      --acc: #ff4757;
-      --acc2: #ffa502;
-      --txt: #2d3436;
-      --muted: #636e72;
-      --bdr: #dfe6e9;
-      --shadow: rgba(0,0,0,0.06);
+      --bg:#f8f9fa; --bg2:#ffffff; --bg3:#f1f3f5;
+      --acc:#ff4757; --acc2:#ffa502;
+      --txt:#2d3436; --muted:#636e72; --bdr:#dfe6e9;
+      --shadow:rgba(0,0,0,0.06);
+      --grad:linear-gradient(135deg,var(--acc),var(--acc2));
     }
-    body{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;}
-    nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(255,255,255,0.95);box-shadow:0 2px 10px var(--shadow)}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+    ::selection{background:rgba(255,71,87,.2)}
+
+    /* ---------- Yüzen arka plan ışıkları ---------- */
+    .orbs{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:drift 18s ease-in-out infinite alternate}
+    .orb.o1{width:380px;height:380px;background:radial-gradient(circle,rgba(255,165,2,.22),transparent 70%);top:-90px;left:-90px}
+    .orb.o2{width:320px;height:320px;background:radial-gradient(circle,rgba(255,71,87,.16),transparent 70%);top:38%;right:-120px;animation-delay:-6s}
+    .orb.o3{width:280px;height:280px;background:radial-gradient(circle,rgba(30,144,255,.10),transparent 70%);bottom:-80px;left:22%;animation-delay:-12s}
+    @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(45px,-35px) scale(1.12)}}
+
+    /* ---------- Nav ---------- */
+    nav{padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);background:rgba(255,255,255,.85);backdrop-filter:blur(10px);box-shadow:0 2px 10px var(--shadow);position:sticky;top:0;z-index:50}
     .logo{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;color:var(--txt);display:flex;align-items:center;gap:8px}
-    .logo-icon{width:24px;height:24px}
+    .logo-icon{width:26px;height:26px;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+    .logo:hover .logo-icon{transform:rotate(-8deg) scale(1.1)}
     .logo-dot{color:var(--acc)}
-    .badge{font-size:.68rem;font-weight:600;color:var(--acc);border:1px solid rgba(255,71,87,0.3);padding:.25rem .7rem;border-radius:100px;letter-spacing:.06em;background:rgba(255,71,87,0.05)}
-    .hero{padding:4.5rem 2rem 3.5rem;text-align:center;position:relative}
-    .hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(255,165,2,0.15) 0%,transparent 70%);pointer-events:none}
-    .hero-tag{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem;user-select:none;-webkit-user-select:none;}
-    h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
-    h1 span{background:linear-gradient(120deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-p{color:var(--muted);font-size:1rem;max-width:450px;margin:0 auto 2rem;line-height:1.75}
-    .pill{display:inline-flex;align-items:center;gap:.45rem;background:white;border:1px solid var(--bdr);color:var(--txt);padding:.6rem 1.4rem;border-radius:100px;font-size:.85rem;font-weight:600;box-shadow:0 4px 15px var(--shadow);user-select:none;-webkit-user-select:none;}
+    .badge{font-size:.68rem;font-weight:700;color:var(--acc);border:1px solid rgba(255,71,87,.3);padding:.3rem .8rem;border-radius:100px;letter-spacing:.06em;background:rgba(255,71,87,.06);display:flex;align-items:center;gap:.4rem}
+    .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acc);animation:bl 1.5s infinite}
+
+    /* ---------- Hero ---------- */
+    .hero{padding:5rem 2rem 3.5rem;text-align:center;position:relative}
+    .hero-tag{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin-bottom:1.1rem;user-select:none;-webkit-user-select:none;animation:fadeUp .7s ease both}
+    h1{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem;animation:fadeUp .7s .1s ease both}
+    h1 span{background:linear-gradient(120deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+    .hero-p{color:var(--muted);font-size:1.02rem;max-width:460px;margin:0 auto 2rem;line-height:1.75;animation:fadeUp .7s .2s ease both}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--bdr);color:var(--txt);padding:.65rem 1.5rem;border-radius:100px;font-size:.85rem;font-weight:700;box-shadow:0 6px 18px var(--shadow);user-select:none;-webkit-user-select:none;animation:fadeUp .7s .3s ease both}
     .blink{width:8px;height:8px;border-radius:50%;background:var(--acc);animation:bl 1.5s infinite}
-    @keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
-    .sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent);margin:0 1.5rem}
-    .game-sec{padding:3rem 1.2rem;max-width:750px;margin:0 auto;user-select:none;-webkit-user-select:none;}
-    .game-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:24px;overflow:hidden;box-shadow:0 15px 35px var(--shadow)}
+    @keyframes bl{0%,100%{opacity:1}50%{opacity:.25}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ---------- Oyun bölümü ---------- */
+    .game-sec{padding:2.5rem 1.2rem 3rem;max-width:760px;margin:0 auto;user-select:none;-webkit-user-select:none;animation:fadeUp .7s .4s ease both}
+    .sec-title{text-align:center;margin-bottom:1.4rem}
+    .sec-title h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.01em}
+    .sec-title p{color:var(--muted);font-size:.88rem;margin-top:.3rem;font-weight:500}
+    .game-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.08);position:relative}
     .topbar{background:var(--bg3);padding:.8rem 1.2rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--bdr)}
-    .tb-d{width:11px;height:11px;border-radius:50%}
-    .game-selector{display:flex;gap:8px;padding:12px;background:var(--bg3);border-bottom:1px solid var(--bdr)}
-    .sbtn{flex:1;padding:10px;border:none;border-radius:12px;background:white;font-weight:700;cursor:pointer;font-size:0.85rem;color:var(--txt);transition:all 0.2s;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
-    .sbtn.active{background:linear-gradient(135deg,var(--acc),var(--acc2));color:white;box-shadow:0 4px 15px rgba(255,71,87,0.3)}
-    canvas#gc{display:block;width:100%;background:#ffffff;user-select:none;-webkit-user-select:none;touch-action:pan-y;}
-    .game-bar{padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;border-top:1px solid var(--bdr);background:var(--bg2)}
-    .stat{display:flex;flex-direction:column;align-items:center;min-width:60px;}
-    .sl{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
-    .sv{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.2rem;color:var(--acc)}
-    .btn-row{display:flex;gap:.6rem;align-items:center}
-    .gbtn{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;padding:.6rem 1.5rem;border-radius:100px;font-size:.85rem;font-weight:700;cursor:pointer;transition:transform .1s, box-shadow .2s;box-shadow:0 4px 15px rgba(255,71,87,0.3)}
-    .gbtn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,71,87,0.4)}
-    .gbtn:active{transform:scale(.95)}
-    .hbtn{background:var(--bg3);color:var(--txt);border:1px solid var(--bdr);padding:.6rem 1.2rem;border-radius:100px;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s}
-    .hbtn:hover{background:#e2e6ea}
-    .modal-wrap{display:none;position:absolute;inset:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(4px);z-index:10;align-items:center;justify-content:center}
+    .tb-d{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+    .game-selector{display:flex;flex:1;padding:0;justify-content:center;gap:8px;margin-left:12px}
+    .sbtn{flex:1;max-width:140px;padding:9px 6px;border:1px solid var(--bdr);border-radius:12px;background:#fff;font-family:'DM Sans',sans-serif;font-weight:700;cursor:pointer;font-size:.82rem;color:var(--txt);transition:transform .15s,box-shadow .2s,background .2s,color .2s;box-shadow:0 2px 5px rgba(0,0,0,.04)}
+    .sbtn:hover{transform:translateY(-1px)}
+    .sbtn.active{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 5px 16px rgba(255,71,87,.35)}
+    canvas#gc{display:block;width:100%;background:#fff;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:pointer}
+
+    /* ---------- Modal ---------- */
+    .modal-wrap{display:none;position:absolute;inset:0;background:rgba(255,255,255,.85);backdrop-filter:blur(5px);z-index:10;align-items:center;justify-content:center}
     .modal-wrap.open{display:flex}
-    .modal{background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;padding:2rem;max-width:340px;width:90%;text-align:left;box-shadow:0 20px 40px rgba(0,0,0,0.1)}
-    .modal h3{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:1.2rem;color:var(--txt)}
+    .modal{background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;padding:2rem;max-width:360px;width:90%;text-align:left;box-shadow:0 25px 50px rgba(0,0,0,.12);animation:popIn .25s cubic-bezier(.34,1.56,.64,1) both}
+    @keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+    .modal h3{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:1.2rem}
     .modal ul{list-style:none;display:flex;flex-direction:column;gap:.8rem}
     .modal ul li{display:flex;gap:.8rem;align-items:flex-start;font-size:.9rem;color:var(--muted);line-height:1.5;font-weight:500}
     .modal ul li .icon{font-size:1.1rem;flex-shrink:0}
-    .modal-close{margin-top:1.6rem;width:100%;background:var(--acc);color:#fff;border:none;padding:.7rem;border-radius:100px;font-size:.9rem;font-weight:700;cursor:pointer}
-    .modal-close:hover{background:#ff3344}
-    .contact-sec{padding:3rem 1.2rem;max-width:750px;margin:0 auto}
-    .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem}
-    .cc{background:var(--bg2);padding:1.5rem;display:flex;flex-direction:column;gap:.3rem;border-radius:16px;border:1px solid var(--bdr);box-shadow:0 4px 15px var(--shadow)}
+    .modal-close{margin-top:1.6rem;width:100%;background:var(--grad);color:#fff;border:none;padding:.75rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .2s;box-shadow:0 5px 16px rgba(255,71,87,.3)}
+    .modal-close:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(255,71,87,.4)}
+
+    /* ---------- Skor çubuğu ---------- */
+    .game-bar{padding:.9rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;border-top:1px solid var(--bdr);background:var(--bg2)}
+    .stat{display:flex;flex-direction:column;align-items:center;min-width:58px}
+    .sl{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+    .sv{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--acc);transition:transform .15s}
+    .sv.bump{animation:bump .25s ease}
+    @keyframes bump{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+    .btn-row{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap}
+    .gbtn{background:var(--grad);color:#fff;border:none;padding:.62rem 1.5rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:transform .12s,box-shadow .2s;box-shadow:0 5px 16px rgba(255,71,87,.32)}
+    .gbtn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(255,71,87,.42)}
+    .gbtn:active{transform:scale(.95)}
+    .hbtn{background:var(--bg3);color:var(--txt);border:1px solid var(--bdr);padding:.62rem 1.1rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .2s,transform .12s}
+    .hbtn:hover{background:#e7ebef;transform:translateY(-1px)}
+    .hbtn:active{transform:scale(.96)}
+    .mute{width:42px;text-align:center;padding:.62rem 0;font-size:.95rem}
+    button:focus-visible{outline:3px solid rgba(255,71,87,.45);outline-offset:2px}
+
+    /* ---------- İletişim ---------- */
+    .contact-sec{padding:1.5rem 1.2rem 3rem;max-width:760px;margin:0 auto}
+    .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem}
+    .cc{background:var(--bg2);padding:1.5rem;display:flex;flex-direction:column;gap:.3rem;border-radius:16px;border:1px solid var(--bdr);box-shadow:0 4px 15px var(--shadow);transition:transform .2s,box-shadow .2s}
+    .cc:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.09)}
     .cl{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--acc);font-weight:800}
-    .cv{font-size:1rem;font-weight:700;color:var(--txt);margin-top:.2rem}
+    .cv{font-size:1rem;font-weight:700;margin-top:.2rem}
+    .cv a{color:inherit;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s}
+    .cv a:hover{border-color:var(--acc2)}
     .cs{font-size:.8rem;color:var(--muted);font-weight:500}
-    footer{border-top:1px solid var(--bdr);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;background:var(--bg2);user-select:none;-webkit-user-select:none;}
-    .fl{font-family:'Syne',system-ui,sans-serif;font-weight:800;font-size:.95rem;color:var(--txt)}
+
+    footer{border-top:1px solid var(--bdr);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;background:var(--bg2);user-select:none;-webkit-user-select:none}
+    .fl{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem}
     .fr{font-size:.8rem;color:var(--muted);font-weight:600}
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      html{scroll-behavior:auto}
+    }
+    @media (max-width:520px){
+      .game-selector{margin-left:6px}
+      .sbtn{font-size:.72rem;padding:8px 4px}
+      .game-bar{justify-content:center}
+    }
   </style>
 </head>
 <body>
 
+  <div class="orbs" aria-hidden="true">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  </div>
+
   <nav>
     <div class="logo">
-      <svg class="logo-icon" viewBox="0 0 32 32">
-        <defs>
-          <linearGradient id='lg' x1='0%' y1='0%' x2='100%' y2='100%'>
-            <stop offset='0%' stop-color='#ff4757'/>
-            <stop offset='100%' stop-color='#ffa502'/>
-          </linearGradient>
-        </defs>
-        <rect width='32' height='32' rx='6' fill='#2d3436'/>
-        <path d='M8 10L14 22L17 16L20 22L24 10' stroke='url(#lg)' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/>
-        <circle cx='24' cy='10' r='2' fill='#ffa502'/>
+      <svg class="logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff4757"/><stop offset="100%" stop-color="#ffa502"/>
+        </linearGradient></defs>
+        <rect width="32" height="32" rx="6" fill="#2d3436"/>
+        <path d="M8 10L14 22L17 16L20 22L24 10" stroke="url(#lg)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="24" cy="10" r="2" fill="#ffa502"/>
       </svg>
       Vectonis<span class="logo-dot">.</span>
     </div>
@@ -94,20 +138,23 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-glow"></div>
-    <p class="hero-tag">Bilişim & Teknoloji — Ankara</p>
+    <p class="hero-tag">Bilişim &amp; Teknoloji — Ankara</p>
     <h1>Dijital<br><span>Çözümlerin</span><br>Adresi</h1>
     <p class="hero-p">Vectonis Bilişim olarak kurumsal yazılım ve teknoloji hizmetleri sunuyoruz. Çok yakında daha fazlasıyla yayındayız!</p>
     <div class="pill"><span class="blink"></span> Yakında Yayında</div>
   </section>
 
   <section class="game-sec">
-    <div class="game-box" style="position:relative">
+    <div class="sec-title">
+      <h2>Beklerken biraz eğlence 🎮</h2>
+      <p>Üç klasik oyun — rekorların tarayıcına kaydedilir.</p>
+    </div>
+    <div class="game-box">
       <div class="topbar">
         <div class="tb-d" style="background:#ff5f57"></div>
         <div class="tb-d" style="background:#ffbd2e"></div>
         <div class="tb-d" style="background:#28ca41"></div>
-        <div class="game-selector" style="flex:1; padding:0; border:none; justify-content:center; gap:10px; margin-left:15px; background:transparent;">
+        <div class="game-selector">
           <button class="sbtn active" data-game="breakout">Breakout</button>
           <button class="sbtn" data-game="stack">Tech Stack</button>
           <button class="sbtn" data-game="snake">Snake</button>
@@ -120,10 +167,11 @@
         <div class="modal">
           <h3>Nasıl Oynanır?</h3>
           <ul>
-            <li><span class="icon">🎮</span><span>Oyun seçici menüden istediğin oyunu seç.</span></li>
-            <li><span class="icon">🖱️</span><span>Masaüstü: Fare ile Breakout ve Stack oyna. Snake için Yön tuşlarını kullan.</span></li>
-            <li><span class="icon">📱</span><span>Mobil: Ekrana dokunarak veya Snake'te parmağını kaydırarak oyna.</span></li>
-            <li><span class="icon">🏆</span><span>En yüksek skorun tarayıcına kaydedilir, asla silinmez.</span></li>
+            <li><span class="icon">🎮</span><span>Üstteki menüden istediğin oyunu seç, <b>Başla</b>'ya bas.</span></li>
+            <li><span class="icon">🖱️</span><span><b>Masaüstü:</b> Breakout ve Stack için fare; Snake için yön tuşları. <b>P</b> ile duraklat.</span></li>
+            <li><span class="icon">📱</span><span><b>Mobil:</b> Dokunarak oyna; Snake'te parmağını kaydır.</span></li>
+            <li><span class="icon">🏆</span><span>Her oyunun rekoru ayrı ayrı tarayıcına kaydedilir.</span></li>
+            <li><span class="icon">🔊</span><span>Sesi açıp kapatmak için hoparlör düğmesini kullan.</span></li>
           </ul>
           <button class="modal-close" id="modalClose">Anladım, Oynayalım!</button>
         </div>
@@ -131,10 +179,11 @@
 
       <div class="game-bar">
         <div class="stat"><span class="sl">Skor</span><span class="sv" id="sc">0</span></div>
-        <div class="stat"><span class="sl">En Yüksek</span><span class="sv" id="hs">0</span></div>
+        <div class="stat"><span class="sl">Rekor</span><span class="sv" id="hs">0</span></div>
         <div class="stat"><span class="sl">Seviye</span><span class="sv" id="lv">1</span></div>
         <div class="stat"><span class="sl">Can</span><span class="sv" id="hp">♥♥♥</span></div>
         <div class="btn-row">
+          <button class="hbtn mute" id="muteBtn" aria-label="Sesi aç/kapat">🔊</button>
           <button class="hbtn" id="howBtn">Bilgi</button>
           <button class="hbtn" id="pauseBtn">Durdur</button>
           <button class="gbtn" id="startBtn">Başla</button>
@@ -146,7 +195,7 @@
   <section class="contact-sec">
     <div class="cgrid">
       <div class="cc"><div class="cl">Konum</div><div class="cv">Ankara</div><div class="cs">Türkiye</div></div>
-      <div class="cc"><div class="cl">E-posta</div><div class="cv"><a href="mailto:info@vectonis.com" style="color:inherit;text-decoration:none;">info@vectonis.com</a></div><div class="cs">1 iş günü yanıt süresi</div></div>
+      <div class="cc"><div class="cl">E-posta</div><div class="cv"><a href="mailto:info@vectonis.com">info@vectonis.com</a></div><div class="cs">1 iş günü yanıt süresi</div></div>
       <div class="cc"><div class="cl">Çalışma</div><div class="cv">09:00 — 18:00</div><div class="cs">Pazartesi — Cuma</div></div>
     </div>
   </section>
@@ -157,523 +206,740 @@
   </footer>
 
   <script>
-    const canvas = document.getElementById('gc');
-    const ctx = canvas.getContext('2d');
-    const scEl = document.getElementById('sc');
-    const hsEl = document.getElementById('hs');
-    const lvEl = document.getElementById('lv');
-    const hpEl = document.getElementById('hp');
-    const startBtn = document.getElementById('startBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-    const howBtn = document.getElementById('howBtn');
-    const howModal = document.getElementById('howModal');
-    const modalClose = document.getElementById('modalClose');
-    const sbtns = document.querySelectorAll('.sbtn');
+const canvas = document.getElementById('gc');
+const ctx = canvas.getContext('2d');
+const scEl = document.getElementById('sc');
+const hsEl = document.getElementById('hs');
+const lvEl = document.getElementById('lv');
+const hpEl = document.getElementById('hp');
+const startBtn = document.getElementById('startBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const howBtn = document.getElementById('howBtn');
+const muteBtn = document.getElementById('muteBtn');
+const howModal = document.getElementById('howModal');
+const modalClose = document.getElementById('modalClose');
+const sbtns = document.querySelectorAll('.sbtn');
 
-    let W, H;
-    function resize() {
-      W = canvas.parentElement.clientWidth;
-      H = Math.min(420, Math.max(300, W * 0.65));
-      canvas.width = W; canvas.height = H;
-      if(activeGame === 'snake' && gameState === 'idle') initSnakeVars();
+/* ============ SES SİSTEMİ (Web Audio — dosya gerektirmez) ============ */
+let audioCtx = null;
+let muted = localStorage.getItem('vectonisMute') === '1';
+muteBtn.textContent = muted ? '🔇' : '🔊';
+
+function ensureAudio() {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  if (!audioCtx) audioCtx = new AC();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function tone(freq, dur = 0.08, type = 'square', vol = 0.12, slideTo = null, delay = 0) {
+  if (muted || !audioCtx) return;
+  try {
+    const t = audioCtx.currentTime + delay;
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    o.type = type;
+    o.frequency.setValueAtTime(freq, t);
+    if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t + dur);
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    o.connect(g); g.connect(audioCtx.destination);
+    o.start(t); o.stop(t + dur + 0.03);
+  } catch (e) { /* ses başarısız olsa da oyun devam eder */ }
+}
+
+const SFX = {
+  click:     () => tone(520, 0.05, 'sine', 0.08),
+  paddle:    () => tone(220, 0.07, 'square', 0.11, 330),
+  wall:      () => tone(170, 0.05, 'square', 0.07),
+  brick:     (hp) => tone(420 + hp * 70, 0.06, 'square', 0.11),
+  brickBreak:() => { tone(660, 0.07, 'square', 0.11); tone(990, 0.09, 'square', 0.09, null, 0.04); },
+  loseLife:  () => tone(320, 0.35, 'sawtooth', 0.13, 70),
+  gameover:  () => { tone(392, 0.16, 'square', 0.12, null, 0); tone(330, 0.16, 'square', 0.12, null, 0.16); tone(262, 0.32, 'square', 0.12, null, 0.32); },
+  win:       () => [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.14, 'square', 0.12, null, i * 0.11)),
+  levelup:   () => [440, 554, 659].forEach((f, i) => tone(f, 0.1, 'square', 0.11, null, i * 0.08)),
+  drop:      () => tone(140, 0.09, 'triangle', 0.16),
+  perfect:   (combo) => { tone(880 + combo * 60, 0.07, 'sine', 0.14); tone(1320 + combo * 60, 0.1, 'sine', 0.11, null, 0.05); },
+  eat:       () => tone(620, 0.06, 'square', 0.12, 920),
+  record:    () => [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, 0.12, 'triangle', 0.13, null, i * 0.09)),
+};
+
+muteBtn.addEventListener('click', () => {
+  muted = !muted;
+  localStorage.setItem('vectonisMute', muted ? '1' : '0');
+  muteBtn.textContent = muted ? '🔇' : '🔊';
+  if (!muted) { ensureAudio(); SFX.click(); }
+});
+
+/* ============ GENEL DURUM ============ */
+let W, H;
+const COLORS = ['#ff4757', '#ffa502', '#2ed573', '#1e90ff', '#3742fa', '#eccc68', '#ff6b81', '#7bed9f'];
+
+let activeGame = 'breakout';
+let gameState = 'idle';            // idle | playing | paused | gameover | win
+let score = 0, lives = 3, level = 1, launched = false, animId = null;
+let highScores;
+try { highScores = JSON.parse(localStorage.getItem('vectonisHS')) || {}; } catch (e) { highScores = {}; }
+highScores = Object.assign({ breakout: 0, stack: 0, snake: 0 }, highScores);
+let recordBeaten = false;          // bu turda rekor kırıldı mı
+let particles = [], popups = [];
+let shake = 0;
+let lastActionTime = 0;
+
+let paddle, ball, bricks = [], trail = [];
+let stackLayers = [], currentLayer, stackSpeed, combo = 0;
+let snake = [], food = {}, snakeDx = 1, snakeDy = 0, snakeNextDx = 1, snakeNextDy = 0;
+let snakeTimer = 0, snakeInterval = 14, cols, rows, cellSize = 20;
+let foodPulse = 0;
+
+function resize() {
+  W = canvas.parentElement.clientWidth;
+  H = Math.min(420, Math.max(300, W * 0.65));
+  canvas.width = W; canvas.height = H;
+  initSnakeVars();
+  // Oyun ortasında pencere boyutu değişirse öğeleri sınırlar içinde tut
+  if (paddle) {
+    paddle.y = H - 35;
+    paddle.x = Math.max(paddle.w / 2, Math.min(W - paddle.w / 2, paddle.x));
+  }
+  if (ball) { ball.x = Math.min(ball.x, W - ball.r); ball.y = Math.min(ball.y, H - ball.r); }
+  if (gameState === 'idle') drawIdle();
+}
+
+window.addEventListener('resize', resize);
+
+/* ============ UI ============ */
+howBtn.addEventListener('click', () => { ensureAudio(); SFX.click(); howModal.classList.add('open'); });
+modalClose.addEventListener('click', () => { SFX.click(); howModal.classList.remove('open'); });
+howModal.addEventListener('click', e => { if (e.target === howModal) howModal.classList.remove('open'); });
+
+sbtns.forEach(btn => {
+  btn.addEventListener('click', e => {
+    ensureAudio(); SFX.click();
+    sbtns.forEach(b => b.classList.remove('active'));
+    const el = e.target.closest('.sbtn');
+    el.classList.add('active');
+    activeGame = el.getAttribute('data-game');
+    cancelAnimationFrame(animId);
+    gameState = 'idle';
+    score = 0; lives = 3; level = 1; combo = 0;
+    particles = []; popups = []; trail = []; shake = 0; recordBeaten = false;
+    startBtn.textContent = 'Başla';
+    pauseBtn.textContent = 'Durdur';
+    canvas.style.touchAction = activeGame === 'snake' ? 'none' : 'pan-y';
+    updateUI();
+    drawIdle();
+  });
+});
+
+function bumpEl(el) {
+  el.classList.remove('bump');
+  void el.offsetWidth;
+  el.classList.add('bump');
+}
+
+function saveHS() {
+  if (score > highScores[activeGame]) {
+    const firstTime = !recordBeaten && highScores[activeGame] > 0;
+    highScores[activeGame] = score;
+    try { localStorage.setItem('vectonisHS', JSON.stringify(highScores)); } catch (e) {}
+    hsEl.textContent = score;
+    bumpEl(hsEl);
+    if (firstTime) {
+      recordBeaten = true;
+      SFX.record();
+      popup(W / 2, H / 2 - 40, '🏆 YENİ REKOR!', '#ffa502', 1.6);
     }
-    
-    const COLORS = ['#ff4757','#ffa502','#2ed573','#1e90ff','#3742fa','#eccc68','#ff6b81','#7bed9f'];
-    
-    let activeGame = 'breakout';
-    let gameState = 'idle';
-    let score = 0, lives = 3, level = 1, launched = false, animId = null;
-    let highScores = JSON.parse(localStorage.getItem('vectonisHS')) || { breakout: 0, stack: 0, snake: 0 };
-    let particles = [];
+  }
+}
 
-    let paddle, ball, bricks = [];
-    let stackLayers = [], currentLayer, stackDir, stackSpeed;
-    let lastActionTime = 0;
-    
-    let snake = [], food = {}, snakeDx = 1, snakeDy = 0, snakeNextDx = 1, snakeNextDy = 0;
-    let snakeTimer = 0, snakeInterval = 14, cols, rows, cellSize;
-    
-    resize();
-    window.addEventListener('resize', () => { resize(); if(gameState === 'idle') drawIdle(); });
+function addScore(pts) {
+  score += pts;
+  scEl.textContent = score;
+  bumpEl(scEl);
+  saveHS();
+}
 
-    howBtn.addEventListener('click', () => howModal.classList.add('open'));
-    modalClose.addEventListener('click', () => howModal.classList.remove('open'));
-    howModal.addEventListener('click', e => { if(e.target===howModal) howModal.classList.remove('open'); });
+function updateUI() {
+  scEl.textContent = score;
+  hsEl.textContent = highScores[activeGame] || 0;
+  const endless = (activeGame === 'stack' || activeGame === 'snake');
+  lvEl.textContent = endless ? '∞' : level;
+  hpEl.textContent = endless ? '∞' : '♥'.repeat(Math.max(0, lives));
+}
 
-    sbtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        sbtns.forEach(b => b.classList.remove('active'));
-        e.target.closest('.sbtn').classList.add('active');
-        activeGame = e.target.closest('.sbtn').getAttribute('data-game');
-        cancelAnimationFrame(animId);
-        gameState = 'idle';
-        score = 0; lives = 3; level = 1;
-        updateUI();
-        if(activeGame === 'snake') {
-          initSnakeVars();
-          canvas.style.touchAction = 'none';
-        } else if(activeGame === 'breakout') {
-          canvas.style.touchAction = 'pan-y';
-        } else {
-          canvas.style.touchAction = 'auto';
-        }
-        drawIdle();
-      });
-    });
+/* ============ DURAKLATMA ============ */
+function togglePause() {
+  if (gameState !== 'playing' && gameState !== 'paused') return;
+  if (gameState === 'playing') {
+    gameState = 'paused';
+    pauseBtn.textContent = 'Devam Et';
+    SFX.click();
+  } else {
+    gameState = 'playing';
+    pauseBtn.textContent = 'Durdur';
+    SFX.click();
+  }
+}
+pauseBtn.addEventListener('click', () => { ensureAudio(); togglePause(); });
 
-    function saveHS() {
-      if(score > highScores[activeGame]) {
-        highScores[activeGame] = score;
-        localStorage.setItem('vectonisHS', JSON.stringify(highScores));
-        hsEl.textContent = highScores[activeGame];
-      }
+/* ============ GİRDİLER ============ */
+let mousePos = -1, touchPos = -1;
+canvas.addEventListener('mousemove', e => {
+  const r = canvas.getBoundingClientRect();
+  mousePos = (e.clientX - r.left) * (W / r.width);
+});
+canvas.addEventListener('touchmove', e => {
+  const r = canvas.getBoundingClientRect();
+  touchPos = (e.touches[0].clientX - r.left) * (W / r.width);
+}, { passive: true });
+
+let touchStartX = 0, touchStartY = 0;
+canvas.addEventListener('touchstart', e => {
+  ensureAudio();
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+  const r = canvas.getBoundingClientRect();
+  touchPos = (e.touches[0].clientX - r.left) * (W / r.width);
+  handleAction();
+}, { passive: true });
+
+canvas.addEventListener('touchend', e => {
+  if (activeGame !== 'snake' || gameState !== 'playing') return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy)) {
+    if (dx > 30 && snakeDx !== -1) { snakeNextDx = 1; snakeNextDy = 0; }
+    else if (dx < -30 && snakeDx !== 1) { snakeNextDx = -1; snakeNextDy = 0; }
+  } else {
+    if (dy > 30 && snakeDy !== -1) { snakeNextDx = 0; snakeNextDy = 1; }
+    else if (dy < -30 && snakeDy !== 1) { snakeNextDx = 0; snakeNextDy = -1; }
+  }
+});
+
+function handleAction() {
+  const now = Date.now();
+  if (now - lastActionTime < 100) return;
+  lastActionTime = now;
+
+  // Duraklatılmışsa, dokunarak/tıklayarak devam et
+  if (gameState === 'paused') { togglePause(); return; }
+  if (gameState !== 'playing') return;
+
+  if (activeGame === 'breakout' && !launched) {
+    launched = true;
+    ball.vx = (Math.random() < 0.5 ? 1 : -1) * ball.spd * 0.5;
+    ball.vy = -ball.spd;
+    SFX.paddle();
+  } else if (activeGame === 'stack') {
+    dropStack();
+  }
+}
+canvas.addEventListener('click', () => { ensureAudio(); handleAction(); });
+
+document.addEventListener('keydown', e => {
+  if ((e.key === ' ' || e.key === 'ArrowUp') && (gameState === 'playing' || gameState === 'paused')) {
+    if (activeGame !== 'snake' || gameState === 'paused') { e.preventDefault(); ensureAudio(); handleAction(); }
+  }
+  if ((e.key === 'p' || e.key === 'P') && (gameState === 'playing' || gameState === 'paused')) togglePause();
+
+  if (activeGame === 'snake' && gameState === 'playing') {
+    if (e.key === 'ArrowUp' && snakeDy !== 1) { snakeNextDx = 0; snakeNextDy = -1; e.preventDefault(); }
+    else if (e.key === 'ArrowDown' && snakeDy !== -1) { snakeNextDx = 0; snakeNextDy = 1; e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' && snakeDx !== 1) { snakeNextDx = -1; snakeNextDy = 0; e.preventDefault(); }
+    else if (e.key === 'ArrowRight' && snakeDx !== -1) { snakeNextDx = 1; snakeNextDy = 0; e.preventDefault(); }
+  }
+});
+
+/* ============ EFEKTLER ============ */
+function burst(x, y, col, n = 14) {
+  for (let i = 0; i < n; i++) {
+    const a = Math.random() * Math.PI * 2, s = 1.5 + Math.random() * 4;
+    particles.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 1, col, r: 2 + Math.random() * 3 });
+  }
+}
+
+function popup(x, y, txt, col = '#ff4757', scale = 1) {
+  popups.push({ x, y, txt, col, life: 1, scale });
+}
+
+function hexAlpha(hex, a) {
+  const r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+function rr(x, y, w, h, rad, fill, stroke) {
+  ctx.beginPath(); ctx.roundRect(x, y, w, h, [rad]);
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 1.5; ctx.stroke(); }
+}
+
+function drawFX() {
+  particles = particles.filter(p => {
+    p.x += p.vx; p.y += p.vy; p.vy += 0.15; p.life -= 0.03;
+    if (p.life <= 0) return false;
+    ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(0.1, p.r * p.life), 0, Math.PI * 2);
+    ctx.fillStyle = p.col; ctx.globalAlpha = p.life; ctx.fill(); ctx.globalAlpha = 1;
+    return true;
+  });
+  popups = popups.filter(p => {
+    p.y -= 0.8; p.life -= 0.018;
+    if (p.life <= 0) return false;
+    ctx.globalAlpha = Math.min(1, p.life * 1.5);
+    ctx.fillStyle = p.col;
+    ctx.font = `800 ${Math.round(15 * p.scale)}px Syne, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(p.txt, p.x, p.y);
+    ctx.globalAlpha = 1;
+    return true;
+  });
+}
+
+/* ============ BREAKOUT ============ */
+function initBreakout() {
+  const padW = Math.max(70, Math.min(120, W * 0.2)) - (level - 1) * 3;
+  paddle = { x: W / 2, y: H - 35, w: padW, h: 12 };
+  const spd = 3.2 + level * 0.35;
+  ball = { x: paddle.x, y: paddle.y - 16, vx: 0, vy: 0, spd, r: 8 };
+  trail = [];
+  bricks = [];
+  const brows = Math.min(4 + Math.floor(level / 2), 8);
+  const bw = Math.floor((W - 30 - 6 * 8) / 9);
+  const tw = 9 * (bw + 6) - 6;
+  const ox = (W - tw) / 2;
+  for (let r = 0; r < brows; r++) {
+    for (let c = 0; c < 9; c++) {
+      let skip = false;
+      if (level % 3 === 2 && (r + c) % 2 === 0) skip = true;
+      if (level % 3 === 0 && (c < r || c > 8 - r)) skip = true;
+      if (skip) continue;
+      const hp = Math.max(1, Math.ceil((brows - r) / 2));
+      bricks.push({ x: ox + c * (bw + 6), y: 50 + r * 26, w: bw, h: 20, hp, maxHp: hp, col: COLORS[(r * 2 + c) % COLORS.length], alive: true });
     }
+  }
+}
 
-    function addScore(pts) {
-      score += pts;
-      scEl.textContent = score;
-      saveHS();
-    }
-
-    function updateUI() {
-      scEl.textContent = score;
-      hsEl.textContent = highScores[activeGame] || 0;
-      lvEl.textContent = (activeGame === 'stack' || activeGame === 'snake') ? '∞' : level;
-      hpEl.textContent = (activeGame === 'stack' || activeGame === 'snake') ? '∞' : '♥'.repeat(Math.max(0, lives));
-    }
-
-    pauseBtn.addEventListener('click', () => {
-      if(gameState !== 'playing' && gameState !== 'paused') return;
-      if(activeGame === 'breakout' && !launched && gameState === 'playing') return;
-      
-      if(gameState === 'playing') {
-        gameState = 'paused';
-        pauseBtn.textContent = 'Devam Et';
-      } else {
-        gameState = 'playing';
-        pauseBtn.textContent = 'Durdur';
-      }
-    });
-
-    let mousePos = -1, touchPos = -1;
-    canvas.addEventListener('mousemove', e => { const r=canvas.getBoundingClientRect(); mousePos=(e.clientX-r.left)*(W/r.width); });
-    canvas.addEventListener('touchmove', e => { 
-      const r=canvas.getBoundingClientRect(); touchPos=(e.touches[0].clientX-r.left)*(W/r.width); 
-    }, {passive:true});
-    
-    let touchStartX = 0, touchStartY = 0;
-    canvas.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      const r=canvas.getBoundingClientRect(); touchPos=(e.touches[0].clientX-r.left)*(W/r.width); 
-      handleAction();
-    }, {passive:true});
-
-    canvas.addEventListener('touchend', e => {
-      if(activeGame !== 'snake' || gameState !== 'playing') return;
-      let dx = e.changedTouches[0].clientX - touchStartX;
-      let dy = e.changedTouches[0].clientY - touchStartY;
-      if(Math.abs(dx) > Math.abs(dy)) {
-        if(dx > 30 && snakeDx !== -1) { snakeNextDx = 1; snakeNextDy = 0; }
-        else if(dx < -30 && snakeDx !== 1) { snakeNextDx = -1; snakeNextDy = 0; }
-      } else {
-        if(dy > 30 && snakeDy !== -1) { snakeNextDx = 0; snakeNextDy = 1; }
-        else if(dy < -30 && snakeDy !== 1) { snakeNextDx = 0; snakeNextDy = -1; }
-      }
-    });
-
-    function handleAction() {
-      const now = Date.now();
-      if(now - lastActionTime < 100) return;
-      lastActionTime = now;
-
-      if(gameState === 'idle' || gameState === 'gameover' || gameState === 'win' || gameState === 'paused') return;
-      if(activeGame === 'breakout' && !launched) {
-        launched = true;
-        ball.vx = (Math.random() < 0.5 ? 1 : -1) * ball.spd * 0.5;
-        ball.vy = -ball.spd;
-      } else if(activeGame === 'stack') {
-        dropStack();
-      }
-    }
-
-    canvas.addEventListener('click', handleAction);
-
-    document.addEventListener('keydown', e => { 
-      if((e.key===' '||e.key==='ArrowUp') && gameState==='playing'){ e.preventDefault(); handleAction(); }
-      if((e.key==='p' || e.key==='P') && (gameState==='playing' || gameState==='paused')) { pauseBtn.click(); }
-      
-      if(activeGame === 'snake' && gameState === 'playing') {
-        if(e.key === 'ArrowUp' && snakeDy !== 1) { snakeNextDx = 0; snakeNextDy = -1; e.preventDefault(); }
-        else if(e.key === 'ArrowDown' && snakeDy !== -1) { snakeNextDx = 0; snakeNextDy = 1; e.preventDefault(); }
-        else if(e.key === 'ArrowLeft' && snakeDx !== 1) { snakeNextDx = -1; snakeNextDy = 0; e.preventDefault(); }
-        else if(e.key === 'ArrowRight' && snakeDx !== -1) { snakeNextDx = 1; snakeNextDy = 0; e.preventDefault(); }
-      }
-    });
-
-    function burst(x, y, col) {
-      for(let i=0;i<12;i++) {
-        const a=Math.random()*Math.PI*2, s=1.5+Math.random()*4;
-        particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,col,r:2+Math.random()*3});
-      }
-    }
-
-    function hexAlpha(hex, a) {
-      const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-      return `rgba(${r},${g},${b},${a})`;
-    }
-
-    function rr(x,y,w,h,rad,fill,stroke) {
-      ctx.beginPath(); ctx.roundRect(x,y,w,h,[rad]);
-      if(fill){ctx.fillStyle=fill;ctx.fill();}
-      if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1.5;ctx.stroke();}
-    }
-
-    function initBreakout() {
-      let padW = Math.max(70, Math.min(120, W * 0.2)) - (level-1)*3;
-      paddle = { x: W/2, y: H - 35, w: padW, h: 12 };
-      let spd = 3.2 + level * 0.35;
-      ball = { x: paddle.x, y: paddle.y - 6 - 8 - 2, vx: 0, vy: 0, spd: spd, r: 8 };
-      bricks = [];
-      let rows = Math.min(4 + Math.floor(level/2), 8);
-      let bw = Math.floor((W - 30 - 6 * 8) / 9);
-      let tw = 9 * (bw + 6) - 6;
-      let ox = (W - tw) / 2;
-      for(let r = 0; r < rows; r++) {
-        for(let c = 0; c < 9; c++) {
-          let skip = false;
-          if (level % 3 === 2 && (r + c) % 2 === 0) skip = true;
-          if (level % 3 === 0 && (c < r || c > 8 - r)) skip = true;
-          if (skip) continue;
-          let hp = Math.max(1, Math.ceil((rows - r) / 2)); 
-          bricks.push({ x: ox + c*(bw+6), y: 50 + r*(20+6), w: bw, h: 20, hp: hp, maxHp: hp, col: COLORS[(r*2+c)%COLORS.length], alive: true });
-        }
-      }
-    }
-
-    function runBreakout() {
-      if (gameState === 'playing') {
-        const target = touchPos>0 ? touchPos : mousePos>0 ? mousePos : -1;
-        if(target>0) { paddle.x += (target - paddle.x)*0.25; paddle.x = Math.max(paddle.w/2, Math.min(W-paddle.w/2, paddle.x)); }
-
-        if(!launched) {
-          ball.x = paddle.x; ball.y = paddle.y - 6 - 8 - 2;
-        } else {
-          ball.x += ball.vx; ball.y += ball.vy;
-          if(ball.x - 8 < 0) { ball.x=8; ball.vx=Math.abs(ball.vx); }
-          if(ball.x + 8 > W) { ball.x=W-8; ball.vx=-Math.abs(ball.vx); }
-          if(ball.y - 8 < 0) { ball.y=8; ball.vy=Math.abs(ball.vy); }
-
-          let py = paddle.y - 6, px = paddle.x - paddle.w/2;
-          if(ball.vy>0 && ball.y+8>py && ball.y+8<py+12+10 && ball.x>px && ball.x<px+paddle.w) {
-            let rel = (ball.x - paddle.x) / (paddle.w/2);
-            let angle = rel * (Math.PI/3.2);
-            ball.vx = Math.sin(angle)*ball.spd; ball.vy = -Math.abs(Math.cos(angle)*ball.spd);
-            ball.y = py - 8 - 1;
-          }
-
-          if(ball.y - 8 > H) {
-            lives--; updateUI();
-            burst(ball.x, H-20, '#ff4757');
-            if(lives<=0){ gameState = 'gameover'; saveHS(); return; }
-            launched=false; 
-            ball.spd = 3.2 + level * 0.35;
-            ball.vx = 0; ball.vy = 0;
-          }
-
-          for(let b of bricks) {
-            if(!b.alive) continue;
-            if(ball.x+8>b.x && ball.x-8<b.x+b.w && ball.y+8>b.y && ball.y-8<b.y+b.h) {
-              let fl=ball.x-b.x, fr=(b.x+b.w)-ball.x, ft=ball.y-b.y, fb=(b.y+b.h)-ball.y;
-              if(Math.min(fl,fr)<Math.min(ft,fb)) ball.vx=-ball.vx; else ball.vy=-ball.vy;
-              b.hp--;
-              if(b.hp<=0){ b.alive=false; burst(b.x+b.w/2,b.y+b.h/2,b.col); addScore(15*level); }
-              else burst(b.x+b.w/2,b.y+b.h/2,hexAlpha(b.col,0.6));
-              break;
-            }
-          }
-          if(bricks.every(b=>!b.alive)) { 
-            level++; 
-            if(level > 5) { gameState = 'win'; saveHS(); return; }
-            launched=false; initBreakout(); updateUI(); return; 
-          }
-        }
-      }
-
-      bricks.forEach(b => {
-        if(!b.alive) return;
-        let t = b.hp/b.maxHp;
-        rr(b.x,b.y,b.w,b.h,5,hexAlpha(b.col,0.2+t*0.6),b.col);
-        if(b.maxHp>1){
-          ctx.fillStyle='#ffffff'; ctx.font=`bold ${Math.round(b.h*0.6)}px DM Sans,sans-serif`;
-          ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(b.hp, b.x+b.w/2, b.y+b.h/2+1);
-        }
-      });
-
-      let padGrd = ctx.createLinearGradient(paddle.x-paddle.w/2, 0, paddle.x+paddle.w/2, 0);
-      padGrd.addColorStop(0, '#ff4757'); padGrd.addColorStop(1, '#ffa502');
-      rr(paddle.x-paddle.w/2, paddle.y-6, paddle.w, 12, 6, padGrd);
-
-      ctx.beginPath(); ctx.arc(ball.x,ball.y,8,0,Math.PI*2); ctx.fillStyle='#ff4757'; ctx.fill();
-      ctx.strokeStyle='rgba(255,255,255,0.5)'; ctx.lineWidth=2; ctx.stroke();
-
-      if(!launched && gameState !== 'paused') {
-        ctx.fillStyle='#636e72'; ctx.textAlign='center'; ctx.textBaseline='middle';
-        ctx.font=`600 ${Math.round(W*0.035)}px DM Sans,sans-serif`; ctx.fillText('Tıkla / dokun → fırlat', W/2, H/2+50);
-      }
-    }
-
-    function drawTechBlock(x, y, w, baseColor) {
-      rr(x, y, w, 22, 6, baseColor);
-      ctx.fillStyle = 'rgba(255,255,255,0.2)';
-      ctx.fillRect(x + 2, y + 2, w - 4, 6);
-      ctx.fillStyle = 'rgba(0,0,0,0.15)';
-      ctx.fillRect(x + 2, y + 16, w - 4, 4);
-      ctx.fillStyle = '#2ed573';
-      ctx.beginPath(); ctx.arc(x + 12, y + 11, 2.5, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 22, y + 11, 2.5, 0, Math.PI*2); ctx.fill();
-    }
-
-    function initStack() {
-      stackLayers = [{x:W/2-60, w:120}];
-      currentLayer = {x:0, w:120, d:1};
-      stackSpeed = 3.5;
-    }
-
-    function dropStack() {
-      let prev = stackLayers[stackLayers.length-1];
-      let diff = currentLayer.x - prev.x;
-      if(Math.abs(diff) < 8) { 
-        currentLayer.x = prev.x; diff = 0; 
-        burst(currentLayer.x+currentLayer.w/2, H-20-stackLayers.length*24, '#2ed573'); 
-        addScore(10); 
-      }
-      
-      if(Math.abs(diff) >= currentLayer.w) { gameState = 'gameover'; saveHS(); return; }
-      
-      let nw = currentLayer.w - Math.abs(diff);
-      if(nw <= 0) { gameState = 'gameover'; saveHS(); return; }
-      
-      let nx = diff > 0 ? currentLayer.x : prev.x;
-      stackLayers.push({x:nx, w:nw});
-      addScore(15);
-      
-      currentLayer = {x: currentLayer.d>0 ? 0 : W-nw, w:nw, d: currentLayer.d*-1};
-      stackSpeed += 0.15;
-    }
-
-    function runStack() {
-      if (gameState === 'playing') {
-        currentLayer.x += currentLayer.d * stackSpeed;
-        if(currentLayer.x <= 0) {
-          currentLayer.x = 0;
-          currentLayer.d = 1;
-        } else if(currentLayer.x + currentLayer.w >= W) {
-          currentLayer.x = W - currentLayer.w;
-          currentLayer.d = -1;
-        }
-      }
-      
-      let offY = stackLayers.length > 9 ? (stackLayers.length-9)*24 : 0;
-      
-      stackLayers.forEach((l,i) => {
-        let clr = `hsl(${(i*15)%360}, 80%, 55%)`;
-        if(i===0) clr = '#2d3436';
-        drawTechBlock(l.x, H - 35 - i*24 + offY, l.w, clr);
-      });
-      drawTechBlock(currentLayer.x, H - 35 - stackLayers.length*24 + offY, currentLayer.w, '#ff4757');
-    }
-
-    function initSnakeVars() {
-      cellSize = 20;
-      cols = Math.floor(W / cellSize);
-      rows = Math.floor(H / cellSize);
-    }
-
-    function initSnake() {
-      initSnakeVars();
-      snake = [
-        {x: Math.floor(cols/2), y: Math.floor(rows/2)},
-        {x: Math.floor(cols/2)-1, y: Math.floor(rows/2)},
-        {x: Math.floor(cols/2)-2, y: Math.floor(rows/2)}
-      ];
-      snakeDx = 1; snakeDy = 0; snakeNextDx = 1; snakeNextDy = 0;
-      snakeTimer = 0; snakeInterval = 14;
-      spawnFood();
-    }
-
-    function spawnFood() {
-      food = {
-        x: Math.floor(Math.random() * cols),
-        y: Math.floor(Math.random() * rows)
-      };
-      let onSnake = false;
-      for(let s of snake) { if(s.x === food.x && s.y === food.y) onSnake = true; }
-      if(onSnake) spawnFood();
-    }
-
-    function drawSnakeGrid() {
-      ctx.fillStyle = '#a8cc9b'; ctx.fillRect(0, 0, W, H);
-      ctx.strokeStyle = '#96b88b'; ctx.lineWidth = 1;
-      let ox = (W - cols*cellSize)/2;
-      let oy = (H - rows*cellSize)/2;
-      
-      ctx.save(); ctx.translate(ox, oy);
-      for(let i=0; i<=cols; i++) { ctx.beginPath(); ctx.moveTo(i*cellSize, 0); ctx.lineTo(i*cellSize, rows*cellSize); ctx.stroke(); }
-      for(let i=0; i<=rows; i++) { ctx.beginPath(); ctx.moveTo(0, i*cellSize); ctx.lineTo(cols*cellSize, i*cellSize); ctx.stroke(); }
-      
-      let cx = food.x * cellSize + cellSize/2;
-      let cy = food.y * cellSize + cellSize/2;
-      ctx.beginPath(); ctx.arc(cx, cy, cellSize/2 - 2, 0, Math.PI*2); ctx.fillStyle = '#e02b2b'; ctx.fill();
-      ctx.beginPath(); ctx.arc(cx+2, cy-5, 3, 0, Math.PI*2); ctx.fillStyle = '#2ed573'; ctx.fill();
-
-      snake.forEach((s, i) => {
-        let px = s.x * cellSize; let py = s.y * cellSize;
-        ctx.fillStyle = i===0 ? '#0f380f' : '#185418';
-        rr(px+1, py+1, cellSize-2, cellSize-2, 6, ctx.fillStyle);
-        if(i===0) {
-           ctx.fillStyle='#a8cc9b';
-           if(snakeDx===1){ ctx.fillRect(px+12, py+4, 4, 4); ctx.fillRect(px+12, py+12, 4, 4); }
-           else if(snakeDx===-1){ ctx.fillRect(px+4, py+4, 4, 4); ctx.fillRect(px+4, py+12, 4, 4); }
-           else if(snakeDy===1){ ctx.fillRect(px+4, py+12, 4, 4); ctx.fillRect(px+12, py+12, 4, 4); }
-           else if(snakeDy===-1){ ctx.fillRect(px+4, py+4, 4, 4); ctx.fillRect(px+12, py+4, 4, 4); }
-        }
-      });
-      ctx.restore();
-    }
-
-    function runSnake() {
-      if (gameState === 'playing') {
-        snakeTimer++;
-        if(snakeTimer >= snakeInterval) {
-          snakeTimer = 0;
-          snakeDx = snakeNextDx;
-          snakeDy = snakeNextDy;
-          
-          let head = { x: snake[0].x + snakeDx, y: snake[0].y + snakeDy };
-          
-          if(head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
-            gameState = 'gameover'; saveHS(); return;
-          }
-          for(let s of snake) {
-            if(head.x === s.x && head.y === s.y) {
-              gameState = 'gameover'; saveHS(); return;
-            }
-          }
-          
-          snake.unshift(head);
-          
-          if(head.x === food.x && head.y === food.y) {
-            addScore(10);
-            spawnFood();
-            if(snakeInterval > 5 && score % 50 === 0) snakeInterval--;
-          } else {
-            snake.pop();
-          }
-        }
-      }
-      drawSnakeGrid();
-    }
-
-    function drawOverlay(title, sub, color) {
-      ctx.fillStyle = 'rgba(255,255,255,0.85)';
-      if(activeGame === 'snake') ctx.fillStyle = 'rgba(168,204,155,0.85)';
-      ctx.fillRect(0, 0, W, H);
-      ctx.fillStyle = color;
-      if(activeGame === 'snake') ctx.fillStyle = '#0f380f';
-      ctx.font = `bold ${Math.round(W*0.07)}px Syne, sans-serif`;
+function drawBreakoutScene() {
+  bricks.forEach(b => {
+    if (!b.alive) return;
+    const t = b.hp / b.maxHp;
+    rr(b.x, b.y, b.w, b.h, 5, hexAlpha(b.col, 0.25 + t * 0.6), b.col);
+    // üst parlama
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.beginPath(); ctx.roundRect(b.x + 2, b.y + 2, b.w - 4, 5, [3]); ctx.fill();
+    if (b.maxHp > 1) {
+      ctx.fillStyle = '#fff';
+      ctx.font = `bold ${Math.round(b.h * 0.6)}px DM Sans,sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(title, W/2, H/2 - 20);
-      ctx.fillStyle = '#636e72';
-      if(activeGame === 'snake') ctx.fillStyle = '#185418';
-      ctx.font = `600 ${Math.round(W*0.04)}px DM Sans, sans-serif`;
-      ctx.fillText(sub, W/2, H/2 + 30);
+      ctx.fillText(b.hp, b.x + b.w / 2, b.y + b.h / 2 + 1);
+    }
+  });
+
+  // top izi
+  trail.forEach((t, i) => {
+    const a = (i / trail.length) * 0.35;
+    ctx.beginPath(); ctx.arc(t.x, t.y, ball.r * (i / trail.length), 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,71,87,${a})`; ctx.fill();
+  });
+
+  // raket
+  const padGrd = ctx.createLinearGradient(paddle.x - paddle.w / 2, 0, paddle.x + paddle.w / 2, 0);
+  padGrd.addColorStop(0, '#ff4757'); padGrd.addColorStop(1, '#ffa502');
+  ctx.shadowColor = 'rgba(255,71,87,0.4)'; ctx.shadowBlur = 12;
+  rr(paddle.x - paddle.w / 2, paddle.y - 6, paddle.w, 12, 6, padGrd);
+  ctx.shadowBlur = 0;
+
+  // top
+  const bg = ctx.createRadialGradient(ball.x - 2, ball.y - 3, 1, ball.x, ball.y, ball.r);
+  bg.addColorStop(0, '#ff8a94'); bg.addColorStop(1, '#ff4757');
+  ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+  ctx.fillStyle = bg; ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 2; ctx.stroke();
+}
+
+function runBreakout() {
+  if (gameState === 'playing') {
+    const target = touchPos > 0 ? touchPos : mousePos > 0 ? mousePos : -1;
+    if (target > 0) {
+      paddle.x += (target - paddle.x) * 0.25;
+      paddle.x = Math.max(paddle.w / 2, Math.min(W - paddle.w / 2, paddle.x));
     }
 
-    function gameLoop() {
-      if(activeGame !== 'snake') { ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H); }
+    if (!launched) {
+      ball.x = paddle.x; ball.y = paddle.y - 16;
+      trail = [];
+    } else {
+      trail.push({ x: ball.x, y: ball.y });
+      if (trail.length > 8) trail.shift();
 
-      if(gameState === 'playing' || gameState === 'paused') {
-        if(activeGame === 'breakout') runBreakout();
-        else if(activeGame === 'stack') runStack();
-        else if(activeGame === 'snake') runSnake();
+      ball.x += ball.vx; ball.y += ball.vy;
+      if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx = Math.abs(ball.vx); SFX.wall(); }
+      if (ball.x + ball.r > W) { ball.x = W - ball.r; ball.vx = -Math.abs(ball.vx); SFX.wall(); }
+      if (ball.y - ball.r < 0) { ball.y = ball.r; ball.vy = Math.abs(ball.vy); SFX.wall(); }
+
+      const py = paddle.y - 6, px = paddle.x - paddle.w / 2;
+      if (ball.vy > 0 && ball.y + ball.r > py && ball.y + ball.r < py + 22 && ball.x > px && ball.x < px + paddle.w) {
+        const rel = (ball.x - paddle.x) / (paddle.w / 2);
+        const angle = rel * (Math.PI / 3.2);
+        ball.vx = Math.sin(angle) * ball.spd;
+        ball.vy = -Math.abs(Math.cos(angle) * ball.spd);
+        ball.y = py - ball.r - 1;
+        SFX.paddle();
       }
 
-      if(gameState === 'gameover' || gameState === 'win') {
-        if(activeGame === 'breakout') {
-           bricks.forEach(b => { if(b.alive) { let t = b.hp/b.maxHp; rr(b.x,b.y,b.w,b.h,5,hexAlpha(b.col,0.2+t*0.6),b.col); } });
-           let padGrd = ctx.createLinearGradient(paddle.x-paddle.w/2, 0, paddle.x+paddle.w/2, 0);
-           padGrd.addColorStop(0, '#ff4757'); padGrd.addColorStop(1, '#ffa502');
-           rr(paddle.x-paddle.w/2, paddle.y-6, paddle.w, 12, 6, padGrd);
-        } else if(activeGame === 'stack') {
-           let offY = stackLayers.length > 9 ? (stackLayers.length-9)*24 : 0;
-           stackLayers.forEach((l,i) => { let clr = `hsl(${(i*15)%360}, 80%, 55%)`; if(i===0) clr = '#2d3436'; drawTechBlock(l.x, H - 35 - i*24 + offY, l.w, clr); });
-        } else if(activeGame === 'snake') {
-           drawSnakeGrid();
+      if (ball.y - ball.r > H) {
+        lives--; updateUI();
+        burst(ball.x, H - 20, '#ff4757');
+        shake = 10;
+        SFX.loseLife();
+        if (lives <= 0) { gameState = 'gameover'; saveHS(); SFX.gameover(); return; }
+        launched = false;
+        ball.spd = 3.2 + level * 0.35;
+        ball.vx = 0; ball.vy = 0;
+      }
+
+      for (const b of bricks) {
+        if (!b.alive) continue;
+        if (ball.x + ball.r > b.x && ball.x - ball.r < b.x + b.w && ball.y + ball.r > b.y && ball.y - ball.r < b.y + b.h) {
+          const fl = ball.x - b.x, fr = (b.x + b.w) - ball.x, ft = ball.y - b.y, fb = (b.y + b.h) - ball.y;
+          if (Math.min(fl, fr) < Math.min(ft, fb)) ball.vx = -ball.vx; else ball.vy = -ball.vy;
+          b.hp--;
+          if (b.hp <= 0) {
+            b.alive = false;
+            burst(b.x + b.w / 2, b.y + b.h / 2, b.col);
+            addScore(15 * level);
+            popup(b.x + b.w / 2, b.y, '+' + (15 * level), b.col);
+            SFX.brickBreak();
+          } else {
+            burst(b.x + b.w / 2, b.y + b.h / 2, hexAlpha(b.col, 0.6), 6);
+            SFX.brick(b.hp);
+          }
+          break;
         }
       }
 
-      particles = particles.filter(p => {
-        p.x+=p.vx; p.y+=p.vy; p.vy+=0.15; p.life-=0.03;
-        if(p.life<=0) return false;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*p.life,0,Math.PI*2);
-        ctx.fillStyle=p.col; ctx.globalAlpha=p.life; ctx.fill(); ctx.globalAlpha=1;
-        return true;
-      });
+      if (bricks.every(b => !b.alive)) {
+        level++;
+        if (level > 5) { gameState = 'win'; saveHS(); SFX.win(); return; }
+        launched = false;
+        SFX.levelup();
+        popup(W / 2, H / 2, 'SEVİYE ' + level + '!', '#2ed573', 1.5);
+        initBreakout(); updateUI(); return;
+      }
+    }
+  }
 
-      if(gameState === 'paused') {
-        drawOverlay('DURDURULDU', 'Devam etmek için betona bas', '#2d3436');
-      } else if(gameState === 'gameover') {
-        drawOverlay('OYUN BİTTİ', 'Skorun: ' + score, '#ff4757');
-        startBtn.textContent = 'Tekrar Oyna';
-        pauseBtn.textContent = 'Durdur';
-      } else if(gameState === 'win') {
-        drawOverlay('TEBRİKLER', 'Tüm Bölümleri Bitirdin!', '#2ed573');
-        startBtn.textContent = 'Tekrar Oyna';
-        pauseBtn.textContent = 'Durdur';
-      } else if(gameState === 'idle') {
-        return; 
+  drawBreakoutScene();
+
+  if (!launched && gameState === 'playing') {
+    ctx.fillStyle = '#636e72'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = `600 ${Math.round(W * 0.035)}px DM Sans,sans-serif`;
+    ctx.fillText('Tıkla / dokun → fırlat', W / 2, H / 2 + 50);
+  }
+}
+
+/* ============ TECH STACK ============ */
+function drawTechBlock(x, y, w, baseColor) {
+  rr(x, y, w, 22, 6, baseColor);
+  ctx.fillStyle = 'rgba(255,255,255,0.25)';
+  ctx.beginPath(); ctx.roundRect(x + 2, y + 2, w - 4, 6, [3]); ctx.fill();
+  ctx.fillStyle = 'rgba(0,0,0,0.15)';
+  ctx.fillRect(x + 2, y + 16, w - 4, 4);
+  if (w > 30) {
+    ctx.fillStyle = '#2ed573';
+    ctx.beginPath(); ctx.arc(x + 12, y + 11, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x + 22, y + 11, 2.5, 0, Math.PI * 2); ctx.fill();
+  }
+}
+
+function initStack() {
+  stackLayers = [{ x: W / 2 - 60, w: 120 }];
+  currentLayer = { x: 0, w: 120, d: 1 };
+  stackSpeed = 3.5;
+  combo = 0;
+}
+
+function dropStack() {
+  const prev = stackLayers[stackLayers.length - 1];
+  let diff = currentLayer.x - prev.x;
+  const topY = H - 35 - stackLayers.length * 24 + (stackLayers.length > 9 ? (stackLayers.length - 9) * 24 : 0);
+
+  if (Math.abs(diff) < 8) {
+    // Mükemmel bırakma
+    currentLayer.x = prev.x; diff = 0;
+    combo++;
+    const bonus = 10 * combo;
+    burst(currentLayer.x + currentLayer.w / 2, topY, '#2ed573');
+    addScore(15 + bonus);
+    popup(currentLayer.x + currentLayer.w / 2, topY - 10,
+      combo > 1 ? `MÜKEMMEL x${combo}! +${15 + bonus}` : `MÜKEMMEL! +${15 + bonus}`, '#2ed573', combo > 1 ? 1.25 : 1);
+    SFX.perfect(Math.min(combo, 6));
+  } else {
+    combo = 0;
+    if (Math.abs(diff) >= currentLayer.w) { gameState = 'gameover'; shake = 12; saveHS(); SFX.gameover(); return; }
+    const nw = currentLayer.w - Math.abs(diff);
+    if (nw <= 0) { gameState = 'gameover'; shake = 12; saveHS(); SFX.gameover(); return; }
+    addScore(15);
+    popup(currentLayer.x + currentLayer.w / 2, topY - 10, '+15', '#ff4757');
+    SFX.drop();
+    const nx = diff > 0 ? currentLayer.x : prev.x;
+    stackLayers.push({ x: nx, w: nw });
+    currentLayer = { x: currentLayer.d > 0 ? 0 : W - nw, w: nw, d: currentLayer.d * -1 };
+    stackSpeed += 0.15;
+    return;
+  }
+
+  // mükemmel bırakmada genişlik korunur
+  stackLayers.push({ x: currentLayer.x, w: currentLayer.w });
+  currentLayer = { x: currentLayer.d > 0 ? 0 : W - currentLayer.w, w: currentLayer.w, d: currentLayer.d * -1 };
+  stackSpeed += 0.15;
+}
+
+function drawStackScene() {
+  const offY = stackLayers.length > 9 ? (stackLayers.length - 9) * 24 : 0;
+  stackLayers.forEach((l, i) => {
+    let clr = `hsl(${(i * 15) % 360}, 80%, 55%)`;
+    if (i === 0) clr = '#2d3436';
+    drawTechBlock(l.x, H - 35 - i * 24 + offY, l.w, clr);
+  });
+  drawTechBlock(currentLayer.x, H - 35 - stackLayers.length * 24 + offY, currentLayer.w, '#ff4757');
+}
+
+function runStack() {
+  if (gameState === 'playing') {
+    currentLayer.x += currentLayer.d * stackSpeed;
+    if (currentLayer.x <= 0) { currentLayer.x = 0; currentLayer.d = 1; }
+    else if (currentLayer.x + currentLayer.w >= W) { currentLayer.x = W - currentLayer.w; currentLayer.d = -1; }
+  }
+  drawStackScene();
+  if (gameState === 'playing' && stackLayers.length === 1) {
+    ctx.fillStyle = '#636e72'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = `600 ${Math.round(W * 0.033)}px DM Sans,sans-serif`;
+    ctx.fillText('Tıkla / dokun → bloğu bırak (tam isabet = bonus!)', W / 2, H / 2 - 40);
+  }
+}
+
+/* ============ SNAKE ============ */
+function initSnakeVars() {
+  cellSize = 20;
+  cols = Math.floor(W / cellSize);
+  rows = Math.floor(H / cellSize);
+}
+
+function initSnake() {
+  initSnakeVars();
+  snake = [
+    { x: Math.floor(cols / 2), y: Math.floor(rows / 2) },
+    { x: Math.floor(cols / 2) - 1, y: Math.floor(rows / 2) },
+    { x: Math.floor(cols / 2) - 2, y: Math.floor(rows / 2) }
+  ];
+  snakeDx = 1; snakeDy = 0; snakeNextDx = 1; snakeNextDy = 0;
+  snakeTimer = 0; snakeInterval = 14;
+  spawnFood();
+}
+
+function spawnFood() {
+  let tries = 0;
+  do {
+    food = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
+    tries++;
+  } while (snake.some(s => s.x === food.x && s.y === food.y) && tries < 200);
+}
+
+function drawSnakeGrid() {
+  ctx.fillStyle = '#a8cc9b'; ctx.fillRect(0, 0, W, H);
+  ctx.strokeStyle = '#96b88b'; ctx.lineWidth = 1;
+  const ox = (W - cols * cellSize) / 2;
+  const oy = (H - rows * cellSize) / 2;
+  ctx.save(); ctx.translate(ox, oy);
+  for (let i = 0; i <= cols; i++) { ctx.beginPath(); ctx.moveTo(i * cellSize, 0); ctx.lineTo(i * cellSize, rows * cellSize); ctx.stroke(); }
+  for (let i = 0; i <= rows; i++) { ctx.beginPath(); ctx.moveTo(0, i * cellSize); ctx.lineTo(cols * cellSize, i * cellSize); ctx.stroke(); }
+
+  // elma — nabız gibi atan parlak yem
+  foodPulse += 0.12;
+  const pr = cellSize / 2 - 2 + Math.sin(foodPulse) * 1.5;
+  const cx = food.x * cellSize + cellSize / 2;
+  const cy = food.y * cellSize + cellSize / 2;
+  ctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI * 2); ctx.fillStyle = '#e02b2b'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx - 2.5, cy - 3, 2.2, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.fill();
+  ctx.fillStyle = '#185418';
+  ctx.fillRect(cx - 1, cy - pr - 3, 2, 4);
+  ctx.beginPath(); ctx.ellipse(cx + 3, cy - pr - 2, 3.2, 1.8, 0.6, 0, Math.PI * 2); ctx.fillStyle = '#2ed573'; ctx.fill();
+
+  // yılan — kafadan kuyruğa degrade gövde
+  snake.forEach((s, i) => {
+    const px = s.x * cellSize, py = s.y * cellSize;
+    const t = i / Math.max(1, snake.length - 1);
+    const shade = Math.round(15 + t * 50);
+    ctx.fillStyle = i === 0 ? '#0f380f' : `rgb(${shade},${84 + Math.round(t * 25)},${shade})`;
+    const inset = i === 0 ? 0.5 : 1 + t * 1.5;
+    rr(px + inset, py + inset, cellSize - inset * 2, cellSize - inset * 2, 6, ctx.fillStyle);
+    if (i === 0) {
+      ctx.fillStyle = '#a8cc9b';
+      if (snakeDx === 1)       { ctx.fillRect(px + 12, py + 4, 4, 4); ctx.fillRect(px + 12, py + 12, 4, 4); }
+      else if (snakeDx === -1) { ctx.fillRect(px + 4, py + 4, 4, 4);  ctx.fillRect(px + 4, py + 12, 4, 4); }
+      else if (snakeDy === 1)  { ctx.fillRect(px + 4, py + 12, 4, 4); ctx.fillRect(px + 12, py + 12, 4, 4); }
+      else                     { ctx.fillRect(px + 4, py + 4, 4, 4);  ctx.fillRect(px + 12, py + 4, 4, 4); }
+      // göz bebekleri
+      ctx.fillStyle = '#0f380f';
+      if (snakeDx === 1)       { ctx.fillRect(px + 14, py + 5, 2, 2); ctx.fillRect(px + 14, py + 13, 2, 2); }
+      else if (snakeDx === -1) { ctx.fillRect(px + 4, py + 5, 2, 2);  ctx.fillRect(px + 4, py + 13, 2, 2); }
+      else if (snakeDy === 1)  { ctx.fillRect(px + 5, py + 14, 2, 2); ctx.fillRect(px + 13, py + 14, 2, 2); }
+      else                     { ctx.fillRect(px + 5, py + 4, 2, 2);  ctx.fillRect(px + 13, py + 4, 2, 2); }
+    }
+  });
+  ctx.restore();
+}
+
+function runSnake() {
+  if (gameState === 'playing') {
+    snakeTimer++;
+    if (snakeTimer >= snakeInterval) {
+      snakeTimer = 0;
+      snakeDx = snakeNextDx;
+      snakeDy = snakeNextDy;
+      const head = { x: snake[0].x + snakeDx, y: snake[0].y + snakeDy };
+
+      const hitWall = head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows;
+      const hitSelf = snake.some(s => head.x === s.x && head.y === s.y);
+      if (hitWall || hitSelf) {
+        gameState = 'gameover'; shake = 12; saveHS(); SFX.gameover(); return;
       }
 
-      animId = requestAnimationFrame(gameLoop);
-    }
-
-    function drawIdle() {
-      if(activeGame === 'snake') {
-         ctx.fillStyle = '#a8cc9b'; ctx.fillRect(0, 0, W, H);
-         ctx.strokeStyle = '#96b88b'; ctx.lineWidth = 1;
-         let ox = (W - cols*cellSize)/2; let oy = (H - rows*cellSize)/2;
-         ctx.save(); ctx.translate(ox, oy);
-         for(let i=0; i<=cols; i++) { ctx.beginPath(); ctx.moveTo(i*cellSize, 0); ctx.lineTo(i*cellSize, rows*cellSize); ctx.stroke(); }
-         for(let i=0; i<=rows; i++) { ctx.beginPath(); ctx.moveTo(0, i*cellSize); ctx.lineTo(cols*cellSize, i*cellSize); ctx.stroke(); }
-         ctx.restore();
-         ctx.fillStyle='#0f380f'; ctx.textAlign='center'; ctx.textBaseline='middle';
-         ctx.font=`600 ${Math.round(W*0.038)}px DM Sans,sans-serif`;
-         ctx.fillText(`Seçili Oyun: SNAKE`, W/2, H/2-20);
-         ctx.fillText('Oynamak için "Başla"ya bas!', W/2, H/2+20);
+      snake.unshift(head);
+      if (head.x === food.x && head.y === food.y) {
+        addScore(10);
+        const ox = (W - cols * cellSize) / 2, oy = (H - rows * cellSize) / 2;
+        burst(ox + food.x * cellSize + cellSize / 2, oy + food.y * cellSize + cellSize / 2, '#e02b2b', 10);
+        popup(ox + food.x * cellSize + cellSize / 2, oy + food.y * cellSize, '+10', '#0f380f');
+        SFX.eat();
+        spawnFood();
+        if (snakeInterval > 5 && score % 50 === 0) { snakeInterval--; SFX.levelup(); }
       } else {
-         ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
-         ctx.fillStyle='#2d3436'; ctx.textAlign='center'; ctx.textBaseline='middle';
-         ctx.font=`600 ${Math.round(W*0.038)}px DM Sans,sans-serif`;
-         ctx.fillText(`Seçili Oyun: ${activeGame.toUpperCase()}`, W/2, H/2-20);
-         ctx.fillStyle='#ff4757';
-         ctx.fillText('Oynamak için "Başla"ya bas!', W/2, H/2+20);
+        snake.pop();
       }
     }
+  }
+  drawSnakeGrid();
+}
 
-    startBtn.addEventListener('click', () => {
-      if(gameState === 'paused') { gameState = 'playing'; pauseBtn.textContent='Durdur'; return; }
-      cancelAnimationFrame(animId);
-      score=0; lives=3; level=1; gameState='playing'; launched=false; particles=[];
-      if(activeGame==='breakout') initBreakout(); else if(activeGame==='stack') initStack(); else if(activeGame==='snake') initSnake();
-      updateUI();
-      startBtn.textContent='Yeniden Başlat';
-      pauseBtn.textContent='Durdur';
-      requestAnimationFrame(gameLoop);
-    });
+/* ============ ORTAK ÇİZİM ============ */
+function drawOverlay(title, sub, color) {
+  ctx.fillStyle = activeGame === 'snake' ? 'rgba(168,204,155,0.88)' : 'rgba(255,255,255,0.88)';
+  ctx.fillRect(0, 0, W, H);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
 
-    canvas.style.touchAction = 'pan-y';
-    updateUI(); drawIdle();
-  </script>
+  ctx.fillStyle = activeGame === 'snake' ? '#0f380f' : color;
+  ctx.font = `800 ${Math.round(W * 0.07)}px Syne, sans-serif`;
+  ctx.fillText(title, W / 2, H / 2 - 28);
+
+  ctx.fillStyle = activeGame === 'snake' ? '#185418' : '#636e72';
+  ctx.font = `600 ${Math.round(W * 0.04)}px DM Sans, sans-serif`;
+  ctx.fillText(sub, W / 2, H / 2 + 18);
+}
+
+function drawEndExtras() {
+  if (recordBeaten) {
+    ctx.fillStyle = '#ffa502';
+    ctx.font = `800 ${Math.round(W * 0.042)}px Syne, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('🏆 YENİ REKOR!', W / 2, H / 2 + 58);
+  } else {
+    ctx.fillStyle = activeGame === 'snake' ? '#185418' : '#b2bec3';
+    ctx.font = `600 ${Math.round(W * 0.03)}px DM Sans, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('Rekor: ' + (highScores[activeGame] || 0), W / 2, H / 2 + 56);
+  }
+}
+
+function gameLoop() {
+  ctx.save();
+  if (shake > 0) {
+    ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
+    shake *= 0.85;
+    if (shake < 0.5) shake = 0;
+  }
+
+  if (activeGame !== 'snake') { ctx.fillStyle = '#ffffff'; ctx.fillRect(-20, -20, W + 40, H + 40); }
+  else if (gameState === 'gameover') { ctx.fillStyle = '#a8cc9b'; ctx.fillRect(-20, -20, W + 40, H + 40); }
+
+  if (gameState === 'playing' || gameState === 'paused') {
+    if (activeGame === 'breakout') runBreakout();
+    else if (activeGame === 'stack') runStack();
+    else runSnake();
+  } else if (gameState === 'gameover' || gameState === 'win') {
+    if (activeGame === 'breakout') drawBreakoutScene();
+    else if (activeGame === 'stack') drawStackScene();
+    else drawSnakeGrid();
+  }
+
+  drawFX();
+
+  if (gameState === 'paused') {
+    drawOverlay('DURDURULDU', 'Devam etmek için ekrana dokun veya P tuşuna bas', '#2d3436');
+  } else if (gameState === 'gameover') {
+    drawOverlay('OYUN BİTTİ', 'Skorun: ' + score, '#ff4757');
+    drawEndExtras();
+    startBtn.textContent = 'Tekrar Oyna';
+    pauseBtn.textContent = 'Durdur';
+  } else if (gameState === 'win') {
+    drawOverlay('TEBRİKLER!', 'Tüm bölümleri bitirdin — Skor: ' + score, '#2ed573');
+    drawEndExtras();
+    startBtn.textContent = 'Tekrar Oyna';
+    pauseBtn.textContent = 'Durdur';
+  }
+
+  ctx.restore();
+
+  if (gameState === 'idle') return;
+  animId = requestAnimationFrame(gameLoop);
+}
+
+function drawIdle() {
+  if (activeGame === 'snake') {
+    ctx.fillStyle = '#a8cc9b'; ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = '#96b88b'; ctx.lineWidth = 1;
+    const ox = (W - cols * cellSize) / 2, oy = (H - rows * cellSize) / 2;
+    ctx.save(); ctx.translate(ox, oy);
+    for (let i = 0; i <= cols; i++) { ctx.beginPath(); ctx.moveTo(i * cellSize, 0); ctx.lineTo(i * cellSize, rows * cellSize); ctx.stroke(); }
+    for (let i = 0; i <= rows; i++) { ctx.beginPath(); ctx.moveTo(0, i * cellSize); ctx.lineTo(cols * cellSize, i * cellSize); ctx.stroke(); }
+    ctx.restore();
+    ctx.fillStyle = '#0f380f';
+  } else {
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#2d3436';
+  }
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.font = `800 ${Math.round(W * 0.05)}px Syne,sans-serif`;
+  ctx.fillText(activeGame.toUpperCase(), W / 2, H / 2 - 38);
+  ctx.font = `600 ${Math.round(W * 0.034)}px DM Sans,sans-serif`;
+  ctx.fillStyle = activeGame === 'snake' ? '#185418' : '#636e72';
+  ctx.fillText('Rekor: ' + (highScores[activeGame] || 0), W / 2, H / 2);
+  ctx.fillStyle = activeGame === 'snake' ? '#0f380f' : '#ff4757';
+  ctx.fillText('Oynamak için "Başla"ya bas!', W / 2, H / 2 + 36);
+}
+
+startBtn.addEventListener('click', () => {
+  ensureAudio(); SFX.click();
+  if (gameState === 'paused') { gameState = 'playing'; pauseBtn.textContent = 'Durdur'; return; }
+  cancelAnimationFrame(animId);
+  score = 0; lives = 3; level = 1; combo = 0;
+  gameState = 'playing'; launched = false;
+  particles = []; popups = []; trail = []; shake = 0; recordBeaten = false;
+  if (activeGame === 'breakout') initBreakout();
+  else if (activeGame === 'stack') initStack();
+  else initSnake();
+  updateUI();
+  startBtn.textContent = 'Yeniden Başlat';
+  pauseBtn.textContent = 'Durdur';
+  requestAnimationFrame(gameLoop);
+});
+
+canvas.style.touchAction = 'pan-y';
+resize();
+updateUI();
+drawIdle();
+
+</script>
 </body>
 </html>
