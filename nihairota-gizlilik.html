@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NihaiRota — Gizlilik Politikası</title>
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f6f7f9; color: #1a1c23; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.3rem 5rem; }
+    h1 { font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem); margin: 0 0 .3rem; }
+    .sub { color: #6b7280; margin: 0 0 2.2rem; }
+    h2 { font-size: 1.25rem; margin: 2.4rem 0 .6rem; }
+    p, li { color: #33363f; }
+    ul { padding-left: 1.2rem; }
+    a { color: #1d5bd8; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.3rem 1.5rem; margin-top: 1rem; }
+    code { background: #eef1f6; padding: 1px 6px; border-radius: 5px; font-size: .92em; }
+    footer { margin-top: 3rem; color: #9099a8; font-size: .85rem; border-top: 1px solid #e5e7eb; padding-top: 1.3rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>NihaiRota — Gizlilik Politikası</h1>
+    <p class="sub">Son güncelleme: 4 Ağustos 2026</p>
+
+    <p>NihaiRota (“Uygulama”), Vectonis Bilişim (“biz”) tarafından geliştirilen kurumsal
+    personel servis ve rota yönetim uygulamasıdır. Bu politika, Uygulamayı kullanırken
+    hangi verileri neden işlediğimizi ve nasıl koruduğumuzu açıklar.</p>
+
+    <h2>1. İşlediğimiz veriler</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Hesap bilgileri:</strong> ad-soyad, e-posta, telefon, rol (yönetici/şoför/personel) ve kurum bağlantısı.</li>
+        <li><strong>Konum verisi:</strong> yalnızca <strong>şoför rolündeki</strong> kullanıcının, aktif sefer sırasında servis aracının konumu. Bu konum, personelin ve yöneticilerin servisi canlı takip edebilmesi için işlenir. Sefer bittiğinde canlı yayın durur.</li>
+        <li><strong>Servis/sefer verisi:</strong> rota, durak, biniş/iniş (yoklama) kayıtları, sefer geçmişi.</li>
+        <li><strong>Cihaz bildirim jetonu:</strong> anlık bildirim gönderebilmek için (Expo Push).</li>
+      </ul>
+    </div>
+
+    <h2>2. Konum izni (arka plan dahil)</h2>
+    <p>Şoför kullanıcıların cihazında, sefer aktifken uygulama arka plandayken de konum
+    erişimi kullanılır. Bunun tek amacı servisi kesintisiz canlı takip edebilmektir.
+    Konum verisi reklam amacıyla kullanılmaz, üçüncü taraflara satılmaz. Şoför dışındaki
+    roller için arka plan konumu kullanılmaz.</p>
+
+    <h2>3. Verilerin saklanması ve üçüncü taraflar</h2>
+    <p>Veriler, güvenli altyapı sağlayıcımız <strong>Supabase</strong> (PostgreSQL veritabanı,
+    kimlik doğrulama) üzerinde saklanır. Ayrıca şu servisleri kullanırız:</p>
+    <ul>
+      <li><strong>Google Maps</strong> — harita ve rota gösterimi için.</li>
+      <li><strong>Expo Push</strong> — anlık bildirim iletimi için.</li>
+    </ul>
+    <p>Kurumların verileri birbirinden veritabanı seviyesinde yalıtılır; bir kurum başka
+    kurumun verisini göremez.</p>
+
+    <h2>4. Verilerin kullanım amacı</h2>
+    <ul>
+      <li>Servis rotalarının planlanması ve canlı takibi</li>
+      <li>Yoklama ve sefer kayıtlarının tutulması</li>
+      <li>Kullanıcıların bilgilendirilmesi (duyuru/bildirim)</li>
+    </ul>
+    <p>Verilerinizi pazarlama veya reklam için kullanmaz, satmayız.</p>
+
+    <h2>5. Saklama süresi ve silme</h2>
+    <p>Veriler, kurumunuzun hizmeti kullandığı süre boyunca saklanır. Hesabınızın veya
+    verilerinizin silinmesini istiyorsanız kurum yöneticinizle veya bizimle iletişime geçin;
+    talebiniz üzerine verileriniz silinir.</p>
+
+    <h2>6. Güvenlik</h2>
+    <p>Erişim, rol bazlı yetkilendirme ve veritabanı seviyesinde satır güvenliği (RLS) ile
+    korunur. Bağlantılar şifrelidir (HTTPS/TLS).</p>
+
+    <h2>7. Çocukların gizliliği</h2>
+    <p>NihaiRota kurumsal personel taşımacılığına yöneliktir ve 18 yaş altına hitap etmez.</p>
+
+    <h2>8. İletişim</h2>
+    <div class="card">
+      <p>Gizlilikle ilgili her türlü soru ve talep için:<br>
+      <strong>E-posta:</strong> <a href="mailto:info@vectonis.com">info@vectonis.com</a><br>
+      <strong>Vectonis Bilişim</strong> — Ankara, Türkiye</p>
+    </div>
+
+    <footer>© 2026 Vectonis Bilişim. Bu politika, uygulama güncellendikçe değişebilir; önemli
+    değişiklikler bu sayfada yayımlanır.</footer>
+  </div>
+</body>
+</html>
