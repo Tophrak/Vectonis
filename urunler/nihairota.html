@@ -79,34 +79,45 @@
           </div>
         </div>
 
-        <div class="nr-phone-wrap">
-          <div class="nr-phone nr-tour" role="group" aria-label="NihaiRota uygulama turu">
-            <div class="nr-phone__screen">
-              <span class="nr-phone__pill" aria-hidden="true"></span>
-              <img class="nr-tour__frame is-active" data-role="Yönetici" data-screen="Komuta Merkezi"
-                   src="../assets/nihairota/admin-komuta.png" width="1084" height="2230"
-                   alt="Yönetici · Komuta Merkezi: aktif hat, personel, doluluk ve kapasite özetleri." loading="eager" fetchpriority="high">
-              <img class="nr-tour__frame" data-role="Yönetici" data-screen="Canlı Harita"
-                   src="../assets/nihairota/admin-harita.png" width="1084" height="2230"
-                   alt="Yönetici · Canlı Harita: harita üzerinde servis araçları ve personel konumları." loading="lazy">
-              <img class="nr-tour__frame" data-role="Yönetici" data-screen="Personel Yönetimi"
-                   src="../assets/nihairota/yonetici-personel.png" width="1084" height="2230"
-                   alt="Yönetici · Personel Yönetimi: 238 personel, arama ve filtreler." loading="lazy">
-              <img class="nr-tour__frame" data-role="Şoför" data-screen="Sefer &amp; Rota"
-                   src="../assets/nihairota/sofor-sefer.png" width="1084" height="2230"
-                   alt="Şoför · Sefer: atanan rota, haritada duraklar ve navigasyon." loading="lazy">
-              <img class="nr-tour__frame" data-role="Şoför" data-screen="Yoklama"
-                   src="../assets/nihairota/sofor-yoklama.png" width="1084" height="2230"
-                   alt="Şoför · Yoklama: personeli bindi/gelmedi olarak işaretleme." loading="lazy">
-              <img class="nr-tour__frame" data-role="Personel" data-screen="Canlı Servis"
-                   src="../assets/nihairota/personel-servisim.png" width="1084" height="2230"
-                   alt="Personel · Servisim: aktif servis, alınma sırası ve canlı harita." loading="lazy">
+        <div class="nr-stage">
+          <div class="nr-stage__glow" aria-hidden="true"></div>
+          <svg class="nr-stage__route" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs><linearGradient id="nrRoute" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6b71e8"/><stop offset="1" stop-color="#FFA502"/>
+            </linearGradient></defs>
+            <path d="M40 380 C150 300 120 180 250 170 C380 160 360 60 470 90"/>
+          </svg>
+          <div class="nr-stage__inner">
+            <div class="nr-phone nr-phone--sub" aria-hidden="true">
+              <div class="nr-phone__screen">
+                <span class="nr-phone__pill"></span>
+                <img src="../assets/nihairota/sofor-sefer.png" width="1084" height="2230" alt="" loading="lazy">
+              </div>
+            </div>
+            <div class="nr-phone nr-phone--main nr-tour" role="group" aria-label="NihaiRota uygulama turu">
+              <div class="nr-phone__screen">
+                <span class="nr-phone__pill" aria-hidden="true"></span>
+                <img class="nr-tour__frame is-active" data-role="Yönetici" data-screen="Komuta Merkezi"
+                     src="../assets/nihairota/admin-komuta.png" width="1084" height="2230"
+                     alt="Yönetici · Komuta Merkezi: aktif hat, personel, doluluk ve kapasite özetleri." loading="eager" fetchpriority="high">
+                <img class="nr-tour__frame" data-role="Yönetici" data-screen="Canlı Harita"
+                     src="../assets/nihairota/admin-harita.png" width="1084" height="2230" alt="" loading="lazy">
+                <img class="nr-tour__frame" data-role="Yönetici" data-screen="Personel Yönetimi"
+                     src="../assets/nihairota/yonetici-personel.png" width="1084" height="2230" alt="" loading="lazy">
+                <img class="nr-tour__frame" data-role="Şoför" data-screen="Sefer &amp; Rota"
+                     src="../assets/nihairota/sofor-sefer.png" width="1084" height="2230" alt="" loading="lazy">
+                <img class="nr-tour__frame" data-role="Şoför" data-screen="Yoklama"
+                     src="../assets/nihairota/sofor-yoklama.png" width="1084" height="2230" alt="" loading="lazy">
+                <img class="nr-tour__frame" data-role="Personel" data-screen="Canlı Servis"
+                     src="../assets/nihairota/personel-servisim.png" width="1084" height="2230" alt="" loading="lazy">
+              </div>
             </div>
           </div>
-          <p class="nr-tour-cap" aria-live="polite"><b class="nr-tour-role">Yönetici</b> · <span class="nr-tour-screen">Komuta Merkezi</span></p>
-          <div class="nr-tour-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
       </div>
+
+      <p class="nr-tour-cap" aria-live="polite"><b class="nr-tour-role">Yönetici</b> · <span class="nr-tour-screen">Komuta Merkezi</span></p>
+      <div class="nr-tour-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i><i></i><i></i><i></i></div>
     </section>
 
     <!-- ── Kayan şerit ── -->
@@ -117,113 +128,151 @@
       </div>
     </div>
 
-    <!-- ── Roller (her rol + kendi ekranları) ── -->
+    <!-- ── İstatistikler ── -->
+    <section class="section wrap" aria-label="Özet">
+      <div class="nr-stats">
+        <div class="nr-stat reveal"><div class="nr-stat__num" data-count="3">0</div><div class="nr-stat__label">Ayrı rol · tek akış</div></div>
+        <div class="nr-stat nr-stat--live reveal"><div class="nr-stat__num">Canlı</div><div class="nr-stat__label">Gerçek zamanlı takip</div></div>
+        <div class="nr-stat reveal"><div class="nr-stat__num"><span class="u">%</span><span data-count="100">0</span></div><div class="nr-stat__label">Çevrimdışı dayanıklı</div></div>
+        <div class="nr-stat reveal"><div class="nr-stat__num" data-count="2">0</div><div class="nr-stat__label">Yüzey · mobil + web</div></div>
+      </div>
+    </section>
+
+    <!-- ── Roller (her rol + interaktif cihaz) ── -->
     <section class="section wrap" aria-labelledby="roller-baslik">
       <div class="section__head reveal">
         <p class="section__eyebrow">Roller</p>
         <h2 class="section__title" id="roller-baslik">Üç rol, tek akış</h2>
-        <p class="section__sub">Herkes yalnızca kendi işine odaklanır; veri arkada tek merkezde birleşir. Her rolün uygulamadaki gerçek ekranları aşağıda.</p>
+        <p class="section__sub">Herkes yalnızca kendi işine odaklanır; veri arkada tek merkezde birleşir. Ekran adına dokunun — cihazda anında açılsın.</p>
       </div>
 
-      <div class="nr-roles-wrap">
+      <div class="nr-roles">
         <!-- Yönetici -->
-        <div class="nr-role-block reveal">
-          <p class="nr-role-eyebrow">01 · Rol</p>
-          <h3 class="nr-role-title">
-            <span class="nr-role-ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/>
-                <rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>
-              </svg>
-            </span>
-            Yönetici
-          </h3>
-          <p class="nr-role-desc">Tüm operasyonu tek panelden yönetir: hesaplar, hatlar, canlı izleme, raporlar ve duyurular.</p>
-          <div class="nr-role-caps">
-            <span class="nr-role-cap">Komuta merkezi</span>
-            <span class="nr-role-cap">Canlı filo haritası</span>
-            <span class="nr-role-cap">Personel yönetimi</span>
-            <span class="nr-role-cap">Hat &amp; güzergâh</span>
-            <span class="nr-role-cap">Rollere göre hesaplar</span>
-            <span class="nr-role-cap">Raporlar &amp; geçmiş</span>
-            <span class="nr-role-cap">Toplu duyuru</span>
-          </div>
-          <div class="nr-gallery" role="group" aria-label="Yönetici ekranları">
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/admin-komuta.png" width="1084" height="2230" loading="lazy" alt="Komuta Merkezi: sefer, taşınan, gelmedi, gecikme ve filo özetleri."></div></div><figcaption>Komuta Merkezi</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/admin-harita.png" width="1084" height="2230" loading="lazy" alt="Canlı Harita: tüm servis ve personel konumları harita üzerinde."></div></div><figcaption>Canlı Harita</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/yonetici-personel.png" width="1084" height="2230" loading="lazy" alt="Personel Yönetimi: 238 personel listesi, arama ve durum filtreleri."></div></div><figcaption>Personel Yönetimi</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/yonetici-hatlar.png" width="1084" height="2230" loading="lazy" alt="Hat ve Güzergâhlar: aktif hatlar, doluluk ve boş koltuk bilgisi."></div></div><figcaption>Hat &amp; Güzergâh</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/yonetici-kullanicilar.png" width="1084" height="2230" loading="lazy" alt="Kullanıcı Hesapları: yönetim, koordinatör ve şoför rollerine ayrılmış hesaplar."></div></div><figcaption>Kullanıcı Hesapları</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/yonetici-duyurular.png" width="1084" height="2230" loading="lazy" alt="Duyurular: servis hattı bazlı hızlı işlemler ve yeni duyuru oluşturma."></div></div><figcaption>Duyurular</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/yonetici-yoklama.png" width="1084" height="2230" loading="lazy" alt="Yoklama Kayıtları: geldi/gelmedi kayıtları ve günlük özet."></div></div><figcaption>Yoklama Kayıtları</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/yonetici-sefergecmisi.png" width="1084" height="2230" loading="lazy" alt="Sefer Geçmişi: tamamlanan ve süren seferlerin kaydı."></div></div><figcaption>Sefer Geçmişi</figcaption></figure>
+        <div class="nr-role-block reveal" data-role-block>
+          <div class="nr-role-block__grid">
+            <div class="nr-role-block__copy">
+              <p class="nr-role-eyebrow">01 · Rol</p>
+              <h3 class="nr-role-title">
+                <span class="nr-role-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/>
+                    <rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>
+                  </svg>
+                </span>
+                Yönetici
+              </h3>
+              <p class="nr-role-desc">Tüm operasyonu tek panelden yönetir: hesaplar, hatlar, canlı izleme, raporlar ve duyurular.</p>
+              <div class="nr-role-caps">
+                <span class="nr-role-cap">Komuta merkezi</span>
+                <span class="nr-role-cap">Canlı filo haritası</span>
+                <span class="nr-role-cap">Rollere göre hesaplar</span>
+                <span class="nr-role-cap">Toplu duyuru</span>
+              </div>
+              <ul class="nr-role-screens" role="tablist" aria-label="Yönetici ekranları">
+                <li><button type="button" class="is-active" data-i="0">Komuta Merkezi</button></li>
+                <li><button type="button" data-i="1">Canlı Harita</button></li>
+                <li><button type="button" data-i="2">Personel Yönetimi</button></li>
+                <li><button type="button" data-i="3">Hat &amp; Güzergâh</button></li>
+                <li><button type="button" data-i="4">Kullanıcı Hesapları</button></li>
+                <li><button type="button" data-i="5">Duyurular</button></li>
+                <li><button type="button" data-i="6">Yoklama Kayıtları</button></li>
+                <li><button type="button" data-i="7">Sefer Geçmişi</button></li>
+              </ul>
+            </div>
+            <div class="nr-role-block__media">
+              <div class="nr-phone nr-role-phone">
+                <div class="nr-phone__screen">
+                  <span class="nr-phone__pill" aria-hidden="true"></span>
+                  <img class="nr-role-frame is-active" src="../assets/nihairota/admin-komuta.png" width="1084" height="2230" alt="Yönetici · Komuta Merkezi ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/admin-harita.png" width="1084" height="2230" alt="Yönetici · Canlı Harita ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/yonetici-personel.png" width="1084" height="2230" alt="Yönetici · Personel Yönetimi ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/yonetici-hatlar.png" width="1084" height="2230" alt="Yönetici · Hat ve Güzergâhlar ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/yonetici-kullanicilar.png" width="1084" height="2230" alt="Yönetici · Kullanıcı Hesapları (rollere ayrık) ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/yonetici-duyurular.png" width="1084" height="2230" alt="Yönetici · Duyurular ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/yonetici-yoklama.png" width="1084" height="2230" alt="Yönetici · Yoklama Kayıtları ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/yonetici-sefergecmisi.png" width="1084" height="2230" alt="Yönetici · Sefer Geçmişi ekranı." loading="lazy">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Şoför -->
-        <div class="nr-role-block reveal">
-          <p class="nr-role-eyebrow">02 · Rol</p>
-          <h3 class="nr-role-title">
-            <span class="nr-role-ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4"/>
-                <path d="M12 3v6.6M4.8 8.4l5 3.9M19.2 8.4l-5 3.9M7.5 20l2.3-5M16.5 20l-2.3-5"/>
-              </svg>
-            </span>
-            Şoför
-          </h3>
-          <p class="nr-role-desc">Atanan rotayı harita üzerinde görür, navigasyonla ilerler ve her durakta yoklama alır.</p>
-          <div class="nr-role-caps">
-            <span class="nr-role-cap">Atanan rota &amp; duraklar</span>
-            <span class="nr-role-cap">Haritada güzergâh</span>
-            <span class="nr-role-cap">Tek dokunuş yoklama</span>
-            <span class="nr-role-cap">Navigasyona aktar</span>
-            <span class="nr-role-cap">Otomatik konum paylaşımı</span>
-          </div>
-          <div class="nr-gallery" role="group" aria-label="Şoför ekranları">
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/sofor-sefer.png" width="1084" height="2230" loading="lazy" alt="Sefer: atanan hat, haritada rota çizgisi ve duraklar, navigasyon butonu."></div></div><figcaption>Sefer &amp; Rota</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/sofor-yoklama.png" width="1084" height="2230" loading="lazy" alt="Yoklama: personeli bindi/gelmedi işaretleme; haritadaki durak anında güncellenir."></div></div><figcaption>Yoklama</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/sofor-hesap.png" width="1084" height="2230" loading="lazy" alt="Hesabım: şoför profili, atanan hat ve uygulama ayarları."></div></div><figcaption>Hesabım</figcaption></figure>
+        <div class="nr-role-block reveal" data-role-block>
+          <div class="nr-role-block__grid">
+            <div class="nr-role-block__copy">
+              <p class="nr-role-eyebrow">02 · Rol</p>
+              <h3 class="nr-role-title">
+                <span class="nr-role-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4"/>
+                    <path d="M12 3v6.6M4.8 8.4l5 3.9M19.2 8.4l-5 3.9M7.5 20l2.3-5M16.5 20l-2.3-5"/>
+                  </svg>
+                </span>
+                Şoför
+              </h3>
+              <p class="nr-role-desc">Atanan rotayı harita üzerinde görür, navigasyonla ilerler ve her durakta tek dokunuşla yoklama alır.</p>
+              <div class="nr-role-caps">
+                <span class="nr-role-cap">Haritada güzergâh</span>
+                <span class="nr-role-cap">Navigasyona aktar</span>
+                <span class="nr-role-cap">Tek dokunuş yoklama</span>
+                <span class="nr-role-cap">Otomatik konum</span>
+              </div>
+              <ul class="nr-role-screens" role="tablist" aria-label="Şoför ekranları">
+                <li><button type="button" class="is-active" data-i="0">Sefer &amp; Rota</button></li>
+                <li><button type="button" data-i="1">Yoklama</button></li>
+                <li><button type="button" data-i="2">Hesabım</button></li>
+              </ul>
+            </div>
+            <div class="nr-role-block__media">
+              <div class="nr-phone nr-role-phone">
+                <div class="nr-phone__screen">
+                  <span class="nr-phone__pill" aria-hidden="true"></span>
+                  <img class="nr-role-frame is-active" src="../assets/nihairota/sofor-sefer.png" width="1084" height="2230" alt="Şoför · Sefer & Rota ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/sofor-yoklama.png" width="1084" height="2230" alt="Şoför · Yoklama ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/sofor-hesap.png" width="1084" height="2230" alt="Şoför · Hesabım ekranı." loading="lazy">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Personel -->
-        <div class="nr-role-block reveal">
-          <p class="nr-role-eyebrow">03 · Rol</p>
-          <h3 class="nr-role-title">
-            <span class="nr-role-ic" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/>
-              </svg>
-            </span>
-            Personel
-          </h3>
-          <p class="nr-role-desc">Servisinin canlı konumunu ve alınma sırasını görür, gelmeyeceği günleri takvimden bildirir.</p>
-          <div class="nr-role-caps">
-            <span class="nr-role-cap">Aktif servis &amp; şoför</span>
-            <span class="nr-role-cap">Alınma sırası</span>
-            <span class="nr-role-cap">Canlı harita izleme</span>
-            <span class="nr-role-cap">Takvimden bildirim</span>
-            <span class="nr-role-cap">Profil &amp; adres</span>
-          </div>
-          <div class="nr-gallery" role="group" aria-label="Personel ekranları">
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/personel-servisim.png" width="1084" height="2230" loading="lazy" alt="Servisim: aktif servis, sonraki sefer, alınma sırası ve canlı harita."></div></div><figcaption>Servisim</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/personel-takvim.png" width="1084" height="2230" loading="lazy" alt="Takvim: geleceğim/gelmiyorum günlerini işaretleme ve aylık özet."></div></div><figcaption>Takvim</figcaption></figure>
-            <figure class="nr-shot"><div class="nr-phone"><div class="nr-phone__screen"><span class="nr-phone__pill" aria-hidden="true"></span>
-              <img src="../assets/nihairota/personel-ayarlar.png" width="1084" height="2230" loading="lazy" alt="Ayarlar: kişisel bilgiler, hat/bölge ve adres bilgisi."></div></div><figcaption>Ayarlar</figcaption></figure>
+        <div class="nr-role-block reveal" data-role-block>
+          <div class="nr-role-block__grid">
+            <div class="nr-role-block__copy">
+              <p class="nr-role-eyebrow">03 · Rol</p>
+              <h3 class="nr-role-title">
+                <span class="nr-role-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-6.2 7-6.2s7 2.6 7 6.2"/>
+                  </svg>
+                </span>
+                Personel
+              </h3>
+              <p class="nr-role-desc">Servisinin canlı konumunu ve alınma sırasını görür, gelmeyeceği günleri takvimden bildirir.</p>
+              <div class="nr-role-caps">
+                <span class="nr-role-cap">Aktif servis &amp; şoför</span>
+                <span class="nr-role-cap">Alınma sırası</span>
+                <span class="nr-role-cap">Canlı harita izleme</span>
+                <span class="nr-role-cap">Takvimden bildirim</span>
+              </div>
+              <ul class="nr-role-screens" role="tablist" aria-label="Personel ekranları">
+                <li><button type="button" class="is-active" data-i="0">Servisim</button></li>
+                <li><button type="button" data-i="1">Takvim</button></li>
+                <li><button type="button" data-i="2">Ayarlar</button></li>
+              </ul>
+            </div>
+            <div class="nr-role-block__media">
+              <div class="nr-phone nr-role-phone">
+                <div class="nr-phone__screen">
+                  <span class="nr-phone__pill" aria-hidden="true"></span>
+                  <img class="nr-role-frame is-active" src="../assets/nihairota/personel-servisim.png" width="1084" height="2230" alt="Personel · Servisim ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/personel-takvim.png" width="1084" height="2230" alt="Personel · Takvim ekranı." loading="lazy">
+                  <img class="nr-role-frame" src="../assets/nihairota/personel-ayarlar.png" width="1084" height="2230" alt="Personel · Ayarlar ekranı." loading="lazy">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -306,6 +355,7 @@
       </div>
       <div class="nr-video-wrap reveal">
         <div class="nr-phone nr-video">
+          <span class="nr-live-badge" aria-hidden="true">Canlı</span>
           <div class="nr-video-clip">
             <video autoplay muted loop playsinline controls preload="metadata"
                    aria-label="NihaiRota canlı harita / hat ekran kaydı">
@@ -392,35 +442,118 @@
 
   <script src="../assets/site.js" defer></script>
   <script>
-  // Kahraman "uygulama turu": rol ekranları arasında yumuşak geçiş
   (function () {
-    var tour = document.querySelector('.nr-tour');
-    if (!tour) return;
-    var frames = Array.prototype.slice.call(tour.querySelectorAll('.nr-tour__frame'));
-    var dots = Array.prototype.slice.call(document.querySelectorAll('.nr-tour-dots i'));
-    var roleEl = document.querySelector('.nr-tour-role');
-    var screenEl = document.querySelector('.nr-tour-screen');
-    if (frames.length < 2) return;
+    'use strict';
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var i = 0, timer = null;
-    function show(n) {
-      frames.forEach(function (f, k) { f.classList.toggle('is-active', k === n); });
-      dots.forEach(function (d, k) { d.classList.toggle('is-active', k === n); });
-      var f = frames[n];
-      if (roleEl) roleEl.textContent = f.getAttribute('data-role') || '';
-      if (screenEl) screenEl.textContent = f.getAttribute('data-screen') || '';
-    }
-    function next() { i = (i + 1) % frames.length; show(i); }
-    show(0);
-    if (reduce) return;
-    function start() { if (!timer) timer = window.setInterval(next, 2800); }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    start();
-    tour.addEventListener('mouseenter', stop);
-    tour.addEventListener('mouseleave', start);
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) stop(); else start();
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // 1) Kahraman uygulama turu
+    (function () {
+      var tour = document.querySelector('.nr-tour');
+      if (!tour) return;
+      var frames = [].slice.call(tour.querySelectorAll('.nr-tour__frame'));
+      var dots = [].slice.call(document.querySelectorAll('.nr-tour-dots i'));
+      var roleEl = document.querySelector('.nr-tour-role');
+      var screenEl = document.querySelector('.nr-tour-screen');
+      if (frames.length < 2) return;
+      var i = 0, timer = null;
+      function show(n) {
+        frames.forEach(function (f, k) { f.classList.toggle('is-active', k === n); });
+        dots.forEach(function (d, k) { d.classList.toggle('is-active', k === n); });
+        var f = frames[n];
+        if (roleEl) roleEl.textContent = f.getAttribute('data-role') || '';
+        if (screenEl) screenEl.textContent = f.getAttribute('data-screen') || '';
+      }
+      show(0);
+      if (reduce) return;
+      function start() { if (!timer) timer = setInterval(function () { i = (i + 1) % frames.length; show(i); }, 2800); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      start();
+      tour.addEventListener('mouseenter', stop);
+      tour.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
+    })();
+
+    // 2) Rol blokları: otomatik geçiş + tıklanabilir ekran listesi
+    document.querySelectorAll('[data-role-block]').forEach(function (block) {
+      var frames = [].slice.call(block.querySelectorAll('.nr-role-frame'));
+      var btns = [].slice.call(block.querySelectorAll('.nr-role-screens button'));
+      if (frames.length < 2) return;
+      var i = 0, timer = null;
+      function show(n) {
+        i = n;
+        frames.forEach(function (f, k) { f.classList.toggle('is-active', k === n); });
+        btns.forEach(function (b, k) {
+          b.classList.toggle('is-active', k === n);
+          b.setAttribute('aria-selected', k === n ? 'true' : 'false');
+        });
+      }
+      function start() { if (!timer && !reduce) timer = setInterval(function () { show((i + 1) % frames.length); }, 2600); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      btns.forEach(function (b, k) {
+        b.setAttribute('role', 'tab');
+        b.addEventListener('click', function () { stop(); show(k); });
+      });
+      // Görünür olunca başlat
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (en) {
+          en.forEach(function (e) { if (e.isIntersecting) start(); else stop(); });
+        }, { threshold: 0.25 }).observe(block);
+      } else { start(); }
+      block.addEventListener('mouseenter', stop);
+      block.addEventListener('mouseleave', start);
+      show(0);
     });
+
+    // 3) Sayaç animasyonu
+    (function () {
+      var nums = [].slice.call(document.querySelectorAll('[data-count]'));
+      if (!nums.length) return;
+      function run(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        if (reduce) { el.textContent = target; return; }
+        var t0 = null, dur = 1100;
+        function step(ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (en) {
+          en.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.6 });
+        nums.forEach(function (n) { io.observe(n); });
+      } else { nums.forEach(run); }
+    })();
+
+    // 4) Kahraman cihaz kümesi: imleç parallax + hafif 3B
+    if (finePointer && !reduce) {
+      var stage = document.querySelector('.nr-stage');
+      var inner = document.querySelector('.nr-stage__inner');
+      if (stage && inner) {
+        stage.addEventListener('pointermove', function (ev) {
+          var r = stage.getBoundingClientRect();
+          var dx = (ev.clientX - (r.left + r.width / 2)) / (r.width / 2);
+          var dy = (ev.clientY - (r.top + r.height / 2)) / (r.height / 2);
+          inner.style.transform = 'rotateY(' + (dx * 6).toFixed(2) + 'deg) rotateX(' + (-dy * 6).toFixed(2) + 'deg) translateX(' + (dx * 8).toFixed(1) + 'px)';
+        });
+        stage.addEventListener('pointerleave', function () { inner.style.transform = ''; });
+      }
+      // Rol telefonlarına hover eğimi
+      document.querySelectorAll('.nr-role-phone').forEach(function (ph) {
+        ph.addEventListener('pointermove', function (ev) {
+          var r = ph.getBoundingClientRect();
+          var rx = ((ev.clientY - r.top) / r.height - 0.5) * -6;
+          var ry = ((ev.clientX - r.left) / r.width - 0.5) * 6;
+          ph.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+        });
+        ph.addEventListener('pointerleave', function () { ph.style.transform = ''; });
+      });
+    }
   })();
   </script>
 </body>
