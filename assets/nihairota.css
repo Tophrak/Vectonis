@@ -140,6 +140,33 @@
 .nr-shot figcaption { text-align: center; color: var(--ink-muted); font-size: var(--text-small); margin-top: 0.95rem; }
 .nr-shot figcaption b { color: var(--nr-indigo-lift); font-weight: 700; }
 
+/* ── Rol blokları: her rol + kendi ekran şeridi ────────────────────────── */
+.nr-roles-wrap { display: grid; gap: clamp(2.8rem, 2rem + 4vw, 5rem); min-width: 0; }
+.nr-role-block { min-width: 0; }
+.nr-role-eyebrow {
+  font-size: var(--text-tiny); font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--nr-indigo-lift);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.nr-role-eyebrow::before { content: ""; width: 22px; height: 1.5px; background: var(--nr-grad); border-radius: 2px; }
+.nr-role-title {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: var(--text-h2); letter-spacing: -0.015em; line-height: 1.05;
+  margin-top: 0.75rem; display: inline-flex; align-items: center; gap: 14px;
+}
+.nr-role-ic {
+  width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center;
+  background: var(--nr-tint); border: 1px solid var(--nr-line); color: var(--nr-indigo-lift); flex: none;
+}
+.nr-role-ic svg { width: 25px; height: 25px; }
+.nr-role-desc { color: var(--ink-soft); margin-top: 1rem; max-width: 60ch; font-size: var(--text-lead); }
+.nr-role-caps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.2rem; }
+.nr-role-cap {
+  font-size: var(--text-tiny); font-weight: 600; color: var(--ink-soft);
+  border: 1px solid var(--border); border-radius: var(--r-full); padding: 6px 13px; background: var(--surface);
+}
+.nr-role-block .nr-gallery { margin-top: 1.7rem; }
+
 /* ── Kahraman: uygulama turu (otomatik geçişli ekranlar) ───────────────── */
 .nr-tour__frame {
   position: absolute; inset: 0; width: 100%; height: 100%;
