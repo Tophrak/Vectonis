@@ -150,7 +150,7 @@ body::after {
 }
 .nav__links { display: flex; align-items: center; gap: 0.35rem; }
 .nav__link {
-  padding: 8px 16px; border-radius: var(--r-full);
+  padding: 8px 16px; border-radius: var(--r-full); white-space: nowrap;
   color: var(--ink-muted); font-size: var(--text-small); font-weight: 600;
   transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
 }
@@ -455,7 +455,10 @@ a.card:hover, a.card:focus-visible {
   .hero__mark { display: none; }
 }
 @media (max-width: 560px) {
-  .nav__link { padding: 7px 11px; }
+  .nav__inner { gap: 0.5rem; }
+  .nav__links { gap: 2px; }
+  .nav__link { padding: 6px 10px; font-size: var(--text-tiny); }
+  .brand__name { display: none; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }
 
