@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# NihaiRota sayfaları bilerek aramadan hariç tutulmuştur (sayfa içi noindex ile).
+# Tarayıcıların noindex etiketini görebilmesi için burada engellenmez.
+
+Sitemap: https://vectonis.com/sitemap.xml
