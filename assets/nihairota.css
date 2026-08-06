@@ -232,6 +232,20 @@
 }
 .nr-download h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 1.2rem + 2vw, 2.5rem); letter-spacing: -0.015em; max-width: 20ch; }
 .nr-download__lead { color: var(--ink-soft); margin-top: 0.8rem; max-width: 52ch; }
+.nr-download__grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.8rem, 1rem + 3.5vw, 3.6rem); align-items: center; position: relative; z-index: 1; }
+.nr-download__brand { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+.nr-download__icon {
+  width: clamp(108px, 13vw, 150px); height: auto; border-radius: 26px;
+  box-shadow: 0 22px 55px rgba(107, 113, 232, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  animation: nr-float 8s ease-in-out infinite;
+}
+.nr-download__name { font-family: var(--font-display); font-weight: 800; font-size: 1.45rem; letter-spacing: -0.01em; }
+.nr-download__ver { color: var(--ink-muted); font-size: var(--text-small); margin-top: 0.3rem; }
+@media (max-width: 760px) {
+  .nr-download__grid { grid-template-columns: 1fr; gap: 1.6rem; }
+  .nr-download__brand { flex-direction: row; text-align: left; gap: 1rem; }
+  .nr-download__icon { width: 82px; }
+}
 .nr-download__cta { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 .nr-note { margin-top: 1.5rem; display: flex; gap: 11px; align-items: flex-start; color: var(--ink-muted); font-size: var(--text-small); border-left: 2px solid var(--nr-line); padding-left: 13px; max-width: 64ch; }
 .nr-note svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--nr-indigo-lift); }
@@ -276,7 +290,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nr-phone--main, .nr-phone--sub, .nr-role-phone, .nr-video, .nr-stage__route path,
+  .nr-phone--main, .nr-phone--sub, .nr-role-phone, .nr-video, .nr-stage__route path, .nr-download__icon,
   .nr-word, .nr-kicker__dot, .nr-stat--live .nr-stat__num::before, .nr-live-badge::before { animation: none !important; }
   .nr-role-frame { transition: opacity 0.2s linear; transform: none; }
   .nr-feature:hover, .nr-quicklink:hover, .btn--indigo:hover, .nr-role-screens button:hover { transform: none; }
