@@ -93,6 +93,8 @@ body::after {
 .js .nav.is-scrolled { border-bottom-color: var(--line-soft); background: rgba(245, 241, 234, 0.85); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.15rem; }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
+.brand__logo { width: 40px; height: 40px; border-radius: 12px; display: block; box-shadow: 0 4px 14px rgba(40, 30, 18, 0.16); transition: transform var(--dur) var(--ease); }
+.brand:hover .brand__logo { transform: translateY(-1px) rotate(-3deg); }
 .brand__name { font-family: var(--font-display); font-weight: 600; font-size: 1.4rem; letter-spacing: -0.01em; color: var(--ink); }
 .brand__dot { background: var(--ember-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .nav__links { display: flex; align-items: center; gap: 0.35rem; }
@@ -138,7 +140,8 @@ body::after {
 .hero__cta { margin-top: 2.6rem; display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 
 /* Kahraman görsel: zarif altın hat monogram + halka */
-.hero__art { position: absolute; right: -2%; top: 4%; width: min(42vw, 520px); opacity: 0.85; pointer-events: none; z-index: -1; }
+.hero__art { position: absolute; right: -2%; top: 4%; width: min(42vw, 520px); opacity: 0.85; pointer-events: none; z-index: -1; animation: lux-breathe 12s ease-in-out infinite alternate; transform-origin: center; }
+@keyframes lux-breathe { from { transform: rotate(0deg) scale(1); } to { transform: rotate(3deg) scale(1.04); } }
 
 /* ── Şerit ─────────────────────────────────────────────────────────────── */
 .marquee {
@@ -256,15 +259,22 @@ a.card:hover { border-color: var(--ember-line); }
   .hero__art { display: none; }
 }
 @media (max-width: 560px) {
-  .nav__link { padding: 7px 11px; font-size: 0.82rem; }
+  .nav__inner { gap: 0.4rem; }
+  .nav__links { gap: 1px; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .nav__link { padding: 6px 9px; font-size: 0.78rem; }
+  .brand__logo { width: 34px; height: 34px; border-radius: 10px; }
+  .brand__name { font-size: 1.15rem; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .brand__name { display: none; }
 }
 
 [id] { scroll-margin-top: 90px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee__track, .mask > .mask__inner, .hero__eyebrow, .hero__lead, .hero__cta, .hero__art path { animation: none !important; }
+  .marquee__track, .mask > .mask__inner, .hero__eyebrow, .hero__lead, .hero__cta, .hero__art, .hero__art path { animation: none !important; }
   .mask > .mask__inner { transform: none; }
   .hero__eyebrow, .hero__lead, .hero__cta { opacity: 1; }
   .hero__art path { stroke-dashoffset: 0; }

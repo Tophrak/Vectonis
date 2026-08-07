@@ -140,6 +140,8 @@ body::after {
   gap: 1rem; padding-block: 1.05rem;
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
+.brand__logo { width: 40px; height: 40px; border-radius: 12px; display: block; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(244, 242, 238, 0.08); transition: transform var(--dur) var(--ease); }
+.brand:hover .brand__logo { transform: translateY(-1px) rotate(-3deg); }
 .brand__name {
   font-family: var(--font-display); font-weight: 800;
   font-size: 1.3rem; letter-spacing: 0.01em; color: var(--ink);
@@ -459,6 +461,7 @@ a.card:hover, a.card:focus-visible {
   .nav__links { gap: 1px; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
   .nav__link { padding: 6px 8px; font-size: 0.72rem; letter-spacing: 0; }
   .brand__name { display: none; }
+  .brand__logo { width: 34px; height: 34px; border-radius: 10px; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }
 
