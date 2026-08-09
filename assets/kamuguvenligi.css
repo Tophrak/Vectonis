@@ -1,0 +1,251 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   V-MUHAFIZ — ürün sayfası (lux.css üstüne biner)
+   urun.css'in NihaiRota için yaptığını bu ürün için yapar. Ev sistemine
+   (renk, tipografi, boşluk, .card/.btn/.tag/.principles) dokunmaz; yalnızca
+   ürüne özel düzenleri ekler. Tüm sınıflar `kg-` önekli.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Ürün aksanı = markanın Signal Red'i. Logo kırmızı olduğu için arayüz
+     aksanının da kırmızı olması gerekiyor; kırmızı simgenin yanında teal
+     vurgular uyumsuz duruyordu. NihaiRota'da bu indigo (#5A60D8).
+     Not: Vectonis'in ev aksanı (--ember-a #F0442E) bu kırmızıya çok yakın,
+     yani bu sayfada ürün aksanı ile ev aksanı neredeyse aynı tonda. */
+  --pr: #E63B2E;
+  --pr-tint: rgba(230, 59, 46, 0.10);
+  --pr-line: rgba(230, 59, 46, 0.34);
+}
+
+/* ── Marka kilidi (simge + wordmark) ───────────────────────────────────── */
+/* Pakettekı lockup SVG'leri web'de kullanılamıyor: içlerinde solid arka plan
+   dikdörtgeni var ve wordmark'ın `wm` sınıfı hiçbir yerde tanımlı değil
+   (<defs> boş), yani font uygulanmıyor. Bu yüzden kilit burada kuruluyor:
+   temiz mark SVG'si + Syne 800 ile gerçek metin. Kılavuzdaki kurallara
+   uyar (Syne 800, +1px harf arası, büyük harf) ve metin seçilebilir kalır. */
+.kg-lockup { display: inline-flex; align-items: center; gap: 14px; }
+.kg-lockup__mark { width: 44px; height: 44px; flex: none; }
+.kg-lockup__wm {
+  font-family: 'Syne', var(--font-body);
+  font-weight: 800;
+  font-size: 1.62rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--ink);
+}
+/* Net alan kuralı: simge yüksekliğinin en az %25'i kadar boşluk. */
+.kg-lockup + * { margin-top: 1.4rem; }
+
+/* Kapanış bloğu: ikon başlığın ilk satırıyla hizalanmalı. Dikey ortalanınca
+   başlık iki satıra düştüğünde ikon ikinci satırın hizasına kayıyor. */
+.kg-cta { display: flex; align-items: flex-start; gap: 1.4rem; flex-wrap: wrap; }
+.kg-cta-icon { width: 68px; height: 68px; flex: none; border-radius: 17px; margin-top: 2px; }
+
+/* ── Kahraman ──────────────────────────────────────────────────────────── */
+.kg-hero__grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem); align-items: center;
+}
+.kg-hero .hero__eyebrow::before { background: linear-gradient(115deg, var(--pr), var(--ember-b)); }
+.kg-hero h1 { max-width: 17ch; }
+.kg-hero h1 em { color: var(--pr); }
+
+/* Sürüm / platform satırı */
+.kg-meta { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; }
+.kg-meta li {
+  list-style: none; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.84rem; color: var(--ink-muted);
+}
+.kg-meta li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--pr); flex: none; }
+
+/* ── Gerçek ekran görüntüsü çerçevesi ──────────────────────────────────── */
+/* urun.css'teki .nr-phone'un masaüstü karşılığı: telefon değil pencere. */
+.kg-shot {
+  position: relative; border-radius: 20px; padding: 10px;
+  background: linear-gradient(160deg, #2B2620, #14110C);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 44px 84px -26px rgba(60, 44, 24, 0.46),
+    0 6px 20px rgba(60, 44, 24, 0.16),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.05);
+}
+.kg-shot__bar { display: flex; align-items: center; gap: 6px; padding: 1px 5px 10px; }
+.kg-shot__bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
+.kg-shot__bar span { margin-left: 9px; font-size: 0.71rem; color: rgba(255, 255, 255, 0.42); }
+/* Oran, pencere başlık çubuğu kırpıldıktan sonraki gerçek ölçü. */
+.kg-shot__screen { border-radius: 12px; overflow: hidden; background: #12171D; aspect-ratio: 1280 / 689; }
+.kg-shot__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.kg-shot--float { animation: kg-float 7s ease-in-out infinite; }
+@keyframes kg-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+/* Görüntünün üstünde yüzen cam rozetler */
+.kg-chip {
+  position: absolute; z-index: 4; display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 15px; border-radius: var(--r-full); white-space: nowrap;
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm), 0 14px 30px -12px rgba(60, 44, 24, 0.28);
+  font-size: 0.85rem; font-weight: 600; color: var(--ink);
+}
+.kg-chip .live { width: 8px; height: 8px; border-radius: 50%; background: var(--pr); flex: none; }
+/* Rozetler sağa ve alta yaslı: solda kahraman metni var, oraya taşmasınlar. */
+.kg-chip--1 { top: 7%; right: -4%; }
+.kg-chip--2 { bottom: 14%; left: -5%; }
+
+/* Bölüm içi ikincil görüntüler */
+.kg-shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+.kg-shot-cap { margin-top: 0.9rem; font-size: 0.86rem; color: var(--ink-muted); }
+.kg-shot-cap b { color: var(--pr); font-weight: 600; }
+
+/* ── Roller ────────────────────────────────────────────────────────────── */
+/* urun.css'teki .nr-role-block kalıbının karşılığı: dönüşümlü iki sütun,
+   arkada hayalet rakam, ikon çipli serif başlık, hap yetenek etiketleri. */
+.kg-roles { display: grid; gap: clamp(3.5rem, 2.5rem + 5vw, 7rem); }
+.kg-role__grid {
+  display: grid; grid-template-columns: 1fr 0.9fr;
+  gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center;
+}
+.kg-role:nth-child(even) .kg-role__grid { grid-template-columns: 0.9fr 1fr; }
+.kg-role:nth-child(even) .kg-role__media { order: -1; }
+
+.kg-role__copy { min-width: 0; position: relative; }
+.kg-role-num {
+  position: absolute; top: -0.62em; left: 0; z-index: 0;
+  font-family: var(--font-display); font-weight: 500; font-style: italic;
+  font-size: clamp(5.5rem, 3.5rem + 8vw, 10.5rem); line-height: 1; letter-spacing: -0.02em;
+  color: transparent; -webkit-text-stroke: 1.5px rgba(230, 59, 46, 0.18);
+  pointer-events: none; user-select: none;
+}
+.kg-role__copy > *:not(.kg-role-num) { position: relative; z-index: 1; }
+
+.kg-role-eyebrow {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--pr); display: inline-flex; align-items: center; gap: 10px;
+}
+.kg-role-eyebrow::before { content: ""; width: 22px; height: 1.5px; background: var(--pr); border-radius: 2px; }
+.kg-role-title {
+  font-family: var(--font-display); font-weight: 400; font-size: var(--text-h2);
+  letter-spacing: -0.015em; line-height: 1.05; margin-top: 0.75rem;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.kg-role-ic {
+  width: 46px; height: 46px; border-radius: 13px; flex: none;
+  display: grid; place-items: center;
+  background: var(--pr-tint); border: 1px solid var(--pr-line); color: var(--pr);
+}
+.kg-role-ic svg { width: 25px; height: 25px; }
+.kg-role-desc { color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; font-size: var(--text-lead); }
+.kg-role-list { margin: 1.2rem 0 0; padding-left: 1.15em; color: var(--ink-soft); font-size: 0.96rem; }
+.kg-role-list li { margin-bottom: 0.45em; }
+.kg-role-list li:last-child { margin-bottom: 0; }
+.kg-role-caps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.4rem; }
+.kg-role-cap {
+  font-size: 0.75rem; font-weight: 500; color: var(--ink-muted);
+  border: 1px solid var(--line); border-radius: var(--r-full);
+  padding: 5px 12px; background: var(--surface-2);
+}
+.kg-role__media { display: flex; justify-content: center; position: relative; }
+.kg-role__media::after {
+  content: ""; position: absolute; inset: -8% -4%; z-index: -1;
+  background: radial-gradient(52% 46% at 50% 42%, var(--pr-tint), transparent 72%);
+  filter: blur(32px);
+}
+
+/* Ziyaretçi bloğu telefon üzerinden çalışıyor; masaüstü çerçevesi yerine
+   telefon çerçevesi. Oran görüntünün kendi ölçüsünden geliyor. */
+.kg-phone {
+  width: clamp(230px, 27vw, 290px);
+  border-radius: 34px; padding: 9px;
+  background: linear-gradient(160deg, #2B2620, #14110C);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 44px 84px -26px rgba(60, 44, 24, 0.46),
+    0 6px 20px rgba(60, 44, 24, 0.16),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.05);
+}
+.kg-phone__screen { position: relative; border-radius: 26px; overflow: hidden; aspect-ratio: 520 / 900; background: #12171D; }
+.kg-phone__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.kg-phone__pill {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 30%; height: 5px; border-radius: var(--r-full);
+  background: rgba(255, 255, 255, 0.16); z-index: 2;
+}
+
+/* QR vurgusu: ziyaretçi akışının giriş noktası */
+.kg-qr {
+  display: flex; align-items: flex-start; gap: 14px; margin-top: 1.5rem;
+  padding: 1rem 1.2rem; border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--pr);
+}
+.kg-qr svg { width: 30px; height: 30px; flex: none; color: var(--pr); margin-top: 2px; }
+.kg-qr p { margin: 0; font-size: 0.93rem; color: var(--ink-soft); }
+.kg-qr strong { color: var(--ink); font-weight: 600; }
+
+/* ── İstatistik şeridi ─────────────────────────────────────────────────── */
+.kg-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem;
+  border-block: 1px solid var(--line-soft); padding-block: 2.2rem;
+  margin-bottom: var(--space-section);
+}
+.kg-stat { padding-left: 1.1rem; border-left: 2px solid var(--pr-line); }
+.kg-stat__num {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.5rem);
+  line-height: 1.1; letter-spacing: -0.01em;
+}
+.kg-stat__num em { font-style: italic; color: var(--pr); }
+.kg-stat__cap { margin-top: 0.35rem; font-size: 0.82rem; color: var(--ink-muted); }
+
+/* ── Modül kartları: bento içinde 2×2 ──────────────────────────────────── */
+.kg-mod { grid-column: span 6; display: flex; flex-direction: column; }
+.kg-mod .card__ic { background: var(--pr-tint); border-color: var(--pr-line); color: var(--pr); }
+.kg-mod ul { margin: 0.85rem 0 0; padding-left: 1.15em; color: var(--ink-soft); font-size: 0.94rem; }
+.kg-mod li { margin-bottom: 0.35em; }
+.kg-mod li:last-child { margin-bottom: 0; }
+
+/* ── Bugün / bu sistemle ───────────────────────────────────────────────── */
+.kg-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.kg-compare__label {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+.kg-compare ul { margin: 1.1rem 0 0; padding-left: 1.15em; font-size: 0.95rem; color: var(--ink-soft); }
+.kg-compare li { margin-bottom: 0.5em; }
+.kg-compare li:last-child { margin-bottom: 0; }
+.kg-compare .is-after { border-color: var(--pr-line); background: linear-gradient(150deg, var(--surface-2), var(--pr-tint)); }
+.kg-compare .is-after .kg-compare__label { color: var(--pr); }
+
+/* ── KVKK kontrol listesi ──────────────────────────────────────────────── */
+.kg-check { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 2.4rem; margin: 0; padding: 0; }
+.kg-check li { list-style: none; display: flex; gap: 12px; color: var(--ink-soft); font-size: 0.96rem; }
+.kg-check svg { width: 19px; height: 19px; flex: none; margin-top: 3px; color: var(--pr); }
+.kg-note {
+  margin-top: 2rem; padding: 1.3rem 1.5rem;
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--ember-b); border-radius: var(--r-md);
+  color: var(--ink-muted); font-size: 0.93rem;
+}
+.kg-note strong { color: var(--ink); font-weight: 600; }
+
+/* ── Duyarlılık ────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .kg-hero__grid { grid-template-columns: 1fr; }
+  .kg-role__grid,
+  .kg-role:nth-child(even) .kg-role__grid { grid-template-columns: 1fr; }
+  /* Dar ekranda metin her zaman önce gelsin; dönüşümlü sıralama anlamını yitirir */
+  .kg-role:nth-child(even) .kg-role__media { order: 0; }
+  .kg-stats { grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+  .kg-mod { grid-column: span 12; }
+}
+@media (max-width: 620px) {
+  .kg-compare { grid-template-columns: 1fr; }
+  .kg-check { grid-template-columns: 1fr; }
+  .kg-stats { grid-template-columns: 1fr; }
+  .kg-shots { grid-template-columns: 1fr; }
+  /* Dar ekranda rozetler görüntünün üstüne biner, okunmaz olur */
+  .kg-chip { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-shot--float { animation: none; }
+}
