@@ -363,3 +363,11 @@
 
 .nr-bar { height: 5px; border-radius: var(--r-full); background: rgba(255,255,255,.08); overflow: hidden; }
 .nr-bar > i { display: block; height: 100%; border-radius: inherit; background: var(--nr-grad); }
+
+/* "uygulamada" rozeti — web panelinde henüz olmayan yüzeyi işaretler.
+   Var olmayan bir adres/ekran varmış gibi gösterilmez. */
+.nr-badge-soon {
+  display: inline-block; margin-left: .35rem; padding: .1rem .45rem;
+  border-radius: var(--r-full); font-size: .68rem; font-weight: 700;
+  background: var(--nr-tint); color: var(--nr-indigo-deep); border: 1px solid var(--nr-line);
+}
