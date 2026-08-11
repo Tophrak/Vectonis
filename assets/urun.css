@@ -260,6 +260,20 @@
   .nr-feature:hover, .nr-quicklink:hover, .btn--indigo:hover, .nr-role-screens button:hover { transform: none; }
 }
 
+/* ─── ÜRÜN AKSANI (NihaiRota indigo) ─────────────────────────────────────────
+   Bu değişkenler nihairota.css'te tanımlıydı ama ürün sayfası o dosyayı
+   YÜKLEMİYOR. Panel bölümündeki her indigo vurgu (doluluk yüzdesi, boşta
+   sayısı, NR rozeti, aktif menü) tanımsız değişkene düşüp görünmez oluyordu.
+   Değişkenler burada, kullanıldıkları dosyada tanımlanır. */
+:root {
+  --nr-indigo:      #6b71e8;
+  --nr-indigo-lift: #9ca2f5;
+  --nr-indigo-deep: #454ac9;
+  --nr-grad: linear-gradient(135deg, var(--nr-indigo-deep), var(--nr-indigo) 52%, var(--nr-indigo-lift));
+  --nr-tint: rgba(107, 113, 232, 0.12);
+  --nr-line: rgba(107, 113, 232, 0.38);
+}
+
 /* ─── YÖNETİM PANELİ (web) — iki ekranlı görsel sunum ────────────────────────
    Telefon şeridi ürünün saha tarafını anlatıyor; bu bölüm masaüstü tarafını
    gösterir. Panel görselleri sayfanın kendi tasarım diliyle çizilir: ekran
