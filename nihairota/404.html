@@ -15,9 +15,24 @@
       href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Syne:wght@800&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/nihairota/assets/index-B_fo9VmE.js"></script>
+    <script>
+      /* İlk boyama temayı bilsin: paket gelmeden tercihi köke işle (FOUC yok). */
+      try {
+        if (localStorage.getItem('nihairota_theme') === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    </script>
+    <style>
+      /* Kritik zemin: CSS paketi gelene kadarki karede bile doğru renk. */
+      :root { background: #0b0c10; }
+      :root[data-theme='light'] { background: #f4f4f7; }
+    </style>
+    <script type="module" crossorigin src="/nihairota/assets/index-DaZTLgE9.js"></script>
   </head>
-  <body style="background:#0a0a0c">
+  <body>
     <div id="root"></div>
   </body>
 </html>
