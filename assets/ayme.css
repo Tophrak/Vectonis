@@ -1,0 +1,489 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   AYME — Restoran Otomasyonu ürün sayfası
+   lux.css üzerine kurulur; yalnız bu sayfaya özgü bileşenler burada.
+   Ürün rengi uygulamanın kendi kurumsal mavisi: sıcak ivory zeminde
+   ember aksanının karşısında duran soğuk bir imza.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Marka rengi alev paletinden: "Pişiriyor" adı ocağı çağrıştırıyor ve logo
+     da alev. Metinde kullanıldığı için --pr bilerek koyu ton — ivory zeminde
+     okunaklı kalmalı. */
+  --pr:       #C2410C;   /* koyu amber-kırmızı — başlık ve etiket metni */
+  --pr-2:     #F5701A;   /* turuncu — gradyanın açık ucu */
+  --pr-tint:  rgba(194, 65, 12, 0.10);
+  --pr-line:  rgba(194, 65, 12, 0.32);
+  --pr-grad:  linear-gradient(120deg, #E02A1B, #FFB703);
+
+  /* Sesli anons rozeti. Marka rengi artık turuncu olduğu için bu vurgu
+     uygulamanın kendi mavisine alındı; yoksa ikisi birbirine karışıyordu. */
+  --sicak:    #1B4965;
+}
+
+/* ── Ürün adı kilidi ───────────────────────────────────────────────────── */
+.ay-lockup { display: inline-flex; align-items: center; gap: 13px; }
+/* Marka dosyanın kendisi (assets/marka/pisiriyor.svg): gradyanı ve biçimi
+   içinde taşır, burada ayrıca kutu/arka plan verilmez. */
+.ay-lockup__mark {
+  width: 48px; height: 48px; flex: none;
+  filter: drop-shadow(0 8px 18px rgba(194, 65, 12, 0.35));
+}
+.ay-lockup__wm {
+  font-family: 'Syne', var(--font-body);
+  font-weight: 800; font-size: 1.62rem; letter-spacing: 2px; color: var(--pr);
+}
+.ay-lockup + * { margin-top: 1.4rem; }
+
+.ay-hero__grid {
+  display: grid; grid-template-columns: 1.02fr 0.98fr;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem); align-items: center;
+}
+.ay-hero .hero__eyebrow::before { background: var(--pr-grad); }
+.ay-hero h1 { max-width: 16ch; }
+.ay-hero h1 em { color: var(--pr); }
+
+.ay-meta { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; }
+.ay-meta li {
+  list-style: none; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.84rem; color: var(--ink-muted);
+}
+.ay-meta li::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--pr); flex: none;
+}
+
+/* ── Cihaz çerçevesi ───────────────────────────────────────────────────── */
+.ay-shot {
+  position: relative; border-radius: 20px; padding: 10px;
+  background: linear-gradient(160deg, #232A31, #10151A);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 40px 70px -30px rgba(16, 21, 26, 0.55), 0 6px 18px rgba(16, 21, 26, 0.12);
+}
+.ay-shot__bar { display: flex; align-items: center; gap: 6px; padding: 1px 5px 10px; }
+.ay-shot__bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
+.ay-shot__bar span { margin-left: 9px; font-size: 0.71rem; color: rgba(255, 255, 255, 0.42); }
+.ay-shot__screen { border-radius: 12px; overflow: hidden; background: #F4F9F9; }
+.ay-shot--float { animation: ay-float 7s ease-in-out infinite; }
+@keyframes ay-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+.ay-chip {
+  position: absolute; z-index: 4; display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 15px; border-radius: var(--r-full); white-space: nowrap;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  font-size: 0.8rem; font-weight: 600; color: var(--ink);
+}
+.ay-chip .live {
+  width: 8px; height: 8px; border-radius: 50%; background: #2FA24C; flex: none;
+  animation: ay-pulse 1.8s ease-in-out infinite;
+}
+@keyframes ay-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.ay-chip--1 { top: 6%; right: -4%; }
+.ay-chip--2 { bottom: 11%; left: -5%; }
+
+/* ═══ EKRAN CANLANDIRMALARI ═══════════════════════════════════════════════
+   Uygulamanın arayüzü burada HTML/CSS ile yeniden çiziliyor — ekran görüntüsü
+   değil. Böylece her boyutta keskin kalıyor ve uygulamanın renkleriyle
+   birebir aynı oluyor.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.ay-mock { padding: 14px; font-size: 12px; }
+
+/* ═══ CANLANDIRMA ═════════════════════════════════════════════════════════
+   Ekran görüntüleri hareketli: masalar dolup boşalıyor, sipariş mutfağa
+   düşüyor, hazır olunca listeden çıkıyor. Amaç süs değil — sayfanın anlattığı
+   akışın kendisini göstermek.
+   Hareket `canlandirma.js` tarafından sürülür; JS çalışmazsa mockup'lar
+   duruyor ama eksiksiz görünür.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Masa rengi ve tutarı yumuşak geçsin */
+.ay-masa {
+  transition: background-color 620ms var(--ease), box-shadow 620ms var(--ease);
+}
+.ay-masa small { transition: opacity 300ms var(--ease); }
+.ay-masa--degisti { animation: ay-masa-vurgu 900ms var(--ease); }
+@keyframes ay-masa-vurgu {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.09); }
+  100% { transform: scale(1); }
+}
+
+/* Mutfağa yeni düşen sipariş kartı */
+.ay-kds-kart { transition: background-color 500ms var(--ease); }
+.ay-kds-kart--yeni { animation: ay-kart-gir 620ms var(--ease) backwards; }
+@keyframes ay-kart-gir {
+  from { opacity: 0; transform: translateY(-16px) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+.ay-kds-kart--cikiyor { animation: ay-kart-cik 560ms var(--ease) forwards; }
+@keyframes ay-kart-cik {
+  to { opacity: 0; transform: translateY(10px) scale(0.94); }
+}
+
+/* Logo: ateş gibi hafif nefes alsın */
+.ay-lockup__mark { animation: ay-alev 4.5s ease-in-out infinite; transform-origin: 50% 85%; }
+@keyframes ay-alev {
+  0%, 100% { transform: scale(1)      rotate(0deg); }
+  30%      { transform: scale(1.045)  rotate(-1.2deg); }
+  65%      { transform: scale(0.985)  rotate(1deg); }
+}
+
+/* Sesli anons rozeti: ses dalgası hissi */
+.ay-adim__ses { position: relative; overflow: hidden; }
+.ay-adim__ses::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(27,73,101,0.16) 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: ay-ses-dalga 3.4s var(--ease) infinite;
+}
+@keyframes ay-ses-dalga { to { transform: translateX(100%); } }
+
+/* Sayı sayacı okunurken zıplamasın diye sabit genişlik */
+.ay-stat__num { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ay-masa, .ay-kds-kart { transition: none; }
+  .ay-masa--degisti, .ay-kds-kart--yeni, .ay-kds-kart--cikiyor,
+  .ay-lockup__mark, .ay-adim__ses::after { animation: none !important; }
+  .ay-kds-kart--cikiyor { opacity: 0; }
+}
+
+/* Garson: masa ızgarası */
+.ay-mock--masa { background: #F4F9F9; }
+.ay-mock__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #F58220; color: #fff; margin: -14px -14px 12px; padding: 10px 14px;
+  font-weight: 700; letter-spacing: 0.02em;
+}
+.ay-mock__bar small { font-weight: 500; opacity: 0.9; }
+.ay-masalar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; }
+.ay-masa {
+  aspect-ratio: 1; border-radius: 8px; color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; line-height: 1.1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+}
+.ay-masa small { font-size: 9px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+.ay-masa--bos  { background: #43A047; }
+.ay-masa--dolu { background: #E53935; }
+.ay-masa--odeme{ background: #1E88E5; }
+
+/* Mutfak: sipariş kartları */
+.ay-mock--kds { background: #263238; }
+.ay-mock--kds .ay-mock__bar { background: #C62828; }
+.ay-kds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.ay-kds-kart { background: #fff; border-radius: 9px; overflow: hidden; }
+.ay-kds-kart--yapiliyor { background: #FFF9C4; }
+.ay-kds-kart__ust {
+  background: #C62828; color: #fff; text-align: center; padding: 7px 4px;
+  font-weight: 800; font-size: 12px;
+}
+.ay-kds-kart--paket .ay-kds-kart__ust { background: #EF6C00; }
+.ay-kds-kart__ust b { display: block; font-size: 9px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+.ay-kds-kart__gvd { padding: 8px 9px; color: #22303A; }
+.ay-kds-kart__gvd div { font-weight: 700; font-size: 11px; margin-bottom: 4px; }
+.ay-kds-kart__gvd em { display: block; font-style: normal; color: #C62828; font-size: 9.5px; font-weight: 700; }
+.ay-kds-kart__alt { display: flex; gap: 5px; padding: 0 9px 9px; }
+.ay-kds-btn {
+  flex: 1; border-radius: 6px; text-align: center; padding: 6px 4px;
+  font-weight: 800; font-size: 9.5px; color: #fff;
+}
+.ay-kds-btn--basla { background: #1976D2; flex: 0 0 34%; }
+.ay-kds-btn--hazir { background: #43A047; }
+
+/* Yönetici: özet kartları */
+.ay-mock--ozet { background: #F0F4F8; }
+.ay-mock--ozet .ay-mock__bar { background: #1B4965; }
+.ay-ozet { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+.ay-ozet-kart { background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); }
+.ay-ozet-kart__cap { font-size: 10px; color: #6B7A85; font-weight: 600; }
+.ay-ozet-kart__val { font-size: 20px; font-weight: 800; margin-top: 5px; letter-spacing: -0.01em; }
+.ay-ozet-kart__val--yesil { color: #2E7D32; }
+.ay-ozet-kart__val--kirmizi { color: #C62828; }
+.ay-ozet-kart__val--mavi { color: #1565C0; }
+.ay-ozet-kart__val--turuncu { color: #EF6C00; font-size: 15px; }
+
+/* Garson · sipariş ekranı: solda menü, sağda adisyon sepeti */
+.ay-pos { display: grid; grid-template-columns: 1.15fr 1fr; gap: 8px; }
+.ay-pos__cipler { display: flex; gap: 4px; margin-bottom: 6px; }
+.ay-cip {
+  font-size: 8px; font-weight: 700; padding: 4px 8px; border-radius: 6px;
+  background: #E3EAF0; color: #55707F;
+}
+.ay-cip--aktif { background: #1B4965; color: #fff; }
+.ay-pos__satir {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; border-radius: 6px; padding: 6px 8px; margin-bottom: 4px;
+  font-size: 10px; font-weight: 600; color: #22303A;
+}
+.ay-pos__satir b { color: #2E7D32; font-size: 13px; line-height: 1; }
+.ay-pos__sepet { background: #fff; border-radius: 8px; padding: 8px 10px; }
+.ay-pos__sepetBaslik {
+  font-size: 9px; font-weight: 800; color: #8A99A4; letter-spacing: 0.06em;
+  padding-bottom: 5px; border-bottom: 1px solid #E3EAF0; margin-bottom: 4px;
+}
+.ay-pos__toplam {
+  display: flex; justify-content: space-between; margin-top: 7px; padding-top: 6px;
+  border-top: 1px solid #E3EAF0; font-size: 11px; font-weight: 800; color: #2E7D32;
+}
+.ay-not { display: block; font-style: normal; color: #C62828; font-size: 8.5px; font-weight: 700; }
+
+/* Garson · ödeme: ürün seçerek bölüşme */
+.ay-secim {
+  display: flex; align-items: center; gap: 8px; font-size: 10px; color: #33424C;
+  padding: 5px 0; border-bottom: 1px solid #EEF3F6;
+}
+.ay-secim:last-child { border-bottom: none; }
+.ay-secim span:nth-child(2) { flex: 1; }
+.ay-secim span:last-child { font-weight: 700; }
+.ay-kutu {
+  width: 13px; height: 13px; border-radius: 3px; border: 1.5px solid #B6C3CC;
+  flex: none; position: relative; background: #fff;
+}
+.ay-kutu--isaretli { background: #2E7D32; border-color: #2E7D32; }
+.ay-kutu--isaretli::after {
+  content: ""; position: absolute; left: 4px; top: 1px;
+  width: 3px; height: 7px; border: solid #fff; border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.ay-odeme-ozet {
+  display: flex; gap: 8px; margin-top: 8px;
+}
+.ay-odeme-ozet > div {
+  flex: 1; background: #fff; border-radius: 8px; padding: 8px 10px;
+  display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: #6B7A85;
+}
+.ay-odeme-ozet b { font-size: 13px; }
+.ay-yesil { color: #2E7D32; } .ay-kirmizi { color: #C62828; }
+.ay-odeme-btnler { display: flex; gap: 6px; margin-top: 8px; }
+.ay-odeme-btnler .ay-kds-btn { flex: 1; padding: 8px 4px; font-size: 10px; }
+
+/* Garson · paket servis listesi */
+.ay-paket { display: grid; gap: 6px; }
+.ay-paket__kart {
+  background: #fff; border-radius: 8px; padding: 8px 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.ay-paket__kart b { display: block; font-size: 10.5px; color: #22303A; }
+.ay-paket__kart span { font-size: 8.5px; color: #8A99A4; }
+.ay-paket__sag { display: flex; align-items: center; gap: 8px; }
+.ay-paket__sag b { font-size: 12px; color: #1B4965; }
+.ay-paket__sag .ay-kds-btn { padding: 5px 9px; font-size: 8.5px; }
+
+/* Yönetim · liste satırları (stok, menü, personel, rezervasyon) */
+.ay-liste { display: grid; gap: 5px; }
+.ay-liste__satir {
+  background: #fff; border-radius: 8px; padding: 8px 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-size: 10px; color: #33424C;
+}
+.ay-liste__satir b { font-size: 10.5px; color: #22303A; }
+.ay-liste__satir small { display: block; font-size: 8.5px; color: #8A99A4; }
+.ay-rozet {
+  font-size: 8px; font-weight: 800; padding: 3px 8px; border-radius: 20px;
+  background: #E3EAF0; color: #55707F; white-space: nowrap;
+}
+.ay-rozet--kritik { background: #FDEAEA; color: #C62828; }
+.ay-rozet--iyi    { background: #E4F6E8; color: #1C6B32; }
+.ay-rozet--bekle  { background: #FFF3E0; color: #E65100; }
+.ay-rozet--yonetici { background: #FFE9D6; color: #C2410C; }
+
+/* Telefon çerçevesi (site + garson mobil) */
+.ay-phone {
+  width: min(230px, 100%); margin: 0 auto; border-radius: 26px; padding: 8px;
+  background: linear-gradient(160deg, #232A31, #10151A);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 30px 55px -26px rgba(16, 21, 26, 0.6);
+}
+.ay-phone__screen { border-radius: 20px; overflow: hidden; background: #F0F4F8; }
+.ay-mock--site { background: #F0F4F8; padding: 0; }
+.ay-mock--site .ay-site-ust {
+  background: linear-gradient(135deg, #1B4965, #62B6CB); color: #fff;
+  padding: 16px 12px 14px; text-align: center;
+}
+.ay-mock--site .ay-site-ust b { display: block; font-size: 13px; letter-spacing: 2px; font-weight: 800; }
+.ay-mock--site .ay-site-ust span { font-size: 8.5px; opacity: 0.85; letter-spacing: 1px; }
+.ay-site-govde { padding: 10px; }
+.ay-site-kat {
+  background: #fff; border-radius: 9px; padding: 8px 10px; margin-bottom: 7px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.ay-site-kat > b { font-size: 10.5px; color: #1B4965; }
+.ay-site-satir {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 10px; padding-top: 6px; color: #33424C;
+}
+.ay-site-satir span:last-child { font-weight: 800; color: #1B4965; }
+
+/* Müşteri sitesi: sekme çubuğu ve rezervasyon formu */
+.ay-sekmeler { display: flex; gap: 5px; justify-content: center; margin-top: 11px; }
+.ay-sekme {
+  font-size: 8.5px; font-weight: 700; padding: 5px 12px; border-radius: 8px;
+  background: rgba(255, 255, 255, 0.22); color: #fff;
+}
+.ay-sekme--aktif { background: #fff; color: #1B4965; }
+
+.ay-form-alan {
+  background: #fff; border: 1px solid #DCE6EC; border-radius: 8px;
+  padding: 8px 10px; margin-bottom: 6px; font-size: 9.5px; color: #93A2AD;
+  display: flex; align-items: center; gap: 7px;
+}
+.ay-form-alan--dolu { color: #22303A; font-weight: 600; }
+.ay-form-alan i { font-style: normal; opacity: 0.75; }
+.ay-form-btn {
+  background: #1B4965; color: #fff; text-align: center; border-radius: 8px;
+  padding: 9px; font-size: 10px; font-weight: 800; letter-spacing: 0.02em; margin-top: 2px;
+}
+.ay-form-onay {
+  margin-top: 7px; background: #E4F6E8; border: 1px solid #B6E2C1; color: #1C6B32;
+  border-radius: 8px; padding: 7px 9px; font-size: 9px; font-weight: 700; line-height: 1.35;
+}
+
+/* Bir panelde birden çok ekran gösterildiğinde */
+.ay-shot + .ay-shot { margin-top: 1.1rem; }
+
+/* ── Panel blokları (dönüşümlü iki sütun) ──────────────────────────────── */
+.ay-panel { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.8rem, 1rem + 3vw, 3.6rem); align-items: center; }
+.ay-panel + .ay-panel { margin-top: clamp(3rem, 2rem + 4vw, 5.5rem); }
+.ay-panel--ters .ay-panel__gorsel { order: -1; }
+.ay-panel__no {
+  font-family: var(--font-display); font-style: italic; font-weight: 600;
+  font-size: 1.5rem; color: var(--pr); letter-spacing: 0.02em;
+}
+.ay-panel h3 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem); letter-spacing: -0.01em; margin-top: 0.5rem;
+}
+.ay-panel p { color: var(--ink-soft); margin-top: 0.9rem; max-width: 46ch; }
+.ay-yetenek { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 1.4rem; }
+.ay-yetenek li {
+  list-style: none; font-size: 0.78rem; font-weight: 500; color: var(--pr);
+  border: 1px solid var(--pr-line); border-radius: var(--r-full);
+  padding: 5px 13px; background: var(--pr-tint);
+}
+
+/* ── Panel içi ekran seçici ────────────────────────────────────────────────
+   Metnin altındaki düğmelere basılınca sağdaki çerçevede o ekran görünür.
+   Ekranların hepsi aynı anda sayfada; yalnız aktif olan gösteriliyor —
+   böylece geçiş anında oluyor, bir şey yüklenmesi beklenmiyor.
+   ─────────────────────────────────────────────────────────────────────── */
+.ay-ekran-sec {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem;
+}
+.ay-ekran-sec button {
+  font-family: inherit; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft);
+  border: 1px solid var(--line); background: var(--surface-2);
+  border-radius: var(--r-full); padding: 8px 16px; cursor: pointer;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease),
+              border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.ay-ekran-sec button:hover { border-color: var(--pr-line); color: var(--pr); transform: translateY(-1px); }
+.ay-ekran-sec button.is-active {
+  background: var(--pr); border-color: var(--pr); color: #fff;
+  box-shadow: 0 8px 18px -8px rgba(194, 65, 12, 0.6);
+}
+
+/* Ekran yığını.
+   Hepsi tek bir grid hücresinde üst üste duruyor: kapsayıcı en uzun ekrana
+   göre boyutlanır, böylece sekme değiştirirken çerçeve zıplamaz.
+   (Mutlak konumlandırmada ekranlar 232–327 px arasında değiştiği için
+   geçişte 109 px'lik sıçrama oluyordu.) */
+.ay-ekran-yigin { display: grid; }
+.ay-ekran {
+  grid-area: 1 / 1;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 280ms var(--ease);
+}
+.ay-ekran.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
+
+/* JS yoksa ekranlar üst üste kalmasın, alt alta ve görünür olsunlar */
+html:not(.js) .ay-ekran-yigin { display: block; }
+html:not(.js) .ay-ekran { opacity: 1; visibility: visible; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ay-ekran { transition: none; }
+}
+
+/* ── İstatistik şeridi ─────────────────────────────────────────────────── */
+.ay-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem;
+  border-block: 1px solid var(--line-soft); padding-block: 2.2rem;
+  margin-bottom: var(--space-section);
+}
+.ay-stat { padding-left: 1.1rem; border-left: 2px solid var(--pr-line); }
+.ay-stat__num {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.5rem); line-height: 1.1; letter-spacing: -0.01em;
+}
+.ay-stat__num em { font-style: italic; color: var(--pr); }
+.ay-stat__cap { margin-top: 0.35rem; font-size: 0.82rem; color: var(--ink-muted); }
+
+/* ── Akış ──────────────────────────────────────────────────────────────── */
+.ay-akis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; counter-reset: adim; }
+.ay-adim {
+  position: relative; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.6rem 1.5rem; box-shadow: var(--shadow-sm);
+}
+.ay-adim::before {
+  counter-increment: adim; content: counter(adim, decimal-leading-zero);
+  font-family: var(--font-display); font-style: italic; font-weight: 600;
+  font-size: 1.15rem; color: var(--pr); opacity: 0.75;
+}
+.ay-adim h4 { font-family: var(--font-display); font-weight: 500; font-size: 1.12rem; margin-top: 0.45rem; }
+.ay-adim p { color: var(--ink-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+.ay-adim__ses {
+  margin-top: 0.9rem; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 600; color: var(--sicak);
+  background: rgba(27, 73, 101, 0.09); border: 1px solid rgba(27, 73, 101, 0.30);
+  border-radius: var(--r-full); padding: 5px 12px;
+}
+
+/* ── Karşılaştırma ─────────────────────────────────────────────────────── */
+.ay-kiyas { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.ay-kiyas__kutu { border-radius: var(--r-lg); padding: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem); border: 1px solid var(--line); }
+.ay-kiyas__kutu--once { background: var(--bg-tint); }
+.ay-kiyas__kutu--sonra { background: linear-gradient(130deg, var(--surface-2), var(--pr-tint)); border-color: var(--pr-line); }
+.ay-kiyas__etiket { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
+.ay-kiyas__kutu--sonra .ay-kiyas__etiket { color: var(--pr); }
+.ay-kiyas ul { margin-top: 1.2rem; display: grid; gap: 0.75rem; }
+.ay-kiyas li { list-style: none; display: flex; gap: 11px; font-size: 0.95rem; color: var(--ink-soft); }
+.ay-kiyas li::before { content: "—"; color: var(--ink-faint); flex: none; }
+.ay-kiyas__kutu--sonra li::before { content: "✓"; color: var(--pr); font-weight: 700; }
+
+/* ── Ekranlar ızgarası ─────────────────────────────────────────────────── */
+.ay-ekranlar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+.ay-ekran-cap { margin-top: 0.9rem; font-size: 0.86rem; color: var(--ink-muted); }
+.ay-ekran-cap b { color: var(--pr); font-weight: 600; }
+
+/* ── Kapanış ───────────────────────────────────────────────────────────── */
+.ay-cta { display: flex; align-items: flex-start; gap: 1.4rem; flex-wrap: wrap; }
+.ay-cta__ic {
+  width: 52px; height: 52px; flex: none; border-radius: 14px; display: grid; place-items: center;
+  background: var(--pr-grad); color: #fff; box-shadow: 0 12px 26px -12px rgba(194, 65, 12, 0.7);
+}
+.ay-cta__ic svg { width: 27px; height: 27px; }
+
+/* ── Duyarlılık ────────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .ay-hero__grid { grid-template-columns: 1fr; }
+  .ay-hero__gorsel { max-width: 560px; }
+  .ay-chip--1 { right: 2%; }
+  .ay-chip--2 { left: 2%; }
+  .ay-stats { grid-template-columns: repeat(2, 1fr); }
+  .ay-panel { grid-template-columns: 1fr; }
+  .ay-panel--ters .ay-panel__gorsel { order: 0; }
+  .ay-akis { grid-template-columns: 1fr; }
+  .ay-kiyas { grid-template-columns: 1fr; }
+  .ay-ekranlar { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .ay-stats { grid-template-columns: 1fr; }
+  .ay-masalar { grid-template-columns: repeat(5, 1fr); }
+  .ay-kds { grid-template-columns: repeat(2, 1fr); }
+  .ay-lockup__wm { font-size: 1.35rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ay-shot--float, .ay-chip .live { animation: none !important; }
+}

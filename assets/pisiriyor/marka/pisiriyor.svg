@@ -1,0 +1,18 @@
+<!-- Pişiriyor — ürün markası.
+     Biçim: tek parça alev, içinde Vectonis'in V harfi. İsim ocağı çağrıştırdığı
+     için önceki adisyon fişi bırakıldı. V-Muhafız'ın kalkanıyla aynı mantık
+     sürüyor: kapalı bir silüet ve içine oturan V. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="psGrad" x1="0.15" y1="1" x2="0.75" y2="0">
+      <stop offset="0"   stop-color="#E02A1B"/>
+      <stop offset="0.55" stop-color="#F5701A"/>
+      <stop offset="1"   stop-color="#FFB703"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 6 C64 25 79 35 79 56 C79 75 66 91 50 91 C34 91 21 75 21 56
+           C21 39 32 33 38 22 C40 33 46 35 50 29 C52 21 50 13 50 6 Z"
+        fill="url(#psGrad)"/>
+  <path d="M37 45 L50 66 L63 45" fill="none" stroke="#FFF7EC" stroke-width="9.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

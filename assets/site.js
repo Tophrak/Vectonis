@@ -120,3 +120,52 @@
     });
   }
 })();
+
+// ─── Lüks hareket: başlıklar kelime kelime yükselir, medya perde gibi açılır ───
+// (MotionSites tarzından esinli, tamamen özgün ve bağımlılıksız uygulama)
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  // 1) Bölüm başlıklarını kelimelere böl (iç <em> vb. korunur)
+  var titles = Array.prototype.slice.call(document.querySelectorAll('.section__title'));
+  titles.forEach(function (t) {
+    var wi = 0;
+    function wrapText(node) {
+      var parts = node.textContent.split(/(\s+)/);
+      var frag = document.createDocumentFragment();
+      parts.forEach(function (p) {
+        if (!p) return;
+        if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+        var outer = document.createElement('span'); outer.className = 'lm-w';
+        var inner = document.createElement('span');
+        inner.style.setProperty('--lmd', (wi * 65) + 'ms');
+        inner.textContent = p;
+        outer.appendChild(inner); frag.appendChild(outer); wi++;
+      });
+      node.parentNode.replaceChild(frag, node);
+    }
+    (function walk(n) {
+      Array.prototype.slice.call(n.childNodes).forEach(function (c) {
+        if (c.nodeType === 3) wrapText(c);
+        else if (c.nodeType === 1) walk(c);
+      });
+    })(t);
+  });
+
+  // 2) Medya perdeleri: cihazlar ve ekran çerçeveleri
+  var media = Array.prototype.slice.call(document.querySelectorAll(
+    '.nr-role-phone, .nr-video, .kg-shot, .kg-phone, .nr-stage__inner'
+  ));
+  media.forEach(function (m) { m.classList.add('lm-media'); });
+
+  // 3) Görünüme girince tetikle
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('lm-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -6% 0px' });
+  titles.forEach(function (t) { io.observe(t); });
+  media.forEach(function (m) { io.observe(m); });
+})();

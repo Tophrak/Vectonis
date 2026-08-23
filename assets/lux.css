@@ -289,3 +289,14 @@ a.card:hover { border-color: var(--ember-line); }
   body { background: #fff; }
   .nav { position: static; background: none; }
 }
+
+/* ── Lüks hareket (MotionSites esinli, özgün): kelime-kelime başlık + medya perdesi ── */
+.js .lm-w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 0.1em 0.09em; margin: 0 -0.1em -0.09em; }
+.js .lm-w > span { display: inline-block; transform: translateY(112%); transition: transform 0.75s var(--ease); transition-delay: var(--lmd, 0ms); }
+.js .lm-in .lm-w > span { transform: none; }
+.js .lm-media { clip-path: inset(14% 9% 14% 9% round 24px); transform: scale(1.05); transition: clip-path 1s var(--ease), transform 1s var(--ease); }
+.js .lm-media.lm-in { clip-path: inset(0 0 0 0 round 0); transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .lm-w > span { transform: none !important; transition: none !important; }
+  .js .lm-media { clip-path: none !important; transform: none !important; transition: none !important; }
+}
