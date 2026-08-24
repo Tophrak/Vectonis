@@ -84,8 +84,8 @@
 
         <div class="stage">
           <div class="stage__shot">
-            <img src="../assets/nihairota/panel/komuta-merkezi.png" width="2880" height="1800"
-                 alt="NihaiRota web paneli, Komuta Merkezi ekranı: aktif hat, personel sayısı, doluluk ve kapasite."
+            <img src="../assets/nihairota/panel/yeni/kurum-ana-ekran.webp" width="1600" height="855"
+                 alt="NihaiRota web paneli, Ana Ekran: vardiya durumu, bugunun seferleri, aktif hat, personel ve doluluk."
                  loading="eager" fetchpriority="high" decoding="async">
           </div>
           <div class="phone stage__phone" aria-hidden="true">
@@ -302,47 +302,139 @@
 
       <!-- ── WEB ───────────────────────────────────────────── -->
       <div class="tabpanel" id="panel-web" role="tabpanel" aria-labelledby="tab-web" data-panel="web" hidden>
-        <div class="webshow reveal">
-          <div class="browser">
-            <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">vectonis.com/nihairota</span></div>
-            <div class="browser__view">
-              <img class="webframe is-active" src="../assets/nihairota/panel/komuta-merkezi.png" width="2880" height="1800"
-                   alt="Yönetici paneli, Komuta Merkezi ekranı: aktif hat, personel sayısı, doluluk ve kapasite." loading="lazy" decoding="async">
-              <img class="webframe" src="../assets/nihairota/panel/filo-merkezi.png" width="2880" height="1800"
-                   alt="Koordinatör paneli, Filo Merkezi ekranı: şoför sayısı, atanmış hatlar ve sahadaki araçlar." loading="lazy" decoding="async">
-              <img class="webframe" src="../assets/nihairota/panel/soforler.png" width="2880" height="1800"
-                   alt="Şoförler ekranı: kadro listesi, hat ataması ve saha durumu." loading="lazy" decoding="async">
-              <img class="webframe" src="../assets/nihairota/panel/istisnalar.png" width="2880" height="1800"
-                   alt="Tatil ve İstisnalar ekranı: tek günlük tatil, sefer iptali ve şoför değişikliği." loading="lazy" decoding="async">
+        <div class="webseg reveal" role="tablist" aria-label="Panel tarafı">
+          <button type="button" class="webseg__btn is-active" role="tab" data-webseg="kurum" aria-selected="true">
+            <span class="webseg__t">Kurum paneli</span>
+            <span class="webseg__d">Personelini taşıtan işveren — hatlar, personel, yoklama, rapor.</span>
+          </button>
+          <button type="button" class="webseg__btn" role="tab" data-webseg="firma" aria-selected="false">
+            <span class="webseg__t">Servis firması paneli</span>
+            <span class="webseg__d">Filoyu işleten firma — şoför, araç, belge, müşteri, hakediş.</span>
+          </button>
+        </div>
+
+        <div class="webgroup reveal" data-webgroup="kurum">
+          <div class="webshow">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">vectonis.com/nihairota</span></div>
+              <div class="browser__view">
+                <img class="webframe is-active" src="../assets/nihairota/panel/yeni/kurum-ana-ekran.webp" alt="Kurum paneli &middot; Ana Ekran ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-canli-filo.webp" alt="Kurum paneli &middot; Canlı Filo Haritası ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-hatlar.webp" alt="Kurum paneli &middot; Hat ve Güzergahlar ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-sefer-gecmisi.webp" alt="Kurum paneli &middot; Sefer Geçmişi ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-personel.webp" alt="Kurum paneli &middot; Personel ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-yeni-personel.webp" alt="Kurum paneli &middot; Yeni Personel ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-raporlar.webp" alt="Kurum paneli &middot; Raporlar ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-duyurular.webp" alt="Kurum paneli &middot; Duyurular ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-merkezler.webp" alt="Kurum paneli &middot; Kurum Merkezleri ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/kurum-is-ortaklari.webp" alt="Kurum paneli &middot; İş Ortakları ekranı." decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="weblist" role="tablist" aria-label="Kurum paneli ekranları">
+              <button type="button" role="tab" data-i="0" class="is-active" aria-selected="true">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Ana Ekran</span>
+                <span class="weblist__note">Vardiya durumu, bugünün seferleri, doluluk ve dikkat gerektirenler tek ekranda.</span>
+              </button>
+              <button type="button" role="tab" data-i="1" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Canlı Filo Haritası</span>
+                <span class="weblist__note">Tüm hatlar tek haritada; hat kartından şoför, durak ve personel listesi.</span>
+              </button>
+              <button type="button" role="tab" data-i="2" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Hat ve Güzergahlar</span>
+                <span class="weblist__note">Hat tanımları, doluluk oranları ve tek tuşla güzergâh optimizasyonu.</span>
+              </button>
+              <button type="button" role="tab" data-i="3" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Sefer Geçmişi</span>
+                <span class="weblist__note">Gün, hat ve vardiya bazında arşiv — kim bindi, kim gelmedi. CSV dışa aktarım.</span>
+              </button>
+              <button type="button" role="tab" data-i="4" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Personel</span>
+                <span class="weblist__note">Kadro listesi, hat ataması, müşteri filtresi ve toplu içe aktarma.</span>
+              </button>
+              <button type="button" role="tab" data-i="5" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Yeni Personel</span>
+                <span class="weblist__note">Adresi haritadan seçin; sistem en yakın uygun hattı önerip atar.</span>
+              </button>
+              <button type="button" role="tab" data-i="6" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Raporlar</span>
+                <span class="weblist__note">Hat doluluk analizi, boş koltuk günlük maliyeti ve aylık sefer özeti.</span>
+              </button>
+              <button type="button" role="tab" data-i="7" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Duyurular</span>
+                <span class="weblist__note">Hat, rol veya genel kapsamda duyuru — telefonlara anlık push düşer.</span>
+              </button>
+              <button type="button" role="tab" data-i="8" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">Kurum Merkezleri</span>
+                <span class="weblist__note">Hatların doğru adrese varması için varış merkezlerini yönetin.</span>
+              </button>
+              <button type="button" role="tab" data-i="9" aria-selected="false">
+                <span class="weblist__role">Kurum paneli</span>
+                <span class="weblist__name">İş Ortakları</span>
+                <span class="weblist__note">Servis firmasından gelen davet kodunu onaylayın; bağ anında kurulsun.</span>
+              </button>
             </div>
           </div>
+        </div>
 
-          <div class="weblist" role="tablist" aria-label="Panel ekranları">
-            <button type="button" class="is-active" role="tab" data-i="0" aria-selected="true">
-              <span class="weblist__role">Yönetici paneli</span>
-              <span class="weblist__name">Komuta Merkezi</span>
-              <span class="weblist__note">Doluluk ve kapasite güncel veriden hesaplanır.</span>
-            </button>
-            <button type="button" role="tab" data-i="1" aria-selected="false">
-              <span class="weblist__role">Koordinatör paneli</span>
-              <span class="weblist__name">Filo Merkezi</span>
-              <span class="weblist__note">Hat atamaları ve sahadaki araçlar tek ekranda.</span>
-            </button>
-            <button type="button" role="tab" data-i="2" aria-selected="false">
-              <span class="weblist__role">Koordinatör paneli</span>
-              <span class="weblist__name">Şoförler</span>
-              <span class="weblist__note">Kadro, hat ataması ve anlık saha durumu.</span>
-            </button>
-            <button type="button" role="tab" data-i="3" aria-selected="false">
-              <span class="weblist__role">Yönetici paneli</span>
-              <span class="weblist__name">Tatil ve İstisnalar</span>
-              <span class="weblist__note">Tatil, sefer iptali ve şoför değişikliği tanımları.</span>
-            </button>
+        <div class="webgroup reveal" data-webgroup="firma" hidden>
+          <div class="webshow">
+            <div class="browser">
+              <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">vectonis.com/nihairota</span></div>
+              <div class="browser__view">
+                <img class="webframe is-active" src="../assets/nihairota/panel/yeni/firma-soforler.webp" alt="Servis firması paneli &middot; Şoförler ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/firma-arac-sofor.webp" alt="Servis firması paneli &middot; Araç ve Şoför ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/firma-belge-takibi.webp" alt="Servis firması paneli &middot; Belge Takibi ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/firma-musteriler.webp" alt="Servis firması paneli &middot; Müşteriler ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/firma-hakedis.webp" alt="Servis firması paneli &middot; Hakediş ekranı." decoding="async" loading="lazy">
+                <img class="webframe" data-src="../assets/nihairota/panel/yeni/firma-is-ortaklari.webp" alt="Servis firması paneli &middot; İş Ortakları ekranı." decoding="async" loading="lazy">
+              </div>
+            </div>
+            <div class="weblist" role="tablist" aria-label="Servis firması paneli ekranları">
+              <button type="button" role="tab" data-i="0" class="is-active" aria-selected="true">
+                <span class="weblist__role">Servis firması paneli</span>
+                <span class="weblist__name">Şoförler</span>
+                <span class="weblist__note">Kadro, hat ataması ve anlık saha durumu; şoförsüz hatlar ayrı uyarır.</span>
+              </button>
+              <button type="button" role="tab" data-i="1" aria-selected="false">
+                <span class="weblist__role">Servis firması paneli</span>
+                <span class="weblist__name">Araç ve Şoför</span>
+                <span class="weblist__note">Her araca sabit şoför bağlayın; şoför değişince hatlar kendiliğinden devreder.</span>
+              </button>
+              <button type="button" role="tab" data-i="2" aria-selected="false">
+                <span class="weblist__role">Servis firması paneli</span>
+                <span class="weblist__name">Belge Takibi</span>
+                <span class="weblist__note">Muayene, sigorta, ehliyet, SRC ve psikoteknik bitişleri — 30 günden az kalan amber, geçen kırmızı.</span>
+              </button>
+              <button type="button" role="tab" data-i="3" aria-selected="false">
+                <span class="weblist__role">Servis firması paneli</span>
+                <span class="weblist__name">Müşteriler</span>
+                <span class="weblist__note">Hizmet verilen kurumlar, sözleşme tarihleri ve hakediş biçimi tek kayıtta.</span>
+              </button>
+              <button type="button" role="tab" data-i="4" aria-selected="false">
+                <span class="weblist__role">Servis firması paneli</span>
+                <span class="weblist__name">Hakediş</span>
+                <span class="weblist__note">Bu ay alacağınız tutar; sözleşme biçimine göre sefer ve taşınan sayısıyla hesaplanır.</span>
+              </button>
+              <button type="button" role="tab" data-i="5" aria-selected="false">
+                <span class="weblist__role">Servis firması paneli</span>
+                <span class="weblist__name">İş Ortakları</span>
+                <span class="weblist__note">Davet kodu üretin; kurum onaylayınca hatlar karşılıklı görünür olur.</span>
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="webfoot reveal">
-          <p>Kurulum gerekmez. Yönetici ve koordinatör hesapları tarayıcıdan oturum açar; mobil uygulamayla <strong>aynı canlı veriyi</strong> kullanır. Şoförler mobil uygulamayı kullanır.</p>
+          <p>Kurulum gerekmez. İki taraf da tarayıcıdan oturum açar, <strong>davet koduyla</strong> eşleşir ve mobil uygulamayla <strong>aynı canlı veriyi</strong> kullanır. Şoförler mobil uygulamayı kullanır.</p>
           <a class="btn btn--light" href="../nihairota/">Giriş Yap</a>
           <a class="btn btn--ghost" href="../iletisim.html">Kurum hesabı talep et</a>
         </div>
@@ -398,6 +490,27 @@
           </span>
           <h3>Tatil ve istisnalar</h3>
           <p>Tatil, iptal ve şoför değişikliği haftalık tarife bozulmadan tanımlanır.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5z"/><path d="M14 3v4.5h4.5M8.5 13h7M8.5 16.5h4"/></svg>
+          </span>
+          <h3>Belge takibi</h3>
+          <p>Muayene, sigorta, ehliyet, SRC ve psikoteknik bitişleri; 30 günden az kalan amber, geçen kırmızı uyarır.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5l3-3M8.5 15.5l-2 2a3.2 3.2 0 0 1-4.5-4.5l2-2M15.5 8.5l2-2a3.2 3.2 0 0 1 4.5 4.5l-2 2"/></svg>
+          </span>
+          <h3>Firma ve kurum tek sistemde</h3>
+          <p>Servis firması davet kodu üretir, kurum onaylar; hatlar iki tarafta da canlı görünür.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 14.5h4"/></svg>
+          </span>
+          <h3>Sözleşme ve hakediş</h3>
+          <p>Sefer başı, koltuk başı veya sabit aylık — aylık alacak gerçekleşen seferden hesaplanır.</p>
         </div>
       </div>
     </section>
@@ -593,19 +706,49 @@
       show(0);
     });
 
-    /* Web paneli görsel seçici ----------------------------------------- */
+    /* Web paneli vitrini ------------------------------------------------ */
     (function () {
-      var frames = [].slice.call(document.querySelectorAll('.webframe'));
-      var btns = [].slice.call(document.querySelectorAll('.weblist button'));
-      if (frames.length < 2 || !btns.length) return;
-      function show(n) {
-        frames.forEach(function (f, k) { f.classList.toggle('is-active', k === n); });
-        btns.forEach(function (b, k) {
-          b.classList.toggle('is-active', k === n);
-          b.setAttribute('aria-selected', k === n ? 'true' : 'false');
+      var segler = [].slice.call(document.querySelectorAll('[data-webseg]'));
+      var kaplar = {};
+      document.querySelectorAll('[data-webgroup]').forEach(function (el) {
+        kaplar[el.getAttribute('data-webgroup')] = el;
+      });
+
+      segler.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var ad = b.getAttribute('data-webseg');
+          segler.forEach(function (x) {
+            var acik = x === b;
+            x.classList.toggle('is-active', acik);
+            x.setAttribute('aria-selected', acik ? 'true' : 'false');
+          });
+          Object.keys(kaplar).forEach(function (k) { kaplar[k].hidden = k !== ad; });
         });
+      });
+
+      /* Görseller ancak seçildiğinde indirilir */
+      function yukle(img) {
+        var ertelenen = img.getAttribute('data-src');
+        if (ertelenen) { img.src = ertelenen; img.removeAttribute('data-src'); }
       }
-      btns.forEach(function (b, k) { b.addEventListener('click', function () { show(k); }); });
+
+      Object.keys(kaplar).forEach(function (ad) {
+        var kap = kaplar[ad];
+        var kareler = [].slice.call(kap.querySelectorAll('.webframe'));
+        var dugmeler = [].slice.call(kap.querySelectorAll('.weblist button'));
+        if (kareler.length < 2) return;
+        dugmeler.forEach(function (b, n) {
+          b.addEventListener('click', function () {
+            yukle(kareler[n]);
+            if (kareler[n + 1]) yukle(kareler[n + 1]);
+            kareler.forEach(function (f, k) { f.classList.toggle('is-active', k === n); });
+            dugmeler.forEach(function (d, k) {
+              d.classList.toggle('is-active', k === n);
+              d.setAttribute('aria-selected', k === n ? 'true' : 'false');
+            });
+          });
+        });
+      });
     })();
 
     /* İmleç eğimi ------------------------------------------------------ */

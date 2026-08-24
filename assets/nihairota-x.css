@@ -183,6 +183,16 @@ p{margin:0}
 .rolepane__media{display:flex;justify-content:center}
 .rolepane__media .phone{width:min(258px,70vw);transition:transform .25s var(--ease)}
 
+/* ── Web: taraf seçimi ───────────────────────────────────── */
+.webseg{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(20px,2.6vw,28px)}
+.webseg__btn{flex:1 1 260px;text-align:left;padding:16px 18px;border-radius:var(--r-lg);
+  border:1px solid var(--line);background:var(--card);transition:border-color .2s,background .2s}
+.webseg__btn:hover{background:var(--card-2)}
+.webseg__btn.is-active{border-color:rgba(107,113,232,.5);background:rgba(107,113,232,.12)}
+.webseg__t{display:block;font-size:1rem;font-weight:600;letter-spacing:-.02em}
+.webseg__d{display:block;margin-top:4px;font-size:.84rem;color:var(--ink-3)}
+.webgroup[hidden]{display:none}
+
 /* ── Web: büyük görsel + küçük seçiciler ─────────────────── */
 .webshow{display:grid;gap:clamp(18px,2.6vw,26px)}
 @media (min-width:900px){.webshow{grid-template-columns:minmax(0,1fr) 292px;align-items:start}}
@@ -191,10 +201,12 @@ p{margin:0}
 .browser__bar{display:flex;align-items:center;gap:6px;padding:10px 13px;border-bottom:1px solid var(--line)}
 .browser__bar i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15)}
 .browser__url{margin-left:8px;padding:3px 11px;border-radius:99px;background:rgba(255,255,255,.05);font-size:.7rem;color:var(--ink-4)}
-.browser__view{position:relative;aspect-ratio:2880/1800;background:#07070a}
-.browser__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity .45s var(--ease)}
+.browser__view{position:relative;aspect-ratio:1600/850;background:#07070a}
+.browser__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;opacity:0;transition:opacity .45s var(--ease)}
 .browser__view img.is-active{opacity:1}
-.weblist{display:grid;gap:8px}
+.weblist{display:grid;gap:8px;align-content:start;max-height:min(560px,74vh);overflow-y:auto;padding-right:4px}
+.weblist::-webkit-scrollbar{width:6px}
+.weblist::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:99px}
 .weblist button{display:block;width:100%;text-align:left;padding:14px 16px;border-radius:var(--r-md);
   border:1px solid var(--line);background:var(--card);transition:border-color .2s,background .2s,transform .2s}
 .weblist button:hover{background:var(--card-2);transform:translateX(2px)}
