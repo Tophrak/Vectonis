@@ -4,79 +4,117 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>İletişim — Vectonis</title>
-  <meta name="description" content="Vectonis Bilişim ile iletişime geçin: info@vectonis.com — Ankara, Türkiye.">
-  <meta name="theme-color" content="#F5F1EA">
+  <meta name="description" content="Vectonis Bilişim iletişim: Ankara. info@vectonis.com, 0507 845 09 61.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="MmbLQA9pjVaZmiUoXEtGpkH9fVhhvdYzQe_cmCAv7Q0">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
   <link rel="canonical" href="https://vectonis.com/iletisim.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="İletişim — Vectonis">
-  <meta property="og:description" content="Vectonis Bilişim ile iletişime geçin: info@vectonis.com — Ankara.">
+  <meta property="og:description" content="Vectonis Bilişim iletişim: Ankara. info@vectonis.com, 0507 845 09 61.">
   <meta property="og:url" content="https://vectonis.com/iletisim.html">
   <meta property="og:image" content="https://vectonis.com/assets/og.png">
   <meta property="og:locale" content="tr_TR">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/lux.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/vx.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
-
-  <header class="nav">
+<div class="grid-bg">
+  <header class="nav" id="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="./" aria-label="Vectonis ana sayfa">
-        <img class="brand__logo" src="./assets/favicon.svg" width="40" height="40" alt="">
+        <svg class="brand__logo" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <defs><linearGradient id="vlg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6b71e8"/><stop offset="1" stop-color="#e8871b"/>
+          </linearGradient></defs>
+          <path d="M100 16 L172 42 V98 C172 145 143 174 100 186 C57 174 28 145 28 98 V42 Z"
+                stroke="url(#vlg)" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M70 62 L100 132 L130 62" stroke="#050040" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="68" r="9" fill="url(#vlg)"/>
+        </svg>
         <span class="brand__name">Vectonis<span class="brand__dot">.</span></span>
       </a>
-      <nav class="nav__links" aria-label="Ana gezinme">
-        <a class="nav__link" href="./">Ana Sayfa</a>
-        <a class="nav__link" href="./urunler/">Projeler</a>
-        <a class="nav__link" href="./hakkinda.html">Hakkında</a>
-        <a class="nav__link" href="./iletisim.html">İletişim</a>
+
+      <nav class="nav__menu" aria-label="Ana gezinme">
+        <a href="./">Ana Sayfa</a>
+        <div class="nav__drop" tabindex="0">
+          <span>Projeler</span>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="nav__drop__panel">
+            <div class="nav__drop__inner">
+              <a href="./urunler/nihairota.html"><b>NihaiRota</b><span>Personel servisi yönetim sistemi</span></a>
+              <a href="./urunler/kamuguvenligi.html"><b>V-Muhafız</b><span>Ziyaretçi ve geçiş yönetimi</span></a>
+              <a href="./urunler/pisiriyor.html"><b>Pişiriyor</b><span>Restoran otomasyonu</span></a>
+              <a href="./urunler/"><b>Tüm projeler</b><span>Vitrinin tamamı</span></a>
+            </div>
+          </div>
+        </div>
+        <a href="./hakkinda.html">Hakkında</a>
+        <a href="./iletisim.html">İletişim</a>
       </nav>
+
+      <a class="btn btn--solid btn--sm nav__cta" href="./iletisim.html">Bize Ulaşın</a>
+
+      <button class="nav__burger" type="button" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
   </header>
 
-  <main id="icerik">
-    <section class="page-hero wrap" aria-labelledby="sayfa-baslik">
-      <p class="section__eyebrow">İletişim</p>
-      <h1 id="sayfa-baslik"><span class="mask"><span class="mask__inner"><em>Konuşalım.</em></span></span></h1>
-    </section>
+  <div class="mobmenu" id="mobmenu" role="dialog" aria-modal="true" aria-label="Menü">
+    <button class="mobmenu__close" type="button" id="mobclose" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <a href="./">Ana Sayfa</a>
+    <a href="./urunler/">Projeler</a>
+    <a href="./hakkinda.html">Hakkında</a>
+    <a href="./iletisim.html">İletişim</a>
+    <a class="btn btn--solid" href="./iletisim.html">Bize Ulaşın</a>
+  </div>
 
+  <main id="icerik">
+    <section class="wrap" style="padding-block:clamp(56px,9vw,110px) clamp(30px,5vw,56px);text-align:center">
+      <p class="eyebrow">İletişim</p>
+      <h1 style="margin-top:14px;font-size:clamp(2rem,4.6vw,3.4rem)"><em style="font-style:normal;color:var(--accent)">Konuşalım</em>.</h1>
+      <p class="hero__lead" style="margin-top:18px">Yeni bir sistem, mevcut sürecin dijitalleşmesi ya da size özel bir çözüm — ihtiyacınızı yazın, bir iş günü içinde dönelim.</p>
+    </section>
+  </main>
+</div>
+
+  <main>
     <section class="section wrap">
-      <div class="contact-grid">
-        <div class="contact-card reveal">
-          <p class="contact-card__label">Konum</p>
-          <p class="contact-card__value">Ankara</p>
-          <p class="contact-card__note">Türkiye</p>
+      <div class="infogrid reveal">
+        <div class="info">
+          <div class="info__k">Konum</div>
+          <div class="info__v">Ankara, Türkiye</div>
         </div>
-        <div class="contact-card reveal">
-          <p class="contact-card__label">Telefon</p>
-          <p class="contact-card__value"><a href="tel:+905078450961">0507 845 09 61</a></p>
-          <p class="contact-card__value"><a href="tel:+905455268950">0545 526 89 50</a></p>
-          <p class="contact-card__value"><a href="tel:+905398381887">0539 838 18 87</a></p>
-          <p class="contact-card__note">Her gün 09:00 — 22:00</p>
+        <div class="info">
+          <div class="info__k">Telefon</div>
+          <div class="info__v"><a href="tel:+905078450961">0507 845 09 61</a></div>
         </div>
-        <div class="contact-card reveal">
-          <p class="contact-card__label">E-posta</p>
-          <p class="contact-card__value"><a href="mailto:info@vectonis.com">info@vectonis.com</a></p>
-          <p class="contact-card__note">1 iş günü içinde yanıt</p>
+        <div class="info">
+          <div class="info__k">E-posta</div>
+          <div class="info__v"><a href="mailto:info@vectonis.com">info@vectonis.com</a></div>
         </div>
-        <div class="contact-card reveal">
-          <p class="contact-card__label">Çalışma Saatleri</p>
-          <p class="contact-card__value">09:00 — 22:00</p>
-          <p class="contact-card__note">Haftanın her günü</p>
+        <div class="info">
+          <div class="info__k">Çalışma Saatleri</div>
+          <div class="info__v">09:00 — 22:00 · Haftanın her günü</div>
         </div>
       </div>
+    </section>
 
-      <div class="contact-cta reveal">
+    <section class="section wrap" style="padding-top:0">
+      <div class="cta reveal">
         <div>
-          <h2>Projeniz bir e-posta <em>uzağınızda.</em></h2>
-          <p>Yeni bir sistem, mevcut sürecin dijitalleşmesi ya da size özel bir çözüm — ihtiyacınızı yazın, bir iş günü içinde dönelim.</p>
+          <h2>Projeniz bir e-posta uzağınızda</h2>
+          <p>Diğer numaralarımız: 0545 526 89 50 · 0539 838 18 87</p>
         </div>
-        <a class="btn btn--ink" href="mailto:info@vectonis.com?subject=Vectonis%20—%20Proje%20Görüşmesi">E-posta Gönder</a>
+        <a class="btn btn--solid" href="mailto:info@vectonis.com">E-posta gönder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
   </main>
@@ -90,13 +128,10 @@
         <a href="./iletisim.html">İletişim</a>
         <a href="./gizlilik.html">Gizlilik</a>
       </nav>
-      <span class="footer__legal">
-        © 2026 Vectonis. Tüm hakları saklıdır.
-
-      </span>
+      <span class="footer__legal">© 2026 Vectonis. Tüm hakları saklıdır.</span>
     </div>
   </footer>
 
-  <script src="./assets/site.js" defer></script>
+  <script src="./assets/vx.js?v=1" defer></script>
 </body>
 </html>

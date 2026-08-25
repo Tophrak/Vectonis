@@ -4,63 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hakkında — Vectonis</title>
-  <meta name="description" content="Vectonis Bilişim hakkında. Hikâyemiz yakında burada.">
-  <meta name="theme-color" content="#F5F1EA">
+  <meta name="description" content="Vectonis Bilişim hakkında: Ankara merkezli kurumsal yazılım geliştirme.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="MmbLQA9pjVaZmiUoXEtGpkH9fVhhvdYzQe_cmCAv7Q0">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
   <link rel="canonical" href="https://vectonis.com/hakkinda.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hakkında — Vectonis">
-  <meta property="og:description" content="Vectonis Bilişim hakkında. Hikâyemiz yakında burada.">
+  <meta property="og:description" content="Vectonis Bilişim hakkında: Ankara merkezli kurumsal yazılım geliştirme.">
   <meta property="og:url" content="https://vectonis.com/hakkinda.html">
   <meta property="og:image" content="https://vectonis.com/assets/og.png">
   <meta property="og:locale" content="tr_TR">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/lux.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/vx.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
-
-  <header class="nav">
+<div class="grid-bg">
+  <header class="nav" id="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="./" aria-label="Vectonis ana sayfa">
-        <img class="brand__logo" src="./assets/favicon.svg" width="40" height="40" alt="">
+        <svg class="brand__logo" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <defs><linearGradient id="vlg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6b71e8"/><stop offset="1" stop-color="#e8871b"/>
+          </linearGradient></defs>
+          <path d="M100 16 L172 42 V98 C172 145 143 174 100 186 C57 174 28 145 28 98 V42 Z"
+                stroke="url(#vlg)" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M70 62 L100 132 L130 62" stroke="#050040" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="68" r="9" fill="url(#vlg)"/>
+        </svg>
         <span class="brand__name">Vectonis<span class="brand__dot">.</span></span>
       </a>
-      <nav class="nav__links" aria-label="Ana gezinme">
-        <a class="nav__link" href="./">Ana Sayfa</a>
-        <a class="nav__link" href="./urunler/">Projeler</a>
-        <a class="nav__link" href="./hakkinda.html">Hakkında</a>
-        <a class="nav__link" href="./iletisim.html">İletişim</a>
+
+      <nav class="nav__menu" aria-label="Ana gezinme">
+        <a href="./">Ana Sayfa</a>
+        <div class="nav__drop" tabindex="0">
+          <span>Projeler</span>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="nav__drop__panel">
+            <div class="nav__drop__inner">
+              <a href="./urunler/nihairota.html"><b>NihaiRota</b><span>Personel servisi yönetim sistemi</span></a>
+              <a href="./urunler/kamuguvenligi.html"><b>V-Muhafız</b><span>Ziyaretçi ve geçiş yönetimi</span></a>
+              <a href="./urunler/pisiriyor.html"><b>Pişiriyor</b><span>Restoran otomasyonu</span></a>
+              <a href="./urunler/"><b>Tüm projeler</b><span>Vitrinin tamamı</span></a>
+            </div>
+          </div>
+        </div>
+        <a href="./hakkinda.html">Hakkında</a>
+        <a href="./iletisim.html">İletişim</a>
       </nav>
+
+      <a class="btn btn--solid btn--sm nav__cta" href="./iletisim.html">Bize Ulaşın</a>
+
+      <button class="nav__burger" type="button" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
   </header>
 
+  <div class="mobmenu" id="mobmenu" role="dialog" aria-modal="true" aria-label="Menü">
+    <button class="mobmenu__close" type="button" id="mobclose" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <a href="./">Ana Sayfa</a>
+    <a href="./urunler/">Projeler</a>
+    <a href="./hakkinda.html">Hakkında</a>
+    <a href="./iletisim.html">İletişim</a>
+    <a class="btn btn--solid" href="./iletisim.html">Bize Ulaşın</a>
+  </div>
+
   <main id="icerik">
-    <section class="page-hero wrap" aria-labelledby="sayfa-baslik">
-      <p class="section__eyebrow">Hakkında</p>
-      <h1 id="sayfa-baslik"><span class="mask"><span class="mask__inner">Hikâyemiz <em>yazılıyor.</em></span></span></h1>
+    <section class="wrap" style="padding-block:clamp(56px,9vw,110px) clamp(30px,5vw,56px);text-align:center">
+      <p class="eyebrow">Hakkında</p>
+      <h1 style="margin-top:14px;font-size:clamp(2rem,4.6vw,3.4rem)">Hikâyemiz <em style="font-style:normal;color:var(--accent)">yazılıyor</em>.</h1>
+      <p class="hero__lead" style="margin-top:18px">Kim olduğumuzu ve bu işi neden yaptığımızı anlatacağımız bölüm hazırlanıyor. O güne kadar bizi en iyi işimiz anlatır.</p>
+    </section>
+  </main>
+</div>
+
+  <main>
+    <section class="section wrap">
+      <div class="cards reveal">
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
+          <h3>Ne yapıyoruz</h3>
+          <p>Kurumların günlük operasyonunu taşıyan yazılımlar: personel servisi, geçiş kontrolü, restoran otomasyonu. Hepsi sahada kullanılıyor.</p>
+        </div>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <h3>Nasıl çalışıyoruz</h3>
+          <p>Süreci önce sahada izler, sonra yazarız. Her sürüm gerçek operasyonda denenir; çalışmayan özellik yayına çıkmaz.</p>
+        </div>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6.5A1.5 1.5 0 0 1 5.5 5H12v16"/><path d="M12 10h6.5A1.5 1.5 0 0 1 20 11.5V21"/><path d="M2.5 21h19"/></svg></span>
+          <h3>Nerede</h3>
+          <p>Ankara merkezliyiz; Türkiye genelinde kurum ve firmalarla çalışıyoruz.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section wrap">
-      <div class="empty-state reveal">
-        <svg class="empty-state__mark" viewBox="0 0 200 200" aria-hidden="true">
-          <defs><linearGradient id="emg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#F0442E"/><stop offset="1" stop-color="#E8871B"/>
-          </linearGradient></defs>
-          <path d="M100 16 L172 42 V98 C172 145 143 174 100 186 C57 174 28 145 28 98 V42 Z" fill="none" stroke="url(#emg)" stroke-width="10" stroke-linejoin="round"/>
-          <path d="M70 62 L100 132 L130 62" fill="none" stroke="#1A1610" stroke-width="18"/>
-          <circle cx="100" cy="68" r="9" fill="url(#emg)"/>
-        </svg>
-        <h2>Bu sayfa çok yakında.</h2>
-        <p>
-          Kim olduğumuzu ve bu işi neden yaptığımızı anlatacağımız bölüm hazırlanıyor.
-          O güne kadar bizi en iyi işimiz anlatır.
-        </p>
-        <a class="btn btn--ink" href="./iletisim.html">Bize Ulaşın</a>
+      <div class="cta reveal">
+        <div>
+          <h2>Birlikte çalışalım</h2>
+          <p>İhtiyacınızı yazın, bir iş günü içinde dönelim.</p>
+        </div>
+        <a class="btn btn--solid" href="./iletisim.html">Bize ulaşın <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
   </main>
@@ -74,13 +127,10 @@
         <a href="./iletisim.html">İletişim</a>
         <a href="./gizlilik.html">Gizlilik</a>
       </nav>
-      <span class="footer__legal">
-        © 2026 Vectonis. Tüm hakları saklıdır.
-
-      </span>
+      <span class="footer__legal">© 2026 Vectonis. Tüm hakları saklıdır.</span>
     </div>
   </footer>
 
-  <script src="./assets/site.js" defer></script>
+  <script src="./assets/vx.js?v=1" defer></script>
 </body>
 </html>
