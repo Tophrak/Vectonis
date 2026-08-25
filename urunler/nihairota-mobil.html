@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NihaiRota Mobil Uygulama · Şoför ve Personel | Vectonis</title>
-  <meta name="description" content="NihaiRota Android uygulaması: şoför rotayı görür, navigasyonla ilerler ve durak durak yoklama alır; personel servisini canlı izler, alınma sırasını görür, gelmeyeceği günü takvimden bildirir.">
+  <title>NihaiRota Mobil Uygulama · Dört Rol, Tek Uygulama | Vectonis</title>
+  <meta name="description" content="NihaiRota Android uygulaması: yönetici operasyonu cebinden yönetir, personel servisini canlı izler, şoför rotayı görüp yoklama alır, servis firması filosunu ve hakedişini takip eder.">
   <meta name="theme-color" content="#000000">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="canonical" href="https://vectonis.com/urunler/nihairota-mobil.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NihaiRota Mobil Uygulama · Şoför ve Personel | Vectonis">
-  <meta property="og:description" content="NihaiRota Android uygulaması: şoför rotayı görür, navigasyonla ilerler ve durak durak yoklama alır; personel servisini canlı izler, alınma sırasını görür, gelmeyeceği günü takvimden bildirir.">
+  <meta property="og:title" content="NihaiRota Mobil Uygulama · Dört Rol, Tek Uygulama | Vectonis">
+  <meta property="og:description" content="NihaiRota Android uygulaması: yönetici operasyonu cebinden yönetir, personel servisini canlı izler, şoför rotayı görüp yoklama alır, servis firması filosunu ve hakedişini takip eder.">
   <meta property="og:url" content="https://vectonis.com/urunler/nihairota-mobil.html">
   <meta property="og:image" content="https://vectonis.com/assets/nihairota/og-nihairota.png">
   <meta property="og:locale" content="tr_TR">
@@ -56,12 +56,23 @@
         <p class="eyebrow">Mobil uygulama · Android</p>
         <h1>Sahanın <em style="font-style:normal;color:var(--indigo)">uygulaması</em></h1>
         <p>
-          Şoför rotayı görür, navigasyonla ilerler ve durak durak yoklama alır. Personel servisini canlı izler,
-          alınma sırasını görür, gelmeyeceği günü takvimden bildirir. Hepsi tek uygulamada, role göre değişen ekranlarla.
+          Aynı uygulama, hesabın rolüne göre bambaşka bir arayüz açar: yönetici operasyonu yönetir, personel
+          servisini izler, şoför rotayı sürer ve yoklama alır, servis firması filosunu takip eder.
         </p>
         <div class="hero__cta">
           <a class="btn btn--light" href="./nihairota.html#indir">Android APK indir <span class="btn__sub">· 81 MB</span></a>
           <a class="btn btn--ghost" href="./nihairota-web.html">Web panelini inceleyin</a>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="trio" aria-hidden="true">
+          <div class="phone"><div class="phone__screen"><span class="phone__pill"></span>
+            <img class="is-active" src="../assets/nihairota/mobil/personel-ana-ekran.webp" width="720" height="1602" alt="" loading="lazy"></div></div>
+          <div class="phone"><div class="phone__screen"><span class="phone__pill"></span>
+            <img class="is-active" src="../assets/nihairota/mobil/yonetici-komuta.webp" width="720" height="1602" alt="" loading="eager" fetchpriority="high"></div></div>
+          <div class="phone"><div class="phone__screen"><span class="phone__pill"></span>
+            <img class="is-active" src="../assets/nihairota/mobil/sofor-sefer.webp" width="720" height="1602" alt="" loading="lazy"></div></div>
         </div>
       </div>
     </div>
@@ -93,7 +104,7 @@
   <main id="icerik">
     <div class="strip">
       <div class="wrap strip__inner">
-        <span><i></i><b>Şoför · Personel · Yönetici</b></span>
+        <span><i></i><b>Yönetici · Personel · Şoför · Koordinatör</b></span>
         <span><i></i><b>Çevrimdışı dayanıklı</b></span>
         <span><i></i><b>Anlık bildirim</b></span>
         <span><i></i><b>Uygulama içi mesajlaşma</b></span>
@@ -103,28 +114,109 @@
     <section class="section wrap" aria-labelledby="rol-baslik">
       <div class="section__head reveal">
         <p class="eyebrow">Roller</p>
-        <h2 class="section__title" id="rol-baslik">Tek uygulama, <em>üç deneyim</em></h2>
+        <h2 class="section__title" id="rol-baslik">Tek uygulama, <em>dört deneyim</em></h2>
         <p class="section__sub">Uygulama açıldığında hesabın rolüne göre farklı bir arayüz gelir; kimse işine yaramayan ekranla uğraşmaz.</p>
       </div>
 
       <div class="showcase reveal" style="margin-top:clamp(28px,4vw,40px)">
         <div class="showcase__tabs" role="tablist" aria-label="Roller">
-          <button type="button" class="showcase__tab is-active" role="tab" data-role="sofor" aria-selected="true">Şoför</button>
+          <button type="button" class="showcase__tab is-active" role="tab" data-role="yonetici" aria-selected="true">Yönetici</button>
           <button type="button" class="showcase__tab" role="tab" data-role="personel" aria-selected="false">Personel</button>
-          <button type="button" class="showcase__tab" role="tab" data-role="yonetici" aria-selected="false">Yönetici</button>
+          <button type="button" class="showcase__tab" role="tab" data-role="sofor" aria-selected="false">Şoför</button>
+          <button type="button" class="showcase__tab" role="tab" data-role="koordinator" aria-selected="false">Koordinatör</button>
         </div>
 
         <div class="showcase__body">
-            <div class="rolepane" data-rolepane="sofor" data-frames>
+            <div class="rolepane" data-rolepane="yonetici" data-frames>
+              <div class="rolepane__grid">
+                <div>
+                  <p class="rolepane__eyebrow">Kurum tarafı</p>
+                  <h3>Operasyonun tamamını telefondan yönetir: hatlar, personel, yoklama, rapor ve duyurular.</h3>
+                  <div class="caps">
+                    <span class="cap">Komuta ekranı</span>
+                    <span class="cap">Canlı harita</span>
+                    <span class="cap">Otomatik hat planlama</span>
+                    <span class="cap">Boş koltuk maliyeti</span>
+                    <span class="cap">Toplu duyuru</span>
+                  </div>
+                  <ul class="screens" role="tablist" aria-label="Yönetici ekranları">
+                    <li><button type="button" class="is-active" data-i="0">Komuta Merkezi</button></li>
+                    <li><button type="button" data-i="1">Canlı Harita</button></li>
+                    <li><button type="button" data-i="2">Hat ve Güzergahlar</button></li>
+                    <li><button type="button" data-i="3">Hat Detayı</button></li>
+                    <li><button type="button" data-i="4">Otomatik Planlama</button></li>
+                    <li><button type="button" data-i="5">Personel Yönetimi</button></li>
+                    <li><button type="button" data-i="6">Yoklama Kayıtları</button></li>
+                    <li><button type="button" data-i="7">Sefer Geçmişi</button></li>
+                    <li><button type="button" data-i="8">Raporlar</button></li>
+                    <li><button type="button" data-i="9">Tatil ve İstisnalar</button></li>
+                  </ul>
+                  <p style="margin-top:14px;color:var(--ink-4);font-size:.85rem">Bugünün seferleri, aktif hat, personel sayısı ve doluluk oranı tek ekranda.</p>
+                </div>
+                <div class="rolepane__media">
+                  <div class="phone">
+                    <div class="phone__screen">
+                      <span class="phone__pill" aria-hidden="true"></span>
+                      <img class="frame is-active" src="../assets/nihairota/mobil/yonetici-komuta.webp" width="720" height="1602" alt="Yönetici · Komuta Merkezi ekranı." loading="eager" fetchpriority="high">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-canli-harita.webp" width="720" height="1602" alt="Yönetici · Canlı Harita ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-hatlar.webp" width="720" height="1602" alt="Yönetici · Hat ve Güzergahlar ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-hat-detayi.webp" width="720" height="1602" alt="Yönetici · Hat Detayı ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-otomatik-planlama.webp" width="720" height="1602" alt="Yönetici · Otomatik Planlama ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-personel.webp" width="720" height="1602" alt="Yönetici · Personel Yönetimi ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-yoklama.webp" width="720" height="1602" alt="Yönetici · Yoklama Kayıtları ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-sefer-gecmisi.webp" width="720" height="1602" alt="Yönetici · Sefer Geçmişi ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-raporlar.webp" width="720" height="1602" alt="Yönetici · Raporlar ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/yonetici-istisnalar.webp" width="720" height="1602" alt="Yönetici · Tatil ve İstisnalar ekranı." loading="lazy">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rolepane" data-rolepane="personel" data-frames hidden>
+              <div class="rolepane__grid">
+                <div>
+                  <p class="rolepane__eyebrow">Yolcu deneyimi</p>
+                  <h3>Servisinin nerede olduğunu, kaçta kalkacağını ve binme noktasını görür; gelmeyeceği günü bildirir.</h3>
+                  <div class="caps">
+                    <span class="cap">Aktif servis ve şoför</span>
+                    <span class="cap">Şoförü ara</span>
+                    <span class="cap">Canlı harita</span>
+                    <span class="cap">Takvimden bildirim</span>
+                    <span class="cap">Adres değişikliği talebi</span>
+                  </div>
+                  <ul class="screens" role="tablist" aria-label="Personel ekranları">
+                    <li><button type="button" class="is-active" data-i="0">Ana Ekran</button></li>
+                    <li><button type="button" data-i="1">Vardiya Durumu</button></li>
+                    <li><button type="button" data-i="2">Takvim</button></li>
+                    <li><button type="button" data-i="3">Mesajlar</button></li>
+                    <li><button type="button" data-i="4">Ayarlar</button></li>
+                  </ul>
+                  <p style="margin-top:14px;color:var(--ink-4);font-size:.85rem">Bugünkü vardiya, planlı saat, atanan araç ve şoför; tek dokunuşla şoförü arama.</p>
+                </div>
+                <div class="rolepane__media">
+                  <div class="phone">
+                    <div class="phone__screen">
+                      <span class="phone__pill" aria-hidden="true"></span>
+                      <img class="frame is-active" src="../assets/nihairota/mobil/personel-ana-ekran.webp" width="720" height="1602" alt="Personel · Ana Ekran ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/personel-vardiya.webp" width="720" height="1602" alt="Personel · Vardiya Durumu ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/personel-takvim.webp" width="720" height="1602" alt="Personel · Takvim ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/personel-mesajlar.webp" width="720" height="1602" alt="Personel · Mesajlar ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/personel-ayarlar.webp" width="720" height="1602" alt="Personel · Ayarlar ekranı." loading="lazy">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rolepane" data-rolepane="sofor" data-frames hidden>
               <div class="rolepane__grid">
                 <div>
                   <p class="rolepane__eyebrow">Sahada</p>
                   <h3>Atanan hattı harita üzerinde görür, tek dokunuşla navigasyona aktarır ve her durakta yoklama alır.</h3>
                   <div class="caps">
-                    <span class="cap">Haritada güzergâh ve duraklar</span>
-                    <span class="cap">Tüm hattı navigasyonda açma</span>
-                    <span class="cap">Bindi / gelmedi işaretleme</span>
-                    <span class="cap">Hat bazlı mesajlaşma</span>
+                    <span class="cap">Haritada güzergâh</span>
+                    <span class="cap">Navigasyona aktar</span>
+                    <span class="cap">Bindi / gelmedi</span>
+                    <span class="cap">Hat sohbeti</span>
                     <span class="cap">Çevrimdışı kuyruk</span>
                   </div>
                   <ul class="screens" role="tablist" aria-label="Şoför ekranları">
@@ -139,7 +231,7 @@
                   <div class="phone">
                     <div class="phone__screen">
                       <span class="phone__pill" aria-hidden="true"></span>
-                      <img class="frame is-active" src="../assets/nihairota/mobil/sofor-sefer.webp" width="720" height="1602" alt="Şoför · Sefer ve Rota ekranı." loading="eager" fetchpriority="high">
+                      <img class="frame is-active" src="../assets/nihairota/mobil/sofor-sefer.webp" width="720" height="1602" alt="Şoför · Sefer ve Rota ekranı." loading="lazy">
                       <img class="frame" data-src="../assets/nihairota/mobil/sofor-yoklama.webp" width="720" height="1602" alt="Şoför · Personel Listesi ekranı." loading="lazy">
                       <img class="frame" data-src="../assets/nihairota/mobil/sofor-mesajlar.webp" width="720" height="1602" alt="Şoför · Mesajlar ekranı." loading="lazy">
                       <img class="frame" data-src="../assets/nihairota/mobil/sofor-hesap.webp" width="720" height="1602" alt="Şoför · Hesap ekranı." loading="lazy">
@@ -148,35 +240,44 @@
                 </div>
               </div>
             </div>
-            <div class="rolepane" data-rolepane="personel" data-frames hidden>
+            <div class="rolepane" data-rolepane="koordinator" data-frames hidden>
               <div class="rolepane__grid">
                 <div>
-                  <p class="rolepane__eyebrow">Yolcu deneyimi</p>
-                  <h3>Servisinin canlı konumunu ve alınma sırasını görür, gelmeyeceği günleri takvimden bildirir.</h3>
+                  <p class="rolepane__eyebrow">Servis firması tarafı</p>
+                  <h3>Filoyu, şoför kadrosunu, belgeleri ve müşteri sözleşmelerini telefondan yönetir.</h3>
                   <div class="caps">
-                    <span class="cap">Aktif servis ve şoför bilgisi</span>
-                    <span class="cap">Alınma sırası</span>
-                    <span class="cap">Canlı harita izleme</span>
-                    <span class="cap">Takvimden gelmeyeceğini bildirme</span>
-                    <span class="cap">Duyuru bildirimleri</span>
+                    <span class="cap">Filo durumu</span>
+                    <span class="cap">Belge uyarıları</span>
+                    <span class="cap">Müşteri sözleşmeleri</span>
+                    <span class="cap">Aylık hakediş</span>
+                    <span class="cap">Şoförlere duyuru</span>
                   </div>
-                  <p style="margin-top:14px">Bu rolün ekran görüntüleri hazırlanıyor.</p>
+                  <ul class="screens" role="tablist" aria-label="Koordinatör ekranları">
+                    <li><button type="button" class="is-active" data-i="0">Filo Merkezi</button></li>
+                    <li><button type="button" data-i="1">Filo Haritası</button></li>
+                    <li><button type="button" data-i="2">Araçlar</button></li>
+                    <li><button type="button" data-i="3">Müşteriler</button></li>
+                    <li><button type="button" data-i="4">Hakediş</button></li>
+                    <li><button type="button" data-i="5">Operatör Raporları</button></li>
+                    <li><button type="button" data-i="6">Duyurular</button></li>
+                    <li><button type="button" data-i="7">İş Ortakları</button></li>
+                  </ul>
+                  <p style="margin-top:14px;color:var(--ink-4);font-size:.85rem">Yoldaki araç, bugünkü sefer, taşınan kişi, belge uyarısı ve bu ayki hakediş.</p>
                 </div>
-              </div>
-            </div>
-            <div class="rolepane" data-rolepane="yonetici" data-frames hidden>
-              <div class="rolepane__grid">
-                <div>
-                  <p class="rolepane__eyebrow">Kontrol ve görünürlük</p>
-                  <h3>Operasyonu telefondan takip eder: canlı harita, hat durumu, yoklama kayıtları ve duyurular.</h3>
-                  <div class="caps">
-                    <span class="cap">Komuta ekranı</span>
-                    <span class="cap">Canlı filo haritası</span>
-                    <span class="cap">Hat ve personel yönetimi</span>
-                    <span class="cap">Yoklama ve sefer geçmişi</span>
-                    <span class="cap">Toplu duyuru</span>
+                <div class="rolepane__media">
+                  <div class="phone">
+                    <div class="phone__screen">
+                      <span class="phone__pill" aria-hidden="true"></span>
+                      <img class="frame is-active" src="../assets/nihairota/mobil/koordinator-filo-merkezi.webp" width="720" height="1602" alt="Koordinatör · Filo Merkezi ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-filo-haritasi.webp" width="720" height="1602" alt="Koordinatör · Filo Haritası ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-araclar.webp" width="720" height="1602" alt="Koordinatör · Araçlar ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-musteriler.webp" width="720" height="1602" alt="Koordinatör · Müşteriler ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-hakedis.webp" width="720" height="1602" alt="Koordinatör · Hakediş ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-raporlar.webp" width="720" height="1602" alt="Koordinatör · Operatör Raporları ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-duyurular.webp" width="720" height="1602" alt="Koordinatör · Duyurular ekranı." loading="lazy">
+                      <img class="frame" data-src="../assets/nihairota/mobil/koordinator-is-ortaklari.webp" width="720" height="1602" alt="Koordinatör · İş Ortakları ekranı." loading="lazy">
+                    </div>
                   </div>
-                  <p style="margin-top:14px">Bu rolün ekran görüntüleri hazırlanıyor.</p>
                 </div>
               </div>
             </div>

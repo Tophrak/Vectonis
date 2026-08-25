@@ -369,3 +369,14 @@ p{margin:0}
   border:1px solid var(--line-2);background:linear-gradient(140deg,rgba(107,113,232,.13),rgba(255,255,255,.02))}
 .callout p{flex:1 1 320px;font-size:.95rem;color:var(--ink-2)}
 .callout strong{color:#fff}
+
+/* Mobil sayfası: kahraman telefon dizisi */
+.trio{display:flex;justify-content:center;align-items:flex-end;gap:clamp(10px,2vw,22px);
+  margin-top:clamp(34px,5vw,56px);perspective:1400px}
+.trio .phone{width:clamp(140px,20vw,232px);flex:0 0 auto;transition:transform .4s var(--ease)}
+.trio .phone:nth-child(1){transform:rotateY(9deg) translateY(18px)}
+.trio .phone:nth-child(3){transform:rotateY(-9deg) translateY(18px)}
+.trio:hover .phone:nth-child(1){transform:rotateY(5deg) translateY(8px)}
+.trio:hover .phone:nth-child(3){transform:rotateY(-5deg) translateY(8px)}
+@media (max-width:640px){.trio .phone:nth-child(1),.trio .phone:nth-child(3){display:none}
+  .trio .phone{width:min(240px,64vw)}}
