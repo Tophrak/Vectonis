@@ -1,0 +1,109 @@
+/* ============================================================
+   Uyum katmanı — eski lux.css tabanlı ürün sayfalarını
+   yeni Vectonis kimliğine (vx.css) taşır.
+   Yükleme sırası: vx.css → lux-shim.css → kamuguvenligi.css / ayme.css
+   ============================================================ */
+
+:root{
+  /* Yüzeyler — krem yerine beyaz/gri */
+  --bg:#ffffff;
+  --bg-tint:#f7f8fb;
+  --surface:#ffffff;
+  --surface-2:#ffffff;
+  --line:#e2e8f0;
+  --line-soft:#eef1f6;
+
+  /* Mürekkep — lacivert */
+  --ink:#050040;
+  --ink-soft:#3b3a5c;
+  --ink-muted:#6b6a85;
+  --ink-faint:#9694ac;
+
+  /* Aksan — indigo + amber */
+  --pr:#6b71e8;
+  --pr-tint:rgba(107,113,232,.10);
+  --pr-line:rgba(107,113,232,.38);
+  --pr-grad:linear-gradient(115deg,#6b71e8,#e8871b);
+  --ember-a:#6b71e8;
+  --ember-b:#e8871b;
+  --ember-grad:linear-gradient(115deg,#6b71e8,#e8871b);
+  --ember-tint:rgba(107,113,232,.10);
+  --ember-line:rgba(107,113,232,.38);
+  --gold:#e8871b;
+  --sicak:#e8871b;
+
+  /* Tipografi — tek aile */
+  --font-display:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-body:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --text-hero:clamp(2.1rem,5vw,3.75rem);
+  --text-h2:clamp(1.7rem,3.4vw,2.6rem);
+  --text-h3:clamp(1.1rem,1.6vw,1.35rem);
+  --text-lead:clamp(1rem,1.5vw,1.15rem);
+
+  --space-section:clamp(56px,8vw,104px);
+  --gutter:clamp(1rem,4vw,2rem);
+  --measure:62ch;
+
+  --r-sm:10px; --r-full:999px;
+  --dur:280ms; --dur-slow:600ms;
+  --shadow-sm:0 1px 2px rgba(5,0,64,.04);
+  --shadow-card:0 1px 2px rgba(5,0,64,.04),0 22px 44px -24px rgba(5,0,64,.22);
+}
+
+/* ── Eski taban sınıflarının yeni karşılıkları ───────────── */
+.section__eyebrow{display:inline-block;font-size:.76rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.section__head{max-width:680px;margin-inline:auto;text-align:center}
+.section__sub{margin-top:14px;color:var(--ink-muted);font-size:1rem}
+.section__title em{font-style:normal;color:var(--pr)}
+
+.mask{display:block;overflow:visible}
+.mask__inner{display:block}
+
+/* Kart ızgarası */
+.bento{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));margin-top:clamp(28px,4vw,44px)}
+.card--third{grid-column:auto}
+.card--wide{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.card__ic{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;
+  background:var(--pr-tint);color:#4a50c8}
+.card__ic svg{width:21px;height:21px}
+.card__title{margin-top:16px;font-size:1.05rem;font-weight:600;letter-spacing:-.02em}
+.card__desc{margin-top:8px;color:var(--ink-muted);font-size:.9rem}
+.card__tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+
+/* Düğmeler — eski adlar */
+.btn--ink{background:#1e293b;color:#fff}
+.btn--ink:hover{background:#000}
+.btn--ghost{border:1px solid #cbd5e1;color:var(--ink)}
+.btn--ghost:hover{background:rgba(148,163,184,.14)}
+
+/* İlkeler */
+.principles{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:clamp(28px,4vw,44px)}
+.principle{padding-top:22px;border-top:2px solid var(--ink)}
+.principle__no{font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--pr)}
+.principle h3{margin-top:10px;font-size:1.1rem;font-weight:600}
+.principle p{margin-top:8px;color:var(--ink-muted);font-size:.9rem}
+
+/* Kayan şerit */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:#fafbfd;padding-block:15px}
+.marquee__track{display:flex;width:max-content;animation:sm-slide 34s linear infinite}
+.marquee__item{display:inline-flex;align-items:center;gap:26px;padding-right:26px;white-space:nowrap;
+  font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.spark{width:5px;height:5px;border-radius:50%;background:var(--pr);display:inline-block}
+@keyframes sm-slide{to{transform:translateX(-50%)}}
+
+/* İletişim kartı */
+.contact-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+  padding:clamp(28px,4vw,44px);border-radius:26px;border:1px solid var(--line);
+  background:linear-gradient(120deg,#f7f8fc,#fff 60%);box-shadow:var(--shadow-card)}
+.contact-cta h2{font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600}
+.contact-cta p{margin-top:8px;color:var(--ink-muted);font-size:.95rem;max-width:56ch}
+
+/* Canlı rozeti */
+.live{display:inline-flex;align-items:center;gap:7px}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#16a34a;
+  box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:sm-pulse 2.2s infinite}
+@keyframes sm-pulse{70%{box-shadow:0 0 0 8px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+
+/* Koyu yüzeyli mockup'lar aydınlık zeminde nefes alsın */
+.kg-shot,.ay-shot,.ay-mock,.kg-mock{box-shadow:var(--shadow-card)}

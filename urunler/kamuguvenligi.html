@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>V-Muhafız — Ziyaretçi ve Personel Geçiş Yönetimi | Vectonis</title>
 <meta name="description" content="V-Muhafız: kamu kurumları için ziyaretçi kaydı, personel giriş-çıkış takibi, turnike entegrasyonu ve kamera tabanlı görüntü işleme. Tek sistemde, KVKK uyumlu.">
-<meta name="theme-color" content="#F5F1EA">
+<meta name="theme-color" content="#ffffff">
 <script>document.documentElement.className = 'js';</script>
 <link rel="icon" href="../assets/favicon.svg">
 <link rel="canonical" href="https://vectonis.com/urunler/kamuguvenligi.html">
@@ -19,28 +19,66 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Syne yalnızca V-Muhafız wordmark'ı için; marka kılavuzu 800 ağırlık ister. -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lux.css?v=4">
-<link rel="stylesheet" href="../assets/kamuguvenligi.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/vx.css?v=2">
+<link rel="stylesheet" href="../assets/lux-shim.css?v=1">
+<link rel="stylesheet" href="../assets/kamuguvenligi.css?v=2">
 </head>
 <body>
 
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 
-<header class="nav">
-  <div class="wrap nav__inner">
-    <a class="brand" href="../" aria-label="Vectonis ana sayfa">
-      <img class="brand__logo" src="../assets/favicon.svg" width="40" height="40" alt="">
-      <span class="brand__name">Vectonis<span class="brand__dot">.</span></span>
-    </a>
-    <nav class="nav__links" aria-label="Ana gezinme">
-      <a class="nav__link" href="../index.html">Ana Sayfa</a>
-      <a class="nav__link" href="./">Projeler</a>
-      <a class="nav__link" href="../hakkinda.html">Hakkında</a>
-      <a class="nav__link" href="../iletisim.html">İletişim</a>
-    </nav>
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../" aria-label="Vectonis ana sayfa">
+        <svg class="brand__logo" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <defs><linearGradient id="vlg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6b71e8"/><stop offset="1" stop-color="#e8871b"/>
+          </linearGradient></defs>
+          <path d="M100 16 L172 42 V98 C172 145 143 174 100 186 C57 174 28 145 28 98 V42 Z"
+                stroke="url(#vlg)" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M70 62 L100 132 L130 62" stroke="#050040" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="68" r="9" fill="url(#vlg)"/>
+        </svg>
+        <span class="brand__name">Vectonis<span class="brand__dot">.</span></span>
+      </a>
+
+      <nav class="nav__menu" aria-label="Ana gezinme">
+        <a href="../">Ana Sayfa</a>
+        <div class="nav__drop" tabindex="0">
+          <span>Projeler</span>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="nav__drop__panel">
+            <div class="nav__drop__inner">
+              <a href="../urunler/nihairota.html"><b>NihaiRota</b><span>Personel servisi yönetim sistemi</span></a>
+              <a href="../urunler/kamuguvenligi.html"><b>V-Muhafız</b><span>Ziyaretçi ve geçiş yönetimi</span></a>
+              <a href="../urunler/pisiriyor.html"><b>Pişiriyor</b><span>Restoran otomasyonu</span></a>
+              <a href="../urunler/"><b>Tüm projeler</b><span>Vitrinin tamamı</span></a>
+            </div>
+          </div>
+        </div>
+        <a href="../hakkinda.html">Hakkında</a>
+        <a href="../iletisim.html">İletişim</a>
+      </nav>
+
+      <a class="btn btn--solid btn--sm nav__cta" href="../iletisim.html">Bize Ulaşın</a>
+
+      <button class="nav__burger" type="button" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobmenu" id="mobmenu" role="dialog" aria-modal="true" aria-label="Menü">
+    <button class="mobmenu__close" type="button" id="mobclose" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <a href="../">Ana Sayfa</a>
+    <a href="../urunler/">Projeler</a>
+    <a href="../hakkinda.html">Hakkında</a>
+    <a href="../iletisim.html">İletişim</a>
+    <a class="btn btn--solid" href="../iletisim.html">Bize Ulaşın</a>
   </div>
-</header>
 
 <main id="icerik">
 
@@ -624,6 +662,6 @@
   </div>
 </footer>
 
-<script src="../assets/site.js" defer></script>
+<script src="../assets/vx.js?v=1" defer></script>
 </body>
 </html>
