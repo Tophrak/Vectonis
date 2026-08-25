@@ -4,137 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gizlilik Politikası — Vectonis</title>
-  <meta name="description" content="Vectonis Bilişim gizlilik politikası: web sitemizde ve ürünlerimizde verilerinizi nasıl işlediğimiz.">
-  <meta name="theme-color" content="#F5F1EA">
+  <meta name="description" content="Vectonis Bilişim gizlilik politikası: çerez yok, analitik yok, kişisel veri toplanmıyor.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="MmbLQA9pjVaZmiUoXEtGpkH9fVhhvdYzQe_cmCAv7Q0">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
   <link rel="canonical" href="https://vectonis.com/gizlilik.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gizlilik Politikası — Vectonis">
-  <meta property="og:description" content="Vectonis Bilişim gizlilik politikası.">
+  <meta property="og:description" content="Vectonis Bilişim gizlilik politikası: çerez yok, analitik yok, kişisel veri toplanmıyor.">
   <meta property="og:url" content="https://vectonis.com/gizlilik.html">
   <meta property="og:image" content="https://vectonis.com/assets/og.png">
   <meta property="og:locale" content="tr_TR">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/lux.css?v=4">
-  <style>
-    .legal { max-width: 760px; }
-    .legal h2 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; letter-spacing: -0.01em; margin-top: 2.6rem; }
-    .legal h2:first-of-type { margin-top: 0; }
-    .legal p, .legal li { color: var(--ink-soft); margin-top: 0.7rem; }
-    .legal ul { padding-left: 1.2rem; margin-top: 0.5rem; }
-    .legal .card-block {
-      background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
-      padding: 1.4rem 1.5rem; margin-top: 1rem; box-shadow: var(--shadow-sm);
-    }
-    .legal a { border-bottom: 1px solid var(--ember-line); transition: color var(--dur) var(--ease); }
-    .legal a:hover { color: var(--gold); }
-    .legal .updated { color: var(--ink-muted); font-size: 0.9rem; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/vx.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
-
-  <header class="nav">
+<div class="grid-bg">
+  <header class="nav" id="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="./" aria-label="Vectonis ana sayfa">
-        <img class="brand__logo" src="./assets/favicon.svg" width="40" height="40" alt="">
+        <svg class="brand__logo" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <defs><linearGradient id="vlg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6b71e8"/><stop offset="1" stop-color="#e8871b"/>
+          </linearGradient></defs>
+          <path d="M100 16 L172 42 V98 C172 145 143 174 100 186 C57 174 28 145 28 98 V42 Z"
+                stroke="url(#vlg)" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M70 62 L100 132 L130 62" stroke="#050040" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="68" r="9" fill="url(#vlg)"/>
+        </svg>
         <span class="brand__name">Vectonis<span class="brand__dot">.</span></span>
       </a>
-      <nav class="nav__links" aria-label="Ana gezinme">
-        <a class="nav__link" href="./">Ana Sayfa</a>
-        <a class="nav__link" href="./urunler/">Projeler</a>
-        <a class="nav__link" href="./hakkinda.html">Hakkında</a>
-        <a class="nav__link" href="./iletisim.html">İletişim</a>
+
+      <nav class="nav__menu" aria-label="Ana gezinme">
+        <a href="./">Ana Sayfa</a>
+        <div class="nav__drop" tabindex="0">
+          <span>Projeler</span>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="nav__drop__panel">
+            <div class="nav__drop__inner">
+              <a href="./urunler/nihairota.html"><b>NihaiRota</b><span>Personel servisi yönetim sistemi</span></a>
+              <a href="./urunler/kamuguvenligi.html"><b>V-Muhafız</b><span>Ziyaretçi ve geçiş yönetimi</span></a>
+              <a href="./urunler/pisiriyor.html"><b>Pişiriyor</b><span>Restoran otomasyonu</span></a>
+              <a href="./urunler/"><b>Tüm projeler</b><span>Vitrinin tamamı</span></a>
+            </div>
+          </div>
+        </div>
+        <a href="./hakkinda.html">Hakkında</a>
+        <a href="./iletisim.html">İletişim</a>
       </nav>
+
+      <a class="btn btn--solid btn--sm nav__cta" href="./iletisim.html">Bize Ulaşın</a>
+
+      <button class="nav__burger" type="button" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
   </header>
 
+  <div class="mobmenu" id="mobmenu" role="dialog" aria-modal="true" aria-label="Menü">
+    <button class="mobmenu__close" type="button" id="mobclose" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <a href="./">Ana Sayfa</a>
+    <a href="./urunler/">Projeler</a>
+    <a href="./hakkinda.html">Hakkında</a>
+    <a href="./iletisim.html">İletişim</a>
+    <a class="btn btn--solid" href="./iletisim.html">Bize Ulaşın</a>
+  </div>
+
   <main id="icerik">
-    <section class="page-hero wrap" aria-labelledby="sayfa-baslik">
-      <p class="section__eyebrow">Gizlilik</p>
-      <h1 id="sayfa-baslik"><span class="mask"><span class="mask__inner">Veriniz, <em>sizindir.</em></span></span></h1>
+    <section class="wrap" style="padding-block:clamp(56px,9vw,104px) clamp(24px,4vw,40px);text-align:center">
+      <p class="eyebrow">Gizlilik</p>
+      <h1 style="margin-top:14px;font-size:clamp(2rem,4.6vw,3.4rem)">Veriniz, <em style="font-style:normal;color:var(--accent)">sizindir</em>.</h1>
+      <p class="hero__lead" style="margin-top:18px">Son güncelleme: 25 Ağustos 2026 · Vectonis Bilişim — Ankara, Türkiye</p>
+    </section>
+  </main>
+</div>
+
+  <main>
+    <section class="section wrap" style="padding-top:clamp(30px,4vw,48px)">
+      <div class="prose reveal">
+        <h2>1. Kapsam</h2>
+        <p>Bu politika, <strong>vectonis.com</strong> web sitesini ziyaret ettiğinizde verilerinizin nasıl işlendiğini açıklar. Ürünlerimizin (ör. NihaiRota) uygulama içi veri işleme esasları, ilgili ürünün kendi politikasında ayrıca düzenlenir — bkz. bölüm 6.</p>
+        <h2>2. Web sitesinde topladığımız veriler</h2>
+        <ul><li><strong>Hiçbir kişisel veri toplamıyoruz.</strong> Sitemiz statiktir; üyelik, form, yorum ya da hesap sistemi yoktur.</li><li><strong>Çerez kullanmıyoruz.</strong> Takip, reklam veya analitik çerezi yerleştirmeyiz.</li><li><strong>Analitik yazılımı kullanmıyoruz.</strong> Ziyaret davranışınızı izlemeyiz, profil çıkarmayız.</li></ul>
+        <h2>3. Barındırma ve sunucu günlükleri</h2>
+        <p>Site, GitHub Pages altyapısında barındırılır. Barındırma sağlayıcısı, hizmetin güvenliği ve sürekliliği için IP adresi gibi standart sunucu günlüklerini kendi politikaları uyarınca kısa süreli işleyebilir. Bu günlüklere erişimimiz yoktur ve bunları herhangi bir amaçla kullanmayız.</p>
+        <h2>4. Üçüncü taraf kaynaklar</h2>
+        <p>Sayfalarımız, yazı tiplerini Google Fonts üzerinden yükler. Bu yükleme sırasında tarayıcınız Google sunucularına standart bir istek gönderir (IP adresi içerir). Bunun dışında üçüncü taraf betik, reklam ağı veya sosyal medya eklentisi kullanılmaz.</p>
+        <h2>5. Bizimle iletişime geçtiğinizde</h2>
+        <p>Bize e-posta (<a href="mailto:info@vectonis.com" style="color:var(--accent)">info@vectonis.com</a>) veya telefonla ulaştığınızda paylaştığınız bilgileri yalnızca talebinizi yanıtlamak için kullanırız; pazarlama amacıyla kullanmaz, üçüncü taraflarla paylaşmaz ve satmayız.</p>
+        <h2>6. Projelerimizin gizlilik politikaları</h2>
+        <p>NihaiRota (personel servisi yönetim sistemi) uygulamasının veri işleme esasları — konum verisi, yoklama kayıtları, bildirimler ve saklama süreleri — ayrı bir politikada düzenlenmiştir.</p><p style="margin-top:18px"><a class="btn btn--line" href="./nihairota-gizlilik.html">NihaiRota Gizlilik Politikası <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+        <h2>7. Haklarınız (KVKK)</h2>
+        <p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, düzeltme ve silme talep etme haklarına sahipsiniz. Talepleriniz için <a href="mailto:info@vectonis.com" style="color:var(--accent)">info@vectonis.com</a> adresine yazmanız yeterlidir; en geç 30 gün içinde yanıtlarız.</p>
+        <h2>8. Değişiklikler</h2>
+        <p>Bu politika gerektiğinde güncellenebilir; güncel sürüm her zaman bu sayfada yayımlanır. Önemli değişikliklerde "Son güncelleme" tarihi yenilenir.</p>
+        <h2>9. İletişim</h2>
+        <p><strong>Vectonis Bilişim</strong> — Ankara, Türkiye<br>E-posta: <a href="mailto:info@vectonis.com" style="color:var(--accent)">info@vectonis.com</a><br>Telefon: 0507 845 09 61 · 0545 526 89 50 · 0539 838 18 87</p>
+      </div>
     </section>
 
-    <section class="section wrap">
-      <div class="legal reveal">
-        <p class="updated">Son güncelleme: 7 Ağustos 2026 · Vectonis Bilişim — Ankara, Türkiye</p>
-
-        <h2>1. Kapsam</h2>
-        <p>
-          Bu politika, <strong>vectonis.com</strong> web sitesini ziyaret ettiğinizde verilerinizin
-          nasıl işlendiğini açıklar. Ürünlerimizin (ör. NihaiRota) uygulama içi veri işleme
-          esasları, ilgili ürünün kendi politikasında ayrıca düzenlenir — bkz. bölüm 6.
-        </p>
-
-        <h2>2. Web sitesinde topladığımız veriler</h2>
-        <div class="card-block">
-          <ul>
-            <li><strong>Hiçbir kişisel veri toplamıyoruz.</strong> Sitemiz statiktir; üyelik, form, yorum ya da hesap sistemi yoktur.</li>
-            <li><strong>Çerez kullanmıyoruz.</strong> Takip, reklam veya analitik çerezi yerleştirmeyiz.</li>
-            <li><strong>Analitik yazılımı kullanmıyoruz.</strong> Ziyaret davranışınızı izlemeyiz, profil çıkarmayız.</li>
-          </ul>
+    <section class="section wrap" style="padding-top:0">
+      <div class="cta reveal">
+        <div>
+          <h2>Sorunuz mu var?</h2>
+          <p>Gizlilik veya KVKK talepleriniz için doğrudan yazın; en geç 30 gün içinde yanıtlarız.</p>
         </div>
-
-        <h2>3. Barındırma ve sunucu günlükleri</h2>
-        <p>
-          Site, GitHub Pages altyapısında barındırılır. Barındırma sağlayıcısı, hizmetin
-          güvenliği ve sürekliliği için IP adresi gibi standart sunucu günlüklerini kendi
-          politikaları uyarınca kısa süreli işleyebilir. Bu günlüklere erişimimiz yoktur ve
-          bunları herhangi bir amaçla kullanmayız.
-        </p>
-
-        <h2>4. Üçüncü taraf kaynaklar</h2>
-        <p>
-          Sayfalarımız, yazı tiplerini <strong>Google Fonts</strong> üzerinden yükler. Bu yükleme
-          sırasında tarayıcınız Google sunucularına standart bir istek gönderir (IP adresi
-          içerir). Bunun dışında üçüncü taraf betik, reklam ağı veya sosyal medya eklentisi
-          kullanılmaz.
-        </p>
-
-        <h2>5. Bizimle iletişime geçtiğinizde</h2>
-        <p>
-          Bize e-posta (<a href="mailto:info@vectonis.com">info@vectonis.com</a>) veya telefonla
-          ulaştığınızda paylaştığınız bilgileri yalnızca talebinizi yanıtlamak için kullanırız;
-          pazarlama amacıyla kullanmaz, üçüncü taraflarla paylaşmaz ve satmayız.
-        </p>
-
-        <h2>6. Projelerimizin gizlilik politikaları</h2>
-        <div class="card-block">
-          <p style="margin-top:0;">
-            <strong>NihaiRota</strong> (kurumsal servis &amp; rota yönetimi) uygulamasının veri
-            işleme esasları — konum verisi, yoklama kayıtları, bildirimler ve saklama süreleri —
-            ayrı bir politikada düzenlenmiştir:
-          </p>
-          <p><a href="./nihairota-gizlilik.html">NihaiRota Gizlilik Politikası →</a></p>
-        </div>
-
-        <h2>7. Haklarınız (KVKK)</h2>
-        <p>
-          6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında; verilerinizin işlenip
-          işlenmediğini öğrenme, işlenmişse bilgi talep etme, düzeltme ve silme talep etme
-          haklarına sahipsiniz. Talepleriniz için
-          <a href="mailto:info@vectonis.com">info@vectonis.com</a> adresine yazmanız yeterlidir;
-          en geç 30 gün içinde yanıtlarız.
-        </p>
-
-        <h2>8. Değişiklikler</h2>
-        <p>
-          Bu politika gerektiğinde güncellenebilir; güncel sürüm her zaman bu sayfada yayımlanır.
-          Önemli değişikliklerde "Son güncelleme" tarihi yenilenir.
-        </p>
-
-        <h2>9. İletişim</h2>
-        <div class="card-block">
-          <p style="margin-top:0;">
-            <strong>Vectonis Bilişim</strong> — Ankara, Türkiye<br>
-            E-posta: <a href="mailto:info@vectonis.com">info@vectonis.com</a><br>
-            Telefon: <a href="tel:+905078450961">0507 845 09 61</a> · <a href="tel:+905455268950">0545 526 89 50</a> · <a href="tel:+905398381887">0539 838 18 87</a>
-          </p>
-        </div>
+        <a class="btn btn--solid" href="mailto:info@vectonis.com">E-posta gönder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
   </main>
@@ -152,6 +134,6 @@
     </div>
   </footer>
 
-  <script src="./assets/site.js" defer></script>
+  <script src="./assets/vx.js?v=1" defer></script>
 </body>
 </html>
