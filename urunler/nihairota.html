@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NihaiRota · Personel Servisi Yönetim Sistemi | Vectonis</title>
   <meta name="description" content="Personel servisi operasyonunu tek merkezden yönetin: güzergâh optimizasyonu, canlı araç takibi, tek dokunuş yoklama, belge takibi ve hakediş. Kurumlar ve servis firmaları için mobil uygulama ve web paneli.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#ffffff">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="canonical" href="https://vectonis.com/urunler/nihairota.html">
@@ -18,360 +18,281 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/nihairota-x.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/vx.css?v=2">
+  <link rel="stylesheet" href="../assets/nr.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#icerik">İçeriğe geç</a>
-  <!-- ══ Kahraman ══════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="bgfx" aria-hidden="true">
-      <div class="bgfx__grid"></div>
-      <div class="bgfx__glow"></div>
+  <header class="nav nav--dash" id="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="./nihairota.html" aria-label="NihaiRota tanıtım sayfası">
+        <img src="../assets/nihairota/icon-512.png" width="32" height="32" alt="" style="width:32px;height:32px;border-radius:9px">
+        <span class="brand__name">NihaiRota</span>
+      </a>
+
+      <nav class="nav__menu" aria-label="Sayfalar">
+        <a href="./nihairota.html" class="is-active">Genel Bakış</a>
+        <a href="./nihairota-mobil.html">Mobil Uygulama</a>
+        <a href="./nihairota-web.html">Web Paneli</a>
+        <a href="../iletisim.html">İletişim</a>
+      </nav>
+
+      <div class="nav__split">
+        <a class="btn btn--line btn--sm" href="./nihairota.html#indir">APK indir</a>
+        <a class="btn btn--solid btn--sm" href="../nihairota/">Giriş Yap</a>
+      </div>
+
+      <button class="nav__burger" type="button" id="burger" aria-label="Menüyü aç" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
+  </header>
 
-    <div class="hero__inner">
-      <header class="nav" id="nav">
-        <div class="wrap nav__inner">
-          <a class="brand" href="./nihairota.html" aria-label="NihaiRota tanıtım sayfası">
-            <img class="brand__logo" src="../assets/nihairota/icon-512.png" width="32" height="32" alt="">
-            <span class="brand__name">Vectonis<span class="brand__sep">/</span><span class="brand__prod">NihaiRota</span></span>
-          </a>
-
-          <nav class="nav__mid" aria-label="Platformlar">
-            <a class="nav__tab" href="./nihairota-mobil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M11 18.5h2"/></svg> Mobil Uygulama</a>
-            <a class="nav__tab" href="./nihairota-web.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg> Web Paneli</a>
-          </nav>
-
-          <div class="nav__right">
-            <a class="btn btn--sm btn--ghost" href="./nihairota.html#indir">APK indir</a>
-            <a class="btn btn--sm btn--light" href="../nihairota/" title="Yönetici ve koordinatör web paneli">Giriş Yap</a>
-          </div>
-
-          <button class="nav__burger" type="button" id="burger" aria-label="Menüyü aç" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          </button>
+  <div class="mobmenu" id="mobmenu" role="dialog" aria-modal="true" aria-label="Menü">
+    <button class="mobmenu__close" type="button" id="mobclose" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <a href="./nihairota.html">Genel Bakış</a>
+    <a href="./nihairota-mobil.html">Mobil Uygulama</a>
+    <a href="./nihairota-web.html">Web Paneli</a>
+    <a href="../">Vectonis</a>
+    <a class="btn btn--solid" href="../nihairota/">Giriş Yap</a>
+  </div>
+  <div class="hero9">
+    <div class="beams" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="hero9__inner">
+      <h1>Personel servisi operasyonunuz, <em>tek merkezden</em></h1>
+      <p class="hero9__lead">Güzergâh planlamasından yoklamaya, canlı araç takibinden hakedişe kadar bütün süreç tek sistemde. Sahada mobil uygulama, ofiste web paneli — ikisi de aynı canlı veriyi kullanır.</p>
+      <div class="hero9__cta"><a class="btn btn--solid btn--lg" href="../nihairota/">Web panelini aç</a><a class="btn btn--line btn--lg" href="#indir">Android APK indir</a></div>
+    </div>
+  </div>
+  <div class="tilt">
+    <div class="tilt__persp">
+      <div class="tilt__x">
+        <div class="tilt__skew">
+          <img src="../assets/nihairota/panel/yeni/kurum-ana-ekran.webp" width="1600" height="855"
+               alt="NihaiRota web paneli Ana Ekran: vardiya durumu, bugünün seferleri, aktif hat, personel ve doluluk."
+               loading="eager" fetchpriority="high" decoding="async">
         </div>
-      </header>
+      </div>
+    </div>
+  </div>
 
-      <div class="wrap hero__head">
-        <div class="badge">
-          <span class="live" aria-hidden="true"></span>
-          <span>Sürüm 2.0 · Android ve Web</span>
-        </div>
-
-        <h1>Personel servisi operasyonunuz, <em>tek merkezden</em>.</h1>
-        <p class="hero__lead">
-          Güzergâh planlamasından yoklamaya, canlı araç takibinden hakedişe kadar bütün süreç tek sistemde.
-          Sahada mobil uygulama, ofiste web paneli — ikisi de aynı canlı veriyi kullanır.
-        </p>
-        <div class="hero__cta">
-          <a class="btn btn--light" href="../nihairota/">Web panelini aç</a>
-          <a class="btn btn--ghost" href="#indir">Android APK indir <span class="btn__sub">· 81 MB</span></a>
-        </div>
-        <div class="hero__meta">
-          <span><i></i>Türkçe</span>
-          <span><i></i>Kurulum gerektirmeyen web paneli</span>
-          <span><i></i>Kurumlar arası veri yalıtımı</span>
-        </div>
-
-        <div class="stage">
-          <div class="stage__shot">
-            <img src="../assets/nihairota/panel/yeni/kurum-ana-ekran.webp" width="1600" height="855"
-                 alt="NihaiRota web paneli Ana Ekran: vardiya durumu, bugünün seferleri, aktif hat, personel sayısı ve doluluk oranı."
-                 loading="eager" fetchpriority="high" decoding="async">
-          </div>
-          <div class="phone stage__phone" aria-hidden="true">
-            <div class="phone__screen">
-              <span class="phone__pill"></span>
-              <img class="is-active" src="../assets/nihairota/mobil/sofor-sefer.webp" width="720" height="1602" alt="" loading="lazy">
-            </div>
-          </div>
-        </div>
+  <section class="sectors">
+    <div class="wrap">
+      <h2>Personel servisi olan her kurum ve o servisi işleten her firma için.</h2>
+      <div class="sectors__list">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="10" rx="1.5"/><path d="M3 13l5-3v3l5-3v3l5-3v3M8 20v-3M13 20v-3"/></svg>Fabrika ve OSB</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 8v6M9 11h6"/></svg>Hastane</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2.5" y="13" width="4" height="6" rx="1.6"/><rect x="17.5" y="13" width="4" height="6" rx="1.6"/><path d="M20 19v1a2 2 0 0 1-2 2h-3"/></svg>Çağrı merkezi</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V6a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v14M14 11h6a1 1 0 0 1 1 1v8M2 20h20M7 9h3M7 13h3M7 17h3"/></svg>Otel</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5v11H3z"/><path d="M9 20v-6h6v6"/></svg>Lojistik deposu</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V9.5A1.5 1.5 0 0 1 4.5 8h9A1.5 1.5 0 0 1 15 9.5V17"/><path d="M15 11h3.2l2.3 3V17"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Servis firmaları</span>
       </div>
     </div>
   </section>
 
-  <div class="mobmenu" id="mobmenu" role="dialog" aria-modal="true" aria-label="Menü">
-    <div class="mobmenu__top">
-      <span class="brand">
-        <img class="brand__logo" src="../assets/nihairota/icon-512.png" width="32" height="32" alt="">
-        <span class="brand__name">Vectonis<span class="brand__sep">/</span><span class="brand__prod">NihaiRota</span></span>
-      </span>
-      <button class="mobmenu__close" type="button" id="mobclose" aria-label="Menüyü kapat">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <div class="mobmenu__list">
-      <a class="mobmenu__item" href="./nihairota.html">NihaiRota <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      <a class="mobmenu__item" href="./nihairota-mobil.html">Mobil Uygulama <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      <a class="mobmenu__item" href="./nihairota-web.html">Web Paneli <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      <a class="mobmenu__item" href="./">Diğer Projeler <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      <a class="mobmenu__item" href="../iletisim.html">İletişim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="mobmenu__cta">
-      <a class="btn btn--ghost" href="./nihairota.html#indir">Android APK indir</a>
-      <a class="btn btn--light" href="../nihairota/">Giriş Yap</a>
-    </div>
-  </div>
-
   <main id="icerik">
-    <!-- ══ Şerit ═════════════════════════════════════════════ -->
-    <div class="strip">
-      <div class="wrap strip__inner">
-        <span><i></i><b>Canlı araç takibi</b></span>
-        <span><i></i><b>Güzergâh optimizasyonu</b></span>
-        <span><i></i><b>Tek dokunuş yoklama</b></span>
-        <span><i></i><b>Belge takibi</b></span>
-        <span><i></i><b>Hakediş</b></span>
-      </div>
-    </div>
-
-    <!-- ══ Kimler için ═══════════════════════════════════════ -->
     <section class="section wrap" aria-labelledby="kim-baslik">
       <div class="section__head reveal">
         <p class="eyebrow">Kimler için</p>
         <h2 class="section__title" id="kim-baslik">Servisi <em>kullanan</em> da, <em>işleten</em> de aynı sistemde</h2>
-        <p class="section__sub">
-          Personelini taşıtan kurum ile filoyu işleten servis firması aynı hattı, aynı anda, kendi ekranından görür.
-          İki taraf davet koduyla eşleşir.
-        </p>
+        <p class="section__sub">Personelini taşıtan kurum ile filoyu işleten servis firması aynı hattı, aynı anda, kendi ekranından görür. İki taraf davet koduyla eşleşir.</p>
       </div>
 
-      <div class="audience reveal" style="margin-top:clamp(28px,4vw,44px)">
-        <div class="aud">
-          <span class="aud__ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 21V6.5A1.5 1.5 0 0 1 5.5 5H12v16"/><path d="M12 10h6.5A1.5 1.5 0 0 1 20 11.5V21"/><path d="M2.5 21h19M7 9h2M7 13h2M7 17h2M15 14h2M15 18h2"/>
-            </svg>
-          </span>
+      <div class="cards reveal" style="margin-top:clamp(28px,4vw,44px);grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6.5A1.5 1.5 0 0 1 5.5 5H12v16"/><path d="M12 10h6.5A1.5 1.5 0 0 1 20 11.5V21"/><path d="M2.5 21h19M7 9h2M7 13h2M7 17h2M15 14h2M15 18h2"/></svg></span>
           <h3>Servisi kullanan kurumlar</h3>
-          <p class="aud__lead">Fabrika, hastane, çağrı merkezi, otel, lojistik deposu — personelini servisle taşıyan her kurum.</p>
-          <ul class="aud__list">
-            <li>Personel kayıtları ve ev adresleri tek yerde; toplu içe aktarma ile hızlı kurulum</li>
-            <li>Hangi personelin hangi araçta, hangi şoförle olduğunu anlık görme</li>
-            <li>Yoklama kayıtları ve gün gün sefer arşivi; CSV olarak dışa aktarma</li>
-            <li>Doluluk analizi ve boş koltuğun günlük maliyeti</li>
-          </ul>
-          <div class="aud__tags">
-            <span class="cap">Yönetici paneli</span>
-            <span class="cap">Personel uygulaması</span>
-            <span class="cap">Raporlar</span>
-          </div>
+          <p>Personel kayıtları ve ev adresleri tek yerde; hangi personelin hangi araçta olduğu anlık görünür. Yoklama arşivi, doluluk analizi ve boş koltuğun aylık maliyeti raporlanır.</p>
+          <div class="tags"><span class="tag">Yönetici paneli</span><span class="tag">Personel uygulaması</span><span class="tag">Raporlar</span></div>
         </div>
-
-        <div class="aud">
-          <span class="aud__ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 17V8.5A1.5 1.5 0 0 1 4.5 7h9A1.5 1.5 0 0 1 15 8.5V17"/><path d="M15 10.5h3.2a1.5 1.5 0 0 1 1.3.8L21 14v3"/>
-              <circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/><path d="M8.8 17.5h6.4M3 17h1.2M19 17h2"/>
-            </svg>
-          </span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V9.5A1.5 1.5 0 0 1 4.5 8h9A1.5 1.5 0 0 1 15 9.5V17"/><path d="M15 10.5h3.2a1.5 1.5 0 0 1 1.3.8L21 14v3"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
           <h3>Servis firmaları</h3>
-          <p class="aud__lead">Kurumlara servis hizmeti veren, kendi filosunu ve şoför kadrosunu yöneten firmalar.</p>
-          <ul class="aud__list">
-            <li>Şoför kadrosu ve araç havuzu; her araca sabit şoför eşlemesi</li>
-            <li>Muayene, sigorta, ehliyet, SRC ve psikoteknik bitişlerinin takibi</li>
-            <li>Müşteri kurumlar, sözleşme tarihleri ve kapsamı</li>
-            <li>Sefer başı, koltuk başı veya sabit aylık hakediş hesabı</li>
-          </ul>
-          <div class="aud__tags">
-            <span class="cap">Koordinatör paneli</span>
-            <span class="cap">Şoför uygulaması</span>
-            <span class="cap">Hakediş</span>
-          </div>
+          <p>Şoför kadrosu ve araç havuzu, her araca sabit şoför; muayene, sigorta, ehliyet, SRC ve psikoteknik takibi. Müşteri sözleşmeleri ve sefer başı / koltuk başı / sabit aylık hakediş.</p>
+          <div class="tags"><span class="tag">Koordinatör paneli</span><span class="tag">Şoför uygulaması</span><span class="tag">Hakediş</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ══ İki platform ══════════════════════════════════════ -->
     <section class="section wrap" aria-labelledby="platform-baslik">
       <div class="section__head reveal">
         <p class="eyebrow">İki platform</p>
         <h2 class="section__title" id="platform-baslik">Sahada <em>mobil</em>, ofiste <em>web</em></h2>
-        <p class="section__sub">Aynı veri, iki ayrı deneyim. Her platformun kendi tanıtım sayfası var.</p>
       </div>
-
-      <div class="platforms reveal" style="margin-top:clamp(28px,4vw,44px)">
-        <a class="plat" href="./nihairota-mobil.html">
-          <div class="plat__body">
-            <span class="plat__kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M11 18.5h2"/></svg> Mobil uygulama · Android</span>
-            <h3>Sahanın uygulaması</h3>
-            <p>
-              Dört rol, tek uygulama: şoför rotayı görüp yoklama alır, personel servisini canlı izler,
-              yönetici operasyonu cebinden yönetir, servis firması filosunu ve hakedişini takip eder.
-            </p>
-            <span class="plat__link">Mobil uygulamayı inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      <div class="projects reveal" style="margin-top:clamp(28px,4vw,44px)">
+        <a class="proj" href="./nihairota-mobil.html">
+          <div class="proj__shot" style="background:#f4f5f9;display:flex;justify-content:center;gap:12px;padding-top:20px">
+            <div class="ph" style="width:104px"><div class="ph__screen"><span class="ph__pill"></span>
+              <img class="is-active" src="../assets/nihairota/mobil/yonetici-komuta.webp" alt="" loading="lazy"></div></div>
+            <div class="ph" style="width:104px;margin-top:14px"><div class="ph__screen"><span class="ph__pill"></span>
+              <img class="is-active" src="../assets/nihairota/mobil/sofor-sefer.webp" alt="" loading="lazy"></div></div>
           </div>
-          <div class="plat__shot plat__shot--phone" aria-hidden="true">
-            <div class="phone"><div class="phone__screen"><span class="phone__pill"></span>
-              <img class="is-active" src="../assets/nihairota/mobil/sofor-sefer.webp" width="720" height="1602" alt="" loading="lazy"></div></div>
-            <div class="phone"><div class="phone__screen"><span class="phone__pill"></span>
-              <img class="is-active" src="../assets/nihairota/mobil/personel-ana-ekran.webp" width="720" height="1602" alt="" loading="lazy"></div></div>
+          <div class="proj__body">
+            <span class="proj__badge">Mobil uygulama · Android</span>
+            <h3>Dört rol, tek uygulama</h3>
+            <p>Yönetici operasyonu cebinden yönetir, personel servisini canlı izler, şoför rotayı sürüp yoklama alır, servis firması filosunu takip eder.</p>
+            <span class="proj__link">Mobil uygulamayı inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
         </a>
-
-        <a class="plat" href="./nihairota-web.html">
-          <div class="plat__body">
-            <span class="plat__kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg> Web paneli · Tarayıcı</span>
+        <a class="proj" href="./nihairota-web.html">
+          <div class="proj__shot"><img src="../assets/nihairota/panel/yeni/kurum-canli-filo.webp" alt="" loading="lazy"></div>
+          <div class="proj__body">
+            <span class="proj__badge">Web paneli · Tarayıcı</span>
             <h3>Yönetimin merkezi</h3>
-            <p>
-              Hat ve güzergâh tanımları, personel kadrosu, canlı filo haritası, sefer arşivi, duyurular ve raporlar.
-              Servis firması tarafında şoför, araç, belge, müşteri ve hakediş yönetimi.
-            </p>
-            <span class="plat__link">Web panelini inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-          </div>
-          <div class="plat__shot" aria-hidden="true">
-            <img src="../assets/nihairota/panel/yeni/kurum-canli-filo.webp" width="1600" height="839" alt="" loading="lazy">
+            <p>Hat ve güzergâh tanımları, canlı filo haritası, personel kadrosu, sefer arşivi, raporlar; firma tarafında araç, belge, müşteri ve hakediş.</p>
+            <span class="proj__link">Web panelini inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- ══ Nasıl çalışır ═════════════════════════════════════ -->
     <section class="section wrap" aria-labelledby="adim-baslik">
       <div class="section__head reveal">
         <p class="eyebrow">Nasıl çalışır</p>
         <h2 class="section__title" id="adim-baslik">Kurulumdan ilk sefere <em>dört adım</em></h2>
       </div>
-      <div class="steps reveal" style="margin-top:clamp(28px,4vw,44px)">
-        <div class="step">
+      <div class="principles reveal" style="margin-top:clamp(28px,4vw,44px)">
+        <div class="principle">
+          <span class="principle__no">01</span>
           <h3>Kurumu tanımlayın</h3>
           <p>Varış merkezini ve hizmet günlerini girin. Hafta sonu çalışan kurumlar için de tarife serbesttir.</p>
         </div>
-        <div class="step">
+        <div class="principle">
+          <span class="principle__no">02</span>
           <h3>Personeli ekleyin</h3>
           <p>Adresleri haritadan işaretleyin veya toplu içe aktarın; sistem en yakın uygun hattı önerir.</p>
         </div>
-        <div class="step">
+        <div class="principle">
+          <span class="principle__no">03</span>
           <h3>Güzergâhı optimize edin</h3>
           <p>Durak sırası otomatik çıkar, hattı şoföre atarsınız. Doluluk ve kapasite anında görünür.</p>
         </div>
-        <div class="step">
+        <div class="principle">
+          <span class="principle__no">04</span>
           <h3>Sefer başlasın</h3>
           <p>Şoför navigasyonla ilerler ve yoklama alır; kurum canlı izler, sonunda rapor ve arşiv oluşur.</p>
         </div>
       </div>
     </section>
 
-    <!-- ══ Öne çıkanlar ══════════════════════════════════════ -->
     <section class="section wrap" aria-labelledby="ozellik-baslik">
       <div class="section__head reveal">
         <p class="eyebrow">Öne çıkanlar</p>
         <h2 class="section__title" id="ozellik-baslik">Operasyonu canlı tutan <em>çekirdek</em></h2>
       </div>
-      <div class="features reveal" style="margin-top:clamp(28px,4vw,44px)">
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg></span>
+      <div class="cards reveal" style="margin-top:clamp(28px,4vw,44px)">
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg></span>
           <h3>Canlı araç takibi</h3>
           <p>Sefer başladığı anda araç haritada görünür; personel servisinin nerede olduğunu telefonundan izler.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="6" r="2.6"/><path d="M8.6 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.4"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="6" r="2.6"/><path d="M8.6 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.4"/></svg></span>
           <h3>Güzergâh optimizasyonu</h3>
           <p>Durak sırası personel adreslerinden otomatik hesaplanır; sabah en uzaktan başlar, akşam tersine döner.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M8 6H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/><path d="M9 13.5l2 2 4-4.5"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M8 6H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/><path d="M9 13.5l2 2 4-4.5"/></svg></span>
           <h3>Tek dokunuş yoklama</h3>
           <p>Şoför her durakta bindi/gelmedi işaretler; doluluk ve sefer arşivi anında güncellenir.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6-2 7.5-2 7.5h16s-2-1.5-2-7.5z"/><path d="M10.5 20a2 2 0 0 0 3 0"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 0 0-12 0c0 6-2 7.5-2 7.5h16s-2-1.5-2-7.5z"/><path d="M10.5 20a2 2 0 0 0 3 0"/></svg></span>
           <h3>Anlık bildirim ve duyuru</h3>
           <p>Servis yaklaştı, sefer iptal edildi, hat duyurusu — hepsi telefona anlık push olarak düşer.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M8.5 8.5A11 11 0 0 0 4 11M16 8a11 11 0 0 1 4 3M6.5 12.5A7 7 0 0 1 9 11M15 11a7 7 0 0 1 2.5 1.5M9.5 15.5a3 3 0 0 1 4 0"/><path d="M12 19h.01"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M8.5 8.5A11 11 0 0 0 4 11M16 8a11 11 0 0 1 4 3M6.5 12.5A7 7 0 0 1 9 11M15 11a7 7 0 0 1 2.5 1.5M9.5 15.5a3 3 0 0 1 4 0"/><path d="M12 19h.01"/></svg></span>
           <h3>Çevrimdışı dayanıklılık</h3>
           <p>Kapsama dışında kalınsa da yoklama işaretleri cihazda birikir, ağ gelince otomatik senkronlanır.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3M16 3v3M3.5 9.5h17"/><path d="M20.5 12.5V7a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 7v12A1.5 1.5 0 0 0 5 20.5h7"/><path d="M15.5 17.5l6 6M21.5 17.5l-6 6"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3M16 3v3M3.5 9.5h17"/><path d="M20.5 12.5V7a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 7v12A1.5 1.5 0 0 0 5 20.5h7"/><path d="M15.5 17.5l6 6M21.5 17.5l-6 6"/></svg></span>
           <h3>Tatil, iptal ve şoför değişikliği</h3>
           <p>Tek günlük istisnalar haftalık tarife bozulmadan tanımlanır; o gün personel takviminde kapalı görünür.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5z"/><path d="M14 3v4.5h4.5M8.5 13h7M8.5 16.5h4"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5z"/><path d="M14 3v4.5h4.5M8.5 13h7M8.5 16.5h4"/></svg></span>
           <h3>Belge takibi</h3>
           <p>Muayene, sigorta, ehliyet, SRC ve psikoteknik bitişleri; 30 günden az kalan amber, süresi geçen kırmızı uyarır.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 14.5h4"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 14.5h4"/></svg></span>
           <h3>Sözleşme ve hakediş</h3>
           <p>Sefer başı, koltuk başı veya sabit aylık — aylık alacak gerçekleşen seferden hesaplanır, CSV olarak dışa aktarılır.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
           <h3>Kurumlar arası veri yalıtımı</h3>
           <p>Her kurumun verisi veritabanı seviyesinde ayrılır; bir kurum diğerinin personelini, hattını veya raporunu göremez.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
           <h3>Boşa giden kapasite</h3>
           <p>Raporlar, boş koltukların nerede olduğunu ve aylık tutarını gösterir; uzun süredir binmeyen personeli ayrıca listeler.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></span>
           <h3>Otomatik hat planlama</h3>
           <p>Hattı olmayan personeli coğrafi olarak kümeler, boştaki araç ve şoförü atar. Önce öneri görürsünüz; siz uygulayana kadar hiçbir şey değişmez.</p>
         </div>
-        <div class="feature">
-          <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h15a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-4 3v-3H4.5A1.5 1.5 0 0 1 3 15V7a1.5 1.5 0 0 1 1.5-1.5z"/></svg></span>
+        <div class="card">
+          <span class="card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h15a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H9l-4 3v-3H4.5A1.5 1.5 0 0 1 3 15V7a1.5 1.5 0 0 1 1.5-1.5z"/></svg></span>
           <h3>Uygulama içi mesajlaşma</h3>
           <p>Hat bazlı sohbet, kurum duyuruları için yalnız-okuma kanal ve servis firmasına doğrudan destek hattı.</p>
         </div>
       </div>
     </section>
 
-    <!-- ══ SSS ═══════════════════════════════════════════════ -->
     <section class="section wrap" aria-labelledby="sss-baslik">
       <div class="section__head reveal">
         <p class="eyebrow">Sık sorulanlar</p>
         <h2 class="section__title" id="sss-baslik">Merak edilenler</h2>
       </div>
-      <div class="sss reveal" style="margin-top:clamp(28px,4vw,40px)">
-        <div class="sss__oge">
-          <button class="sss__soru" type="button" aria-controls="sss-0" aria-expanded="true">
+      <div class="faq reveal" style="margin-top:clamp(28px,4vw,40px)">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-controls="sss-0" aria-expanded="true">
             Kurulum gerekiyor mu?
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="sss__cevap" id="sss-0">Web paneli için hayır — tarayıcıdan oturum açmanız yeterli. Şoför ve personel tarafında Android uygulaması kurulur; iOS yayını hazırlanıyor.</div>
+          <div class="faq__a" id="sss-0">Web paneli için hayır — tarayıcıdan oturum açmanız yeterli. Şoför ve personel tarafında Android uygulaması kurulur; iOS yayını hazırlanıyor.</div>
         </div>
-        <div class="sss__oge">
-          <button class="sss__soru" type="button" aria-controls="sss-1" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-controls="sss-1" aria-expanded="false">
             Kurumumuzun verisi başka kurumlarla karışır mı?
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="sss__cevap" id="sss-1" hidden>Hayır. Her kurumun verisi veritabanı seviyesinde ayrılır; bir kurumun yöneticisi yalnız kendi personelini, hatlarını ve raporlarını görür. Servis firması da yalnız bağ kurduğu kurumların hatlarını görür.</div>
+          <div class="faq__a" id="sss-1" hidden>Hayır. Her kurumun verisi veritabanı seviyesinde ayrılır; bir kurumun yöneticisi yalnız kendi personelini, hatlarını ve raporlarını görür. Servis firması da yalnız bağ kurduğu kurumların hatlarını görür.</div>
         </div>
-        <div class="sss__oge">
-          <button class="sss__soru" type="button" aria-controls="sss-2" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-controls="sss-2" aria-expanded="false">
             Biz servis firmasıyız, kurum değiliz. Kullanabilir miyiz?
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="sss__cevap" id="sss-2" hidden>Evet. Sistem iki tarafı da barındırır: servis firması filosunu, şoförlerini, belgelerini ve hakedişini yönetir; kurum personelini ve hatlarını yönetir. İki taraf davet koduyla eşleşir ve aynı hattı canlı görür.</div>
+          <div class="faq__a" id="sss-2" hidden>Evet. Sistem iki tarafı da barındırır: servis firması filosunu, şoförlerini, belgelerini ve hakedişini yönetir; kurum personelini ve hatlarını yönetir. İki taraf davet koduyla eşleşir ve aynı hattı canlı görür.</div>
         </div>
-        <div class="sss__oge">
-          <button class="sss__soru" type="button" aria-controls="sss-3" aria-expanded="false">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-controls="sss-3" aria-expanded="false">
             Şoför telefonu kapatırsa yoklama kaybolur mu?
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </button>
-          <div class="sss__cevap" id="sss-3" hidden>Kaybolmaz. İşaretler önce cihazda saklanır, bağlantı geldiğinde sunucuya gönderilir. Bu yüzden kapsama dışı güzergâhlarda da yoklama tutulabilir.</div>
+          <div class="faq__a" id="sss-3" hidden>Kaybolmaz. İşaretler önce cihazda saklanır, bağlantı geldiğinde sunucuya gönderilir. Bu yüzden kapsama dışı güzergâhlarda da yoklama tutulabilir.</div>
         </div>
       </div>
     </section>
 
-    <!-- ══ İndir ═════════════════════════════════════════════ -->
     <section class="section wrap" aria-labelledby="indir-baslik">
-      <div class="download reveal" id="indir">
-        <div class="download__grid">
+      <div class="dl reveal" id="indir">
+        <div class="dl__grid">
           <div>
-            <div class="download__brand">
-              <img class="download__icon" src="../assets/nihairota/icon-512.png" width="512" height="512" alt="NihaiRota uygulama simgesi" loading="lazy">
+            <div class="dl__brand">
+              <img class="dl__icon" src="../assets/nihairota/icon-512.png" width="512" height="512" alt="NihaiRota uygulama simgesi" loading="lazy">
               <div>
-                <div class="download__name">NihaiRota</div>
-                <div class="download__ver">Personel Servisi Yönetim Sistemi · 2.0.0</div>
+                <div class="dl__name">NihaiRota</div>
+                <div class="dl__ver">Personel Servisi Yönetim Sistemi · 2.0.0</div>
               </div>
             </div>
             <div class="stores">
@@ -389,34 +310,19 @@
           </div>
 
           <div>
-            <h2 id="indir-baslik">Kurumunuzda <em>başlatın</em></h2>
-            <p class="download__lead">
-              Android uygulaması hazır, web paneli tarayıcıdan çalışıyor. Kurum hesabı açmak veya sistemi
-              yerinde görmek için bize yazın.
+            <h2 id="indir-baslik">Kurumunuzda <em style="font-style:normal;color:var(--accent)">başlatın</em></h2>
+            <p class="dl__lead">
+              Android uygulaması hazır, web paneli tarayıcıdan çalışıyor. Kurum hesabı açmak veya
+              sistemi yerinde görmek için bize yazın.
             </p>
-
-            <div class="download__cta">
-              <a class="btn btn--light" href="https://github.com/Tophrak/Vectonis/releases/download/app-v2.0.0/nihairota.apk">
-                Android APK indir <span class="btn__sub">· 81 MB</span>
-              </a>
-              <a class="btn btn--ghost" href="../iletisim.html">Kurum hesabı talep et</a>
+            <div class="dl__cta">
+              <a class="btn btn--solid" href="https://github.com/Tophrak/Vectonis/releases/download/app-v2.0.0/nihairota.apk">Android APK indir <span class="btn__sub">· 81 MB</span></a>
+              <a class="btn btn--line" href="../iletisim.html">Kurum hesabı talep et <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
-
-            <p class="note">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-              <span>Kurulumda istendiğinde <strong>bilinmeyen kaynaklardan kuruluma</strong> izin verin; kurulumdan sonra bu izni kapatabilirsiniz. APK Vectonis tarafından imzalanmıştır.</span>
+            <p class="dl__note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+              <span>Kurulumda istendiğinde <strong>bilinmeyen kaynaklardan kuruluma</strong> izin verin; sonrasında bu izni kapatabilirsiniz. APK Vectonis tarafından imzalanmıştır.</span>
             </p>
-
-            <div class="quicklinks">
-              <a class="quicklink" href="../nihairota/">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
-                Web panelini aç
-              </a>
-              <a class="quicklink" href="../nihairota-gizlilik.html">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6z"/><path d="M12 11v3M12 8h.01"/></svg>
-                Gizlilik politikası
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -438,6 +344,7 @@
     </div>
   </footer>
 
-  <script src="../assets/nihairota-x.js?v=1" defer></script>
+  <script src="../assets/vx.js?v=1" defer></script>
+  <script src="../assets/nr.js?v=1" defer></script>
 </body>
 </html>
